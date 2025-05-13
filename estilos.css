@@ -1,3 +1,13 @@
+/* Variables de color */
+:root {
+  --purple: #4a1f8e;
+  --orange: #ff6825;
+  --white: #ffffff;
+  --gray-light: #f3f3f3;
+  --gray-dark: #333333;
+}
+
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -5,109 +15,164 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Body */
 body {
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background: var(--white);
+  color: var(--gray-dark);
+  line-height: 1.6;
 }
 
-header {
+/* Header */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #ddd;
 }
-
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #002b45;
-}
-
-nav ul {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
 }
-
-nav ul li a {
+.logo img { width: 40px; }
+.logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--purple);
+}
+.nav a {
+  margin-left: 30px;
   text-decoration: none;
-  color: #1a1a1a;
+  color: var(--gray-dark);
   font-weight: 500;
 }
+.nav a:hover {
+  color: var(--purple);
+}
 
+/* Hero */
 .hero {
-  text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(to right, #002b45, #004d7a);
-  color: #fff;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.btn {
-  background-color: #ffffff;
-  color: #002b45;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.servicios {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.servicios .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
+  align-items: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, var(--purple), var(--orange));
+  color: var(--white);
+}
+.hero-text {
+  flex: 1 1 300px;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.hero-text h1 span {
+  color: var(--orange);
+}
+.hero-text p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+.btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--purple);
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn:hover {
+  background: var(--gray-light);
+}
+.hero-graphic {
+  flex: 1 1 300px;
+  min-height: 200px;
+  /* Aquí podrías reemplazar por una imagen o SVG decorativo */
 }
 
-.card {
-  background-color: #f4f4f4;
-  padding: 20px;
-  width: 280px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-.nosotros {
-  padding: 60px 20px;
-  background-color: #fafafa;
+/* Servicios */
+.servicios {
+  padding: 60px 40px;
   text-align: center;
 }
+.servicios h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: var(--purple);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--gray-light);
+  padding: 20px;
+  border-radius: 6px;
+}
+.card h3 {
+  margin-bottom: 10px;
+  color: var(--purple);
+}
+.card p {
+  font-size: 0.95rem;
+}
 
-footer {
-  background-color: #002b45;
-  color: #fff;
+/* Nosotros */
+.nosotros {
+  padding: 60px 40px;
+  background: var(--white);
+  text-align: center;
+}
+.nosotros h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--purple);
+}
+.nosotros p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--purple);
+  color: var(--white);
   padding: 40px 20px;
   text-align: center;
 }
-
-footer .social a img {
+.footer-contact h2 {
+  margin-bottom: 10px;
+}
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+.social {
+  margin: 20px 0;
+}
+.social a {
+  margin: 0 8px;
+  display: inline-block;
+}
+.social img {
   width: 24px;
-  margin: 0 10px;
+  filter: invert(1);
+}
+.footer .copyright {
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
-footer .social {
-  margin-top: 20px;
-}
-
-footer p {
-  margin-top: 10px;
-  font-size: 14px;
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-graphic { display: none; }
+  .nav a { margin: 0 10px; }
 }
 
