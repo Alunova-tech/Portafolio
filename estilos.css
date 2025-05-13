@@ -1,1 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #002b45;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #002b45, #004d7a);
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #ffffff;
+  color: #002b45;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.servicios {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.servicios .grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.nosotros {
+  padding: 60px 20px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+footer {
+  background-color: #002b45;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer .social a img {
+  width: 24px;
+  margin: 0 10px;
+}
+
+footer .social {
+  margin-top: 20px;
+}
+
+footer p {
+  margin-top: 10px;
+  font-size: 14px;
+}
 
