@@ -1,0 +1,37 @@
+/* layout.css: grid y contenedores */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.mega-header {
+  background: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/* layout.css: grid y contenedores */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.btn-contacto {
+  background: linear-gradient(45deg, #4b1d7a, #ff5e00);
+  color: white !important;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-contacto:hover {
+  background: linear-gradient(45deg, #ff5e00, #4b1d7a);
+}

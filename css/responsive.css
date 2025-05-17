@@ -1,0 +1,129 @@
+/* responsive.css: media queries */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--color-primario);
+  /* asegúrate que esta variable exista */
+  cursor: pointer;
+}
+
+@media (max-width: 641px) {
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 1rem;
+  }
+
+  /* Botón hamburguesa */
+  .hamburguesa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1100;
+    /* siempre encima */
+  }
+
+  .hamburguesa span {
+    display: block;
+    height: 3px;
+    background: var(--color-purple);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Animación a “X” cuando abre */
+  .mega-header.open .hamburguesa span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .mega-header.open .hamburguesa span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mega-header.open .hamburguesa span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Off‑canvas menu */
+.nav-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 340px;
+  background: #b9abab; /* puedes cambiarlo por var(--color-primary) si usas variables */
+  padding: 5rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1050;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  overflow-y: auto; /* scroll en caso de que haya mucho contenido */
+  overscroll-behavior: contain; /* evita desbordes al hacer scroll */
+  scrollbar-width: none; /* Oculta scrollbar en Firefox */
+}
+
+/* Para ocultar la barra de desplazamiento en Chrome y Safari */
+.nav-list::-webkit-scrollbar {
+  display: none;
+}
+
+
+  .mega-header.open .nav-list {
+    transform: translateX(0);
+  }
+
+  /* Links del menú */
+  .nav-list li a {
+    font-size: 1.1rem;
+    color: var(--color-purple);
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+  }
+
+  .nav-list li a:hover {
+    color: var(--color-orange);
+  }
+
+
+.logo {
+  order: 2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav {
+  order: 3;
+  width: 100%;
+}
+
+.redes {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  /* Puedes cambiar a right: 1rem si prefieres a la derecha */
+  z-index: 999;
+  background-color: #fff;
+  /* Fondo blanco para que se vea bien */
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  flex-direction: row;
+}
+
+.redes img {
+  width: 24px;
+  height: 24px;
+}
+}

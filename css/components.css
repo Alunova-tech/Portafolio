@@ -1,0 +1,101 @@
+/* components.css: logo, nav, botones, iconos */
+.logo img {
+    height: 60px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-list li a {
+    color: var(--color-purple);
+    font-weight: 600;
+    transition: color .3s;
+}
+
+.nav-list li a:hover {
+    color: var(--color-orange);
+}
+
+.btn-contacto {
+    background: var(--gradient-main);
+    color: #fff;
+    padding: .6rem 1rem;
+    border-radius: 6px;
+    transition: background .3s;
+}
+
+.btn-contacto:hover {
+    background: linear-gradient(45deg, var(--color-orange), var(--color-purple));
+}
+
+.redes a img {
+    width: 24px;
+    transition: transform .3s;
+}
+
+.redes a:hover img {
+    transform: scale(1.2);
+}
+
+.hamburguesa {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburguesa span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-purple);
+    border-radius: 2px;
+}
+
+.contacto-section {
+    background-color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.contacto-section h2 {
+    font-size: 2rem;
+    color: var(--color-purple);
+    margin-bottom: 1rem;
+}
+
+.contacto-section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contacto-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.contacto-form button {
+    background: var(--gradient-main);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.contacto-form button:hover {
+    background: linear-gradient(45deg, var(--color-orange), var(--color-purple));
+}

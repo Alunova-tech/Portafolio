@@ -2,79 +2,65 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alunova – Soluciones Creativas</title>
-  <link rel="stylesheet" href="estilos.css">
-  <link rel="icon" href="img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALUNOVA</title>
+
+  <!-- CSS Base -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <img src="img/logo.png" alt="Alunova">
-      <span>Alunova</span>
+  
+  <!-- Header -->
+  <header class="mega-header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo Alunova">
+      </div>
+      <div class="hamburguesa" onclick="toggleMenu()"></div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Portafolio</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#" class="btn-contacto">Contáctanos</a></li>
+        </ul>
+      </nav>
+      <div class="redes">
+        <a href="#"><img src="img/redes/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="img/redes/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="img/redes/linkedin.png" alt="LinkedIn"></a>
+        <a href="#"><img src="img/redes/youtube.png" alt="YouTube"></a>
+        <a href="#"><img src="img/redes/tiktok.png" alt="TikTok"></a>
+      </div>
+      <div class="hamburguesa" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <nav class="nav">
-      <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
   </header>
+  <section class="contacto-section" id="contacto">
+  <h2>Contáctanos</h2>
+  <p>¿Tienes alguna consulta? ¡Estamos para ayudarte!</p>
+  <form class="contacto-form">
+    <input type="text" placeholder="Nombre completo" required>
+    <input type="email" placeholder="Correo electrónico" required>
+    <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+    <button type="submit">Enviar mensaje</button>
+  </form>
+</section>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Visualizamos tu marca.<br><span>Creamos impacto.</span></h1>
-      <p>Branding, eventos, ingeniería creativa y soluciones digitales.</p>
-      <a href="#contacto" class="btn">Empieza tu proyecto</a>
-    </div>
-    <div class="hero-graphic"></div>
-  </section>
 
-  <section id="servicios" class="servicios">
-    <h2>Nuestros Servicios</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Branding & Diseño Gráfico</h3>
-        <p>Construimos la identidad visual que tu marca necesita.</p>
-      </div>
-      <div class="card">
-        <h3>Organización de Eventos</h3>
-        <p>Carreras pedestres, activaciones, ferias y experiencias memorables.</p>
-      </div>
-      <div class="card">
-        <h3>Alquiler de Equipos</h3>
-        <p>Sonido, iluminación, audiovisuales y pirotecnia para tu evento.</p>
-      </div>
-      <div class="card">
-        <h3>Ingeniería Creativa</h3>
-        <p>Prototipado y soluciones técnicas para efectos y estructuras.</p>
-      </div>
-      <div class="card">
-        <h3>Software & TI</h3>
-        <p>Desarrollo, integración de sistemas y domótica a medida.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="nosotros" class="nosotros">
-    <h2>Quiénes Somos</h2>
-    <p>Alunova es una agencia integral de soluciones creativas: <strong>branding</strong>, <strong>eventos</strong>, <strong>ingeniería aplicada</strong> y <strong>tecnología</strong>. Combinamos arte y técnica para elevar tu presencia de marca.</p>
-  </section>
-
-  <footer id="contacto" class="footer">
-    <div class="footer-contact">
-      <h2>Contáctanos</h2>
-      <p>info@alunova.com  |  +591 700 000 001</p>
-      <p>Calle Nanagua, Mercado KM7, Santa Cruz – Bolivia</p>
-    </div>
-    <div class="social">
-      <a href="#"><img src="img/icono-facebook.svg" alt="Facebook"></a>
-      <a href="#"><img src="img/icono-instagram.svg" alt="Instagram"></a>
-      <a href="#"><img src="img/icono-linkedin.svg" alt="LinkedIn"></a>
-      <a href="#"><img src="img/icono-youtube.svg" alt="YouTube"></a>
-      <a href="#"><img src="img/icono-tiktok.svg" alt="TikTok"></a>
-    </div>
-    <p class="copyright">© 2025 Alunova. Todos los derechos reservados.</p>
-  </footer>
+  <script src="js/mobile-menu.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
+
 
