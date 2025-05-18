@@ -1,0 +1,15 @@
+<svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-alunova" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4b1d7a"/>
+      <stop offset="100%" stop-color="#ff5e00"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#grad-alunova)">
+    <!-- Bombilla -->
+    <path d="M32 2a18 18 0 0 0-18 18c0 7 5 13 6 17 0 2-1 4-1 6h24c0-2-1-4-1-6 1-4 6-10 6-17A18 18 0 0 0 32 2z"/>
+    <!-- Base -->
+    <rect x="24" y="44" width="16" height="10" rx="2"/>
+    <rect x="26" y="54" width="12" height="4" rx="1"/>
+  </g>
+</svg>

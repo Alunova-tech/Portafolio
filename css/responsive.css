@@ -8,7 +8,41 @@
   /* asegúrate que esta variable exista */
   cursor: pointer;
 }
+@media (max-width: 992px) {
+  .ventajas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .grid-portafolio {
+    grid-template-columns: 1fr;
+  }
+}
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-portafolio {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 2.25rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+  .hero-buttons .btn {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}
 @media (max-width: 641px) {
   .header-container {
     display: flex;
@@ -52,78 +86,162 @@
     transform: translateY(-9px) rotate(-45deg);
   }
 
-  /* Off‑canvas menu */
-.nav-list {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 80%;
-  max-width: 340px;
-  background: #b9abab; /* puedes cambiarlo por var(--color-primary) si usas variables */
-  padding: 5rem 2rem 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  transform: translateX(-100%);
-  transition: transform 0.4s ease-in-out;
-  z-index: 1050;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
-  overflow-y: auto; /* scroll en caso de que haya mucho contenido */
-  overscroll-behavior: contain; /* evita desbordes al hacer scroll */
-  scrollbar-width: none; /* Oculta scrollbar en Firefox */
-}
+  /* OFF‑CANVAS NAV-LIST */
+  .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 200px;
+    height: 100vh;
+    background: #ffffff;
+    /* fondo limpio */
+    border-top-right-radius: 16px;
+    /* bordes suaves */
+    border-bottom-right-radius: 20px;
+    padding: 4.5rem 2rem 2rem;
+    /* espacio cómodo para el header */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* más espacio entre links */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    /* oculto fuera de pantalla */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1050;
 
-/* Para ocultar la barra de desplazamiento en Chrome y Safari */
-.nav-list::-webkit-scrollbar {
-  display: none;
-}
+    /* scroll suave y estético */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 
+  /* Ocultar scrollbar en WebKit */
+  .nav-list::-webkit-scrollbar {
+    width: 6px;
+  }
 
+  .nav-list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .nav-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+
+  /* Mostrar el menú cuando el header tiene la clase .open */
   .mega-header.open .nav-list {
     transform: translateX(0);
   }
 
-  /* Links del menú */
+  /* ESTILOS DE LOS ENLACES DENTRO DEL MENU */
   .nav-list li a {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 500;
     color: var(--color-purple);
+    position: relative;
     padding: 0.5rem 0;
-    transition: color 0.3s;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+  }
+
+  .nav-list li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--gradient);
+    transition: width 0.3s ease;
   }
 
   .nav-list li a:hover {
     color: var(--color-orange);
+    padding-left: 0.5rem;
+  }
+
+  .nav-list li a:hover::before {
+    width: 100%;
+  }
+
+  /* REDES AL FINAL DEL MENU */
+  .nav-list .redes {
+    margin-top: auto;
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-list .redes img {
+    width: 28px;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-list .redes img:hover {
+    transform: scale(1.2);
   }
 
 
-.logo {
-  order: 2;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.nav {
-  order: 3;
-  width: 100%;
-}
+  .logo {
+    order: 2;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.redes {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  /* Puedes cambiar a right: 1rem si prefieres a la derecha */
-  z-index: 999;
-  background-color: #fff;
-  /* Fondo blanco para que se vea bien */
-  padding: 0.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  flex-direction: row;
-}
+  .nav {
+    order: 3;
+    width: 100%;
+  }
 
-.redes img {
-  width: 24px;
-  height: 24px;
+  .redes {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    /* Puedes cambiar a right: 1rem si prefieres a la derecha */
+    z-index: 999;
+    background-color: #fff;
+    /* Fondo blanco para que se vea bien */
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    flex-direction: row;
+  }
+
+  .redes img {
+    width: 24px;
+    height: 24px;
+  
+  .ventajas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .ventaja {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .ventaja img {
+    width: 50px; /* un poco más pequeño en móviles */
+    margin-bottom: 16px;
+  }
+
+  .ventajas h2 {
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+  }
+
+  .ventaja h3 {
+    font-size: 1.2rem;
+  }
+
+  .ventaja p {
+    font-size: 0.95rem;
+  }
 }
 }

@@ -35,3 +35,184 @@
 .btn-contacto:hover {
   background: linear-gradient(45deg, #ff5e00, #4b1d7a);
 }
+/* ===== HERO ===== */
+.hero {
+  background: var(--gradient); /* degradado definido en variables */
+  color: #fff;
+  padding: 4rem 1rem;
+}
+
+.hero-container {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 300px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-orange);
+}
+
+.hero-text p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.btn-hero {
+  display: inline-block;
+  background: #fff;
+  color: var(--color-purple);
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-hero:hover {
+  background: srgba(255,255,255,0.8);
+  color: var(--color-orange);
+}
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 6rem 1rem;
+  background: var(--gradient);
+  overflow: hidden;
+  color: #fff;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.hero-text {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-text h1 span {
+  color: var(--color-orange);
+}
+
+.hero-text p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Botones específicos */
+.btn-primary {
+  background: #fff;
+  color: var(--color-purple);
+}
+.btn-primary:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Gráfico Hero */
+.hero-graphic {
+  flex: 1 1 300px;
+  text-align: center;
+}
+.hero-graphic svg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+.hero-graphic img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+}
+
+/* Responsivo hero */
+
+.ventajas {
+  background: #fff;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.ventajas h2 {
+  font-size: 2.5rem;
+  color: #4b1d7a;
+  margin-bottom: 60px;
+}
+
+.ventajas-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.ventaja {
+  max-width: 300px;
+}
+
+.ventaja img {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.ventaja h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #ff5e00;
+}
+
+

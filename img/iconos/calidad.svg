@@ -1,0 +1,10 @@
+<svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-alunova2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4b1d7a"/>
+      <stop offset="100%" stop-color="#ff5e00"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 2l20 8v14c0 12-8 23-20 26-12-3-20-14-20-26V10l20-8z" fill="url(#grad-alunova2)"/>
+  <path d="M32 18l6 12-6 6-6-6 6-12z" fill="#fff"/>
+</svg>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
-  
+
   <!-- Header -->
   <header class="mega-header">
     <div class="header-container">
@@ -46,21 +48,102 @@
       </div>
     </div>
   </header>
-  <section class="contacto-section" id="contacto">
-  <h2>Contáctanos</h2>
-  <p>¿Tienes alguna consulta? ¡Estamos para ayudarte!</p>
-  <form class="contacto-form">
-    <input type="text" placeholder="Nombre completo" required>
-    <input type="email" placeholder="Correo electrónico" required>
-    <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-    <button type="submit">Enviar mensaje</button>
-  </form>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <div class="hero-text">
+        <h1>Eleva tu marca<br><span>más allá del horizonte</span></h1>
+        <p>Branding, eventos, ingeniería creativa y soluciones digitales que conectan con tu público.</p>
+        <div class="hero-buttons">
+          <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
+          <a href="#portafolio" class="btn btn-secondary">Ver Portafolio</a>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <!-- SVG inline para mejor control -->
+        <div class="hero-graphic">
+          <img src="img/hero/illustration.svg" alt="Ilustración Alunova">
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <section class="ventajas">
+  <div class="contenedor">
+    <h2>¿Por qué elegir Alunova?</h2>
+    <div class="ventajas-grid">
+      <div class="ventaja">
+        <img src="img/iconos/innovacion.svg" alt="Innovación">
+        <h3>Innovación</h3>
+        <p>Utilizamos materiales y tecnologías de última generación en cada proyecto.</p>
+      </div>
+      <div class="ventaja">
+        <img src="img/iconos/calidad.svg" alt="Calidad">
+        <h3>Calidad Garantizada</h3>
+        <p>Nos comprometemos con los más altos estándares en acabados y durabilidad.</p>
+      </div>
+      <div class="ventaja">
+        <img src="img/iconos/equipo.svg" alt="Equipo">
+        <h3>Equipo Experto</h3>
+        <p>Contamos con un equipo profesional altamente capacitado y apasionado.</p>
+      </div>
+    </div>
+  </div>
 </section>
+<section class="portafolio" id="portafolio">
+  <div class="container">
+    <h2>Nuestro Portafolio</h2>
+    <p class="intro">Algunas de nuestras creaciones en branding, eventos e ingeniería creativa.</p>
+    <div class="grid-portafolio">
+      <div class="item">
+        <img src="img/portfolio/proyecto1.jpg" alt="Proyecto 1">
+        <div class="overlay">
+          <h3>Evento Corporativo</h3>
+          <p>Producción y dirección de marca en feria internacional.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="img/portfolio/proyecto2.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>Diseño de Logo</h3>
+          <p>Identidad visual para startup tecnológica.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="img/portfolio/proyecto3.jpg" alt="Proyecto 3">
+        <div class="overlay">
+          <h3>Instalación Escénica</h3>
+          <p>Estructuras creativas y pirotecnia controlada.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="img/portfolio/proyecto4.jpg" alt="Proyecto 4">
+        <div class="overlay">
+          <h3>Stand Exhibición</h3>
+          <p>Stand modular para congreso internacional.</p>
+        </div>
+      </div>
+      <!-- Añade más items según necesites -->
+    </div>
+  </div>
+</section>
+
+  <section class="contacto-section" id="contacto">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes alguna consulta? ¡Estamos para ayudarte!</p>
+    <form class="contacto-form">
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
 
 
   <script src="js/mobile-menu.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
-
-
