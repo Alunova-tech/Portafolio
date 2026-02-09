@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALUNOVA</title>
+  <title>Cuaderno de agradecimiento</title>
 
   <!-- CSS Base -->
   <link rel="stylesheet" href="css/main.css">
@@ -17,133 +17,54 @@
 
 </head>
 
-<body>
+<body class="gratitude-page">
+  <main class="book-app">
+    <header class="page-header">
+      <p class="page-kicker">Cuaderno de agradecimiento</p>
+      <h1>Cuaderno de agradecimiento</h1>
+      <p class="page-intro">Un espacio íntimo para abrir el corazón y agradecer cada capítulo vivido.</p>
+    </header>
 
-  <!-- Header -->
-  <header class="mega-header">
-    <div class="header-container">
-      <div class="logo">
-        <img src="img/logo.png" alt="Logo Alunova">
-      </div>
-      <div class="hamburguesa" onclick="toggleMenu()"></div>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="#">Portafolio</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#" class="btn-contacto">Contáctanos</a></li>
-        </ul>
-      </nav>
-      <div class="redes">
-        <a href="#"><img src="img/redes/facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="img/redes/instagram.png" alt="Instagram"></a>
-        <a href="#"><img src="img/redes/linkedin.png" alt="LinkedIn"></a>
-        <a href="#"><img src="img/redes/youtube.png" alt="YouTube"></a>
-        <a href="#"><img src="img/redes/tiktok.png" alt="TikTok"></a>
-      </div>
-      <div class="hamburguesa" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </header>
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content container">
-      <div class="hero-text">
-        <h1>Eleva tu marca<br><span>más allá del horizonte</span></h1>
-        <p>Branding, eventos, ingeniería creativa y soluciones digitales que conectan con tu público.</p>
-        <div class="hero-buttons">
-          <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
-          <a href="#portafolio" class="btn btn-secondary">Ver Portafolio</a>
+    <section class="book-hero">
+      <div class="book">
+        <div class="book-cover">
+          <span class="book-title">Dedicatoria</span>
+          <span class="book-ornament">✦</span>
         </div>
+        <div class="book-spine"></div>
       </div>
-      <div class="hero-graphic">
-        <!-- SVG inline para mejor control -->
-        <div class="hero-graphic">
-          <img src="img/hero/illustration.svg" alt="Ilustración Alunova">
-        </div>
+    </section>
 
-
+    <section class="pages">
+      <h2>Contenido del cuaderno</h2>
+      <div class="page-list">
+        <article class="page-card">
+          <h3>Preludio o introducción</h3>
+          <p>Un primer aliento: propósito, intenciones y gratitudes que abren camino.</p>
+        </article>
+        <article class="page-card">
+          <h3>Índice</h3>
+          <p>Un mapa delicado para recorrer cada hoja con claridad y emoción.</p>
+        </article>
+        <article class="page-card">
+          <h3>Capítulo 1</h3>
+          <p>Momentos luminosos que marcaron el inicio del viaje.</p>
+        </article>
+        <article class="page-card">
+          <h3>Capítulo 2</h3>
+          <p>Personas y aprendizajes que dejaron huellas imborrables.</p>
+        </article>
+        <article class="page-card">
+          <h3>Capítulo 3</h3>
+          <p>Pequeños gestos cotidianos que sostienen la gratitud.</p>
+        </article>
+        <article class="page-card">
+          <h3>Capítulo 4</h3>
+          <p>Celebraciones, logros y sueños que se agradecen con el alma.</p>
+        </article>
       </div>
-    </div>
-  </section>
-  <section class="ventajas">
-  <div class="contenedor">
-    <h2>¿Por qué elegir Alunova?</h2>
-    <div class="ventajas-grid">
-      <div class="ventaja">
-        <img src="img/iconos/innovacion.svg" alt="Innovación">
-        <h3>Innovación</h3>
-        <p>Utilizamos materiales y tecnologías de última generación en cada proyecto.</p>
-      </div>
-      <div class="ventaja">
-        <img src="img/iconos/calidad.svg" alt="Calidad">
-        <h3>Calidad Garantizada</h3>
-        <p>Nos comprometemos con los más altos estándares en acabados y durabilidad.</p>
-      </div>
-      <div class="ventaja">
-        <img src="img/iconos/equipo.svg" alt="Equipo">
-        <h3>Equipo Experto</h3>
-        <p>Contamos con un equipo profesional altamente capacitado y apasionado.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="portafolio" id="portafolio">
-  <div class="container">
-    <h2>Nuestro Portafolio</h2>
-    <p class="intro">Algunas de nuestras creaciones en branding, eventos e ingeniería creativa.</p>
-    <div class="grid-portafolio">
-      <div class="item">
-        <img src="img/portfolio/proyecto1.jpg" alt="Proyecto 1">
-        <div class="overlay">
-          <h3>Evento Corporativo</h3>
-          <p>Producción y dirección de marca en feria internacional.</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="img/portfolio/proyecto2.jpg" alt="Proyecto 2">
-        <div class="overlay">
-          <h3>Diseño de Logo</h3>
-          <p>Identidad visual para startup tecnológica.</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="img/portfolio/proyecto3.jpg" alt="Proyecto 3">
-        <div class="overlay">
-          <h3>Instalación Escénica</h3>
-          <p>Estructuras creativas y pirotecnia controlada.</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="img/portfolio/proyecto4.jpg" alt="Proyecto 4">
-        <div class="overlay">
-          <h3>Stand Exhibición</h3>
-          <p>Stand modular para congreso internacional.</p>
-        </div>
-      </div>
-      <!-- Añade más items según necesites -->
-    </div>
-  </div>
-</section>
-
-  <section class="contacto-section" id="contacto">
-    <h2>Contáctanos</h2>
-    <p>¿Tienes alguna consulta? ¡Estamos para ayudarte!</p>
-    <form class="contacto-form">
-      <input type="text" placeholder="Nombre completo" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </section>
-
-
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/main.js"></script>
+    </section>
+  </main>
 </body>
 
 </html>
