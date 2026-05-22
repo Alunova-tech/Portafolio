@@ -1,9 +1,14 @@
-/* variables.css: define paleta y tipografía */
+/* variables.css: paleta, tipografía y medidas base */
 :root {
   --color-purple: #593079;
   --color-orange: #ff5e00;
+  --color-text: #333333;
+  --color-muted: #666666;
+  --color-surface: #ffffff;
+  --color-page: #fafafa;
   --gradient-main: linear-gradient(135deg, var(--color-purple), var(--color-orange));
-  --font-sans: 'Segoe UI', sans-serif;
+  --gradient: var(--gradient-main);
+  --font-sans: 'Poppins', 'Segoe UI', sans-serif;
   --font-base-size: 16px;
   --max-width: 1300px;
 }
