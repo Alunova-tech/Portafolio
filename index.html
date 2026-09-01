@@ -7,32 +7,36 @@
   <title>ALUNOVA</title>
 
   <link rel="stylesheet" href="css/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/redesign.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header class="mega-header">
     <div class="header-container container">
       <div class="logo">
-        <img src="img/logo.png" alt="Logo Alunova">
+        <a href="#hero" aria-label="Ir al inicio"><img src="img/logo.png" alt="Logo Alunova"></a>
       </div>
 
-      <nav class="nav" aria-label="Navegación principal">
-        <ul class="nav-list" id="menu-principal">
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#ventajas">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#portafolio">Portafolio</a></li>
-          <li><a href="#contacto" class="btn-contacto">Contáctanos</a></li>
-        </ul>
-      </nav>
+      <div class="header-center">
+        <nav class="nav" aria-label="Navegación principal">
+          <ul class="nav-list" id="menu-principal">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#ventajas">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="#contacto" class="btn-contacto">Contáctanos</a>
+        </div>
+      </div>
 
       <div class="redes" aria-label="Redes sociales">
         <a href="#" aria-label="Facebook de Alunova"><img src="img/redes/facebook.png" alt="Facebook"></a>
         <a href="#" aria-label="Instagram de Alunova"><img src="img/redes/instagram.png" alt="Instagram"></a>
         <a href="#" aria-label="LinkedIn de Alunova"><img src="img/redes/linkedin.png" alt="LinkedIn"></a>
-        <a href="#" aria-label="YouTube de Alunova"><img src="img/redes/youtube.png" alt="YouTube"></a>
-        <a href="#" aria-label="TikTok de Alunova"><img src="img/redes/tiktok.png" alt="TikTok"></a>
       </div>
 
       <button class="hamburguesa" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
@@ -45,40 +49,95 @@
 
   <main>
     <section class="hero" id="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content container">
+      <div class="container hero-content">
         <div class="hero-text">
-          <h1>Eleva tu marca<br><span>más allá del horizonte</span></h1>
-          <p>Branding, eventos, ingeniería creativa y soluciones digitales que conectan con tu público.</p>
+          <span class="eyebrow">Agencia creativa &amp; estratégica</span>
+          <h1>Diseñamos marcas que <span>generan impacto</span></h1>
+          <p class="lead">Transformamos ideas en experiencias memorables con branding, eventos y soluciones digitales pensadas para crecer.</p>
           <div class="hero-buttons">
-            <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
-            <a href="#portafolio" class="btn btn-secondary">Ver Portafolio</a>
+            <a href="#servicios" class="btn btn-primary">Ver servicios</a>
+            <a href="#contacto" class="btn btn-secondary">Hablemos</a>
           </div>
+          <ul class="hero-metrics" aria-label="Estadísticas de Alunova">
+            <li>
+              <strong>+120</strong>
+              <span>proyectos</span>
+            </li>
+            <li>
+              <strong>8 años</strong>
+              <span>de experiencia</span>
+            </li>
+            <li>
+              <strong>24/7</strong>
+              <span>apoyo creativo</span>
+            </li>
+          </ul>
         </div>
-        <div class="hero-graphic">
-          <img src="img/hero/illustration.svg" alt="Ilustración de servicios creativos de Alunova">
+
+        <div class="hero-graphic" aria-label="Vista previa del trabajo de Alunova">
+          <div class="hero-visual">
+            <div class="showcase-card main-card">
+              <div class="mini-tag">Branding</div>
+              <h3>Alunova Studio</h3>
+              <div class="chart-bars" aria-hidden="true">
+                <span style="height: 34%"></span>
+                <span style="height: 48%"></span>
+                <span style="height: 66%"></span>
+                <span style="height: 58%"></span>
+                <span style="height: 84%"></span>
+                <span style="height: 100%"></span>
+              </div>
+            </div>
+
+            <div class="showcase-card floating-card">
+              <div class="pulse-dot"></div>
+              <div>
+                <small>Campaña activa</small>
+                <strong>+42% alcance</strong>
+              </div>
+            </div>
+
+            <div class="orb orb-one"></div>
+            <div class="orb orb-two"></div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="ventajas" id="ventajas">
       <div class="container">
-        <h2>¿Por qué elegir Alunova?</h2>
-        <div class="ventajas-grid">
-          <article class="ventaja">
-            <img src="img/iconos/innovacion.svg" alt="Icono de innovación">
+        <div class="section-heading brutal-heading">
+          <span class="section-kicker">¿Por qué elegir Alunova?</span>
+          <h2 class="text-center">Porque cada detalle cuenta y cada decisión mueve resultados</h2>
+          <p class="lead text-center">Combinamos estrategia, creatividad y ejecución para crear marcas con presencia real y experiencias que convierten.</p>
+        </div>
+
+        <div class="ventajas-grid ventajas-grid-brutal">
+          <article class="ventaja ventaja-brutal">
+            <div class="ventaja-meta">
+              <span class="ventaja-icon">✦</span>
+              <span class="ventaja-num">01</span>
+            </div>
             <h3>Innovación</h3>
-            <p>Utilizamos materiales y tecnologías de última generación en cada proyecto.</p>
+            <p>Ideas frescas, soluciones inteligentes y un enfoque que entiende a tu audiencia y al mercado.</p>
           </article>
-          <article class="ventaja">
-            <img src="img/iconos/calidad.svg" alt="Icono de calidad">
-            <h3>Calidad Garantizada</h3>
-            <p>Nos comprometemos con los más altos estándares en acabados y durabilidad.</p>
+
+          <article class="ventaja ventaja-brutal destaque">
+            <div class="ventaja-meta">
+              <span class="ventaja-icon">✓</span>
+              <span class="ventaja-num">02</span>
+            </div>
+            <h3>Calidad</h3>
+            <p>Todo se ejecuta con criterio, precisión y exigencia para que cada detalle se sienta premium.</p>
           </article>
-          <article class="ventaja">
-            <img src="img/iconos/equipo.svg" alt="Icono de equipo profesional">
-            <h3>Equipo Experto</h3>
-            <p>Contamos con un equipo profesional altamente capacitado y apasionado.</p>
+
+          <article class="ventaja ventaja-brutal">
+            <div class="ventaja-meta">
+              <span class="ventaja-icon">◎</span>
+              <span class="ventaja-num">03</span>
+            </div>
+            <h3>Equipo</h3>
+            <p>Un equipo multidisciplinario comprometido con tu crecimiento, con visión y ejecución real.</p>
           </article>
         </div>
       </div>
@@ -86,20 +145,53 @@
 
     <section class="servicios" id="servicios">
       <div class="container">
-        <h2>Servicios</h2>
-        <p class="intro">Creamos experiencias visuales, digitales y presenciales para marcas que quieren destacar.</p>
-        <div class="servicios-grid">
-          <article class="servicio">
-            <h3>Branding</h3>
-            <p>Identidad visual, narrativa de marca y piezas gráficas para campañas.</p>
+        <div class="section-heading brutal-heading">
+          <span class="section-kicker">Servicios</span>
+          <h2 class="text-center">Diseñamos marcas, experiencias y presencia digital con impacto real</h2>
+          <p class="lead text-center">Estrategia, creatividad y ejecución integrada para que cada proyecto se vea, se sienta y se recuerde.</p>
+        </div>
+
+        <div class="servicios-grid servicios-grid-brutal">
+          <article class="servicio servicio-brutal">
+            <div class="servicio-topline">
+              <span class="servicio-num">01</span>
+              <span class="servicio-tag">Branding</span>
+            </div>
+            <h3>Branding & Estrategia</h3>
+            <p>Diseñamos identidades sólidas, mensajes claros y presencia visual que hacen crecer tu marca con fuerza.</p>
+            <ul>
+              <li>Identidad visual</li>
+              <li>Posicionamiento</li>
+              <li>Manual de marca</li>
+            </ul>
           </article>
-          <article class="servicio">
-            <h3>Eventos</h3>
-            <p>Producción, ambientación y dirección creativa para activaciones y ferias.</p>
+
+          <article class="servicio servicio-brutal destacado">
+            <div class="servicio-topline">
+              <span class="servicio-num">02</span>
+              <span class="servicio-tag">Eventos</span>
+            </div>
+            <h3>Eventos & Experiencias</h3>
+            <p>Conceptualizamos, producimos y ejecutamos experiencias que dejan huella y conectan con la audiencia.</p>
+            <ul>
+              <li>Producción total</li>
+              <li>Escenografía</li>
+              <li>Logística</li>
+            </ul>
           </article>
-          <article class="servicio">
-            <h3>Soluciones digitales</h3>
-            <p>Presencia web, contenido digital y herramientas para conectar con tu público.</p>
+
+          <article class="servicio servicio-brutal">
+            <div class="servicio-topline">
+              <span class="servicio-num">03</span>
+              <span class="servicio-tag">Digital</span>
+            </div>
+            <h3>Diseño Digital</h3>
+            <p>Webs y contenido que transmiten claridad, generan confianza y convierten atención en resultados.</p>
+            <ul>
+              <li>Páginas web</li>
+              <li>Contenido visual</li>
+              <li>Marketing digital</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -107,24 +199,89 @@
 
     <section class="portafolio" id="portafolio">
       <div class="container">
-        <h2>Nuestro Portafolio</h2>
-        <p class="intro">Algunas de nuestras creaciones en branding, eventos e ingeniería creativa.</p>
-        <div class="grid-portafolio">
-          <article class="item">
-            <h3>Evento Corporativo</h3>
-            <p>Producción y dirección de marca en feria internacional.</p>
+        <div class="section-heading brutal-heading portfolio-heading">
+          <span class="section-kicker">Portafolio</span>
+          <h2 class="text-center">Casos que combinan tecnología, creatividad y estrategia</h2>
+          <p class="lead text-center">Trabajos pensados para marcas que quieren destacar con una presencia digital sólida y una experiencia memorable.</p>
+        </div>
+
+        <div class="grid-portafolio portfolio-grid-tech">
+          <article class="item project-card">
+            <div class="project-visual project-visual-one">
+              <div class="visual-badge">Evento</div>
+              <div class="visual-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="project-copy">
+              <div class="project-meta">
+                <span class="project-type">Brand Experience</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3>Evento Corporativo</h3>
+              <p>Producción integral para marcas que buscan impacto, presencia y conexión real con su audiencia.</p>
+            </div>
           </article>
-          <article class="item">
-            <h3>Diseño de Logo</h3>
-            <p>Identidad visual para startup tecnológica.</p>
+
+          <article class="item project-card highlight-card">
+            <div class="project-visual project-visual-two">
+              <div class="visual-badge">Brand</div>
+              <div class="visual-grid">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="project-copy">
+              <div class="project-meta">
+                <span class="project-type">Identity</span>
+                <span class="project-year">2025</span>
+              </div>
+              <h3>Identidad Visual</h3>
+              <p>Renovación de marca con una narrativa visual más clara, moderna y con mayor alcance comercial.</p>
+            </div>
           </article>
-          <article class="item">
-            <h3>Instalación Escénica</h3>
-            <p>Estructuras creativas y pirotecnia controlada.</p>
+
+          <article class="item project-card">
+            <div class="project-visual project-visual-three">
+              <div class="visual-badge">Escena</div>
+              <div class="visual-arch">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="project-copy">
+              <div class="project-meta">
+                <span class="project-type">Installation</span>
+                <span class="project-year">2024</span>
+              </div>
+              <h3>Instalaciones Escénicas</h3>
+              <p>Diseño inmersivo y modular para activaciones que buscan generar recuerdo y conversación.</p>
+            </div>
           </article>
-          <article class="item">
-            <h3>Stand Exhibición</h3>
-            <p>Stand modular para congreso internacional.</p>
+
+          <article class="item project-card">
+            <div class="project-visual project-visual-four">
+              <div class="visual-badge">Digital</div>
+              <div class="visual-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="project-copy">
+              <div class="project-meta">
+                <span class="project-type">Web</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3>Stand & Exhibición</h3>
+              <p>Espacios de exhibición con identidad visual fuerte y una experiencia más efectiva en feria.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -132,16 +289,23 @@
 
     <section class="contacto-section" id="contacto">
       <div class="container">
-        <h2>Contáctanos</h2>
-        <p>¿Tienes alguna consulta? ¡Estamos para ayudarte!</p>
-        <form class="contacto-form">
-          <input type="text" placeholder="Nombre completo" aria-label="Nombre completo" required>
-          <input type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
-          <textarea rows="5" placeholder="Escribe tu mensaje..." aria-label="Mensaje" required></textarea>
+        <h2 class="text-center">Hablemos</h2>
+        <p class="lead text-center">Cuéntanos sobre tu proyecto y te proponemos la mejor solución.</p>
+        <form class="contacto-form" action="#" method="post" aria-label="Formulario de contacto">
+          <input type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" required>
+          <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+          <textarea name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?" aria-label="Mensaje" required></textarea>
           <button type="submit">Enviar mensaje</button>
         </form>
       </div>
     </section>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="copyright muted">© <strong>ALUNOVA</strong> — Todos los derechos reservados</div>
+        <div class="muted">Síguenos en redes para ver más proyectos</div>
+      </div>
+    </footer>
   </main>
 
   <script src="js/mobile-menu.js"></script>
