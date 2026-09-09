@@ -15,16 +15,26 @@
   <header class="mega-header">
     <div class="header-container container">
       <div class="logo">
-        <a href="#hero" aria-label="Ir al inicio"><img src="img/logo.png" alt="Logo Alunova"></a>
+        <a href="#hero" class="brand-lockup" aria-label="Ir al inicio de Alunova">
+          <img src="img/logo.png" alt="">
+          <span>ALUNOVA</span>
+        </a>
       </div>
 
       <div class="header-center">
         <nav class="nav" aria-label="Navegación principal">
           <ul class="nav-list" id="menu-principal">
             <li><a href="#hero">Inicio</a></li>
-            <li><a href="#ventajas">Nosotros</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#brochure">Brochure</a></li>
+            <li class="menu-redes" aria-label="Redes sociales">
+              <a href="#" aria-label="Facebook de Alunova"><img src="img/redes/facebook.png" alt="Facebook"></a>
+              <a href="#" aria-label="Instagram de Alunova"><img src="img/redes/instagram.png" alt="Instagram"></a>
+              <a href="#" aria-label="LinkedIn de Alunova"><img src="img/redes/linkedin.png" alt="LinkedIn"></a>
+            </li>
           </ul>
         </nav>
 
@@ -52,54 +62,66 @@
       <div class="container hero-content">
         <div class="hero-text">
           <span class="eyebrow">Agencia creativa &amp; estratégica</span>
-          <h1>Diseñamos marcas que <span>generan impacto</span></h1>
-          <p class="lead">Transformamos ideas en experiencias memorables con branding, eventos y soluciones digitales pensadas para crecer.</p>
+          <h1>Ideas que se vuelven <span>imposibles de ignorar.</span></h1>
+          <p class="lead">Convertimos la esencia de tu marca en identidad, experiencias y presencia digital con una dirección clara.</p>
           <div class="hero-buttons">
             <a href="#servicios" class="btn btn-primary">Ver servicios</a>
             <a href="#contacto" class="btn btn-secondary">Hablemos</a>
           </div>
           <ul class="hero-metrics" aria-label="Estadísticas de Alunova">
             <li>
-              <strong>+120</strong>
-              <span>proyectos</span>
+              <strong>01</strong>
+              <span>estrategia</span>
             </li>
             <li>
-              <strong>8 años</strong>
-              <span>de experiencia</span>
+              <strong>02</strong>
+              <span>creatividad</span>
             </li>
             <li>
-              <strong>24/7</strong>
-              <span>apoyo creativo</span>
+              <strong>03</strong>
+              <span>ejecución</span>
             </li>
           </ul>
         </div>
 
         <div class="hero-graphic" aria-label="Vista previa del trabajo de Alunova">
           <div class="hero-visual">
-            <div class="showcase-card main-card">
-              <div class="mini-tag">Branding</div>
-              <h3>Alunova Studio</h3>
-              <div class="chart-bars" aria-hidden="true">
-                <span style="height: 34%"></span>
-                <span style="height: 48%"></span>
-                <span style="height: 66%"></span>
-                <span style="height: 58%"></span>
-                <span style="height: 84%"></span>
-                <span style="height: 100%"></span>
+            <div class="brand-frame">
+              <span class="brand-frame-label">Alunova Studio</span>
+              <img src="img/logo.png" alt="Símbolo de Alunova" class="hero-logo">
+              <div class="brand-frame-copy">
+                <span>Branding</span>
+                <span>Eventos</span>
+                <span>Digital</span>
               </div>
             </div>
-
-            <div class="showcase-card floating-card">
-              <div class="pulse-dot"></div>
-              <div>
-                <small>Campaña activa</small>
-                <strong>+42% alcance</strong>
-              </div>
+            <div class="brand-note">
+              <span class="brand-note-dot" aria-hidden="true"></span>
+              <span>Marcas con presencia propia</span>
             </div>
-
-            <div class="orb orb-one"></div>
-            <div class="orb orb-two"></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="studio-section" id="nosotros">
+      <div class="container studio-layout">
+        <div class="studio-copy">
+          <span class="section-kicker">El estudio</span>
+          <h2>Le damos a cada marca una forma propia de aparecer.</h2>
+          <p class="lead">Trabajamos desde la primera idea hasta su expresión final: una identidad clara, una experiencia relevante y una presencia que se siente coherente en cada punto de contacto.</p>
+          <div class="studio-principles">
+            <div><span>01</span><strong>Pensamos con intención</strong></div>
+            <div><span>02</span><strong>Diseñamos con carácter</strong></div>
+            <div><span>03</span><strong>Ejecutamos con detalle</strong></div>
+          </div>
+        </div>
+
+        <!-- Reemplaza este bloque por una foto de equipo, evento o proyecto destacado. -->
+        <div class="studio-media-slot" data-image-slot="imagen-nosotros" role="img" aria-label="Espacio para una fotografía destacada de Alunova">
+          <span class="media-slot-number">Imagen 01</span>
+          <span class="media-slot-label">Equipo, proceso o experiencia</span>
+          <span class="media-slot-format">Formato sugerido: 4:5</span>
         </div>
       </div>
     </section>
@@ -115,7 +137,7 @@
         <div class="ventajas-grid ventajas-grid-brutal">
           <article class="ventaja ventaja-brutal">
             <div class="ventaja-meta">
-              <span class="ventaja-icon">✦</span>
+              <img class="ventaja-icon" src="img/iconos/innovacion.svg" alt="" aria-hidden="true">
               <span class="ventaja-num">01</span>
             </div>
             <h3>Innovación</h3>
@@ -124,7 +146,7 @@
 
           <article class="ventaja ventaja-brutal destaque">
             <div class="ventaja-meta">
-              <span class="ventaja-icon">✓</span>
+              <img class="ventaja-icon" src="img/iconos/calidad.svg" alt="" aria-hidden="true">
               <span class="ventaja-num">02</span>
             </div>
             <h3>Calidad</h3>
@@ -133,7 +155,7 @@
 
           <article class="ventaja ventaja-brutal">
             <div class="ventaja-meta">
-              <span class="ventaja-icon">◎</span>
+              <img class="ventaja-icon" src="img/iconos/equipo.svg" alt="" aria-hidden="true">
               <span class="ventaja-num">03</span>
             </div>
             <h3>Equipo</h3>
@@ -207,13 +229,11 @@
 
         <div class="grid-portafolio portfolio-grid-tech">
           <article class="item project-card">
-            <div class="project-visual project-visual-one">
-              <div class="visual-badge">Evento</div>
-              <div class="visual-lines">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
+            <div class="project-media" data-image-slot="proyecto-01" role="img" aria-label="Espacio para la imagen del proyecto Evento Corporativo">
+              <span class="media-slot-number">01</span>
+              <span class="media-slot-label">Fotografía de evento</span>
+              <span class="media-slot-format">1600 x 1000</span>
             </div>
             <div class="project-copy">
               <div class="project-meta">
@@ -226,14 +246,11 @@
           </article>
 
           <article class="item project-card highlight-card">
-            <div class="project-visual project-visual-two">
-              <div class="visual-badge">Brand</div>
-              <div class="visual-grid">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
+            <div class="project-media project-media-magenta" data-image-slot="proyecto-02" role="img" aria-label="Espacio para la imagen del proyecto Identidad Visual">
+              <span class="media-slot-number">02</span>
+              <span class="media-slot-label">Identidad en contexto</span>
+              <span class="media-slot-format">1600 x 1000</span>
             </div>
             <div class="project-copy">
               <div class="project-meta">
@@ -246,13 +263,11 @@
           </article>
 
           <article class="item project-card">
-            <div class="project-visual project-visual-three">
-              <div class="visual-badge">Escena</div>
-              <div class="visual-arch">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
+            <div class="project-media project-media-orange" data-image-slot="proyecto-03" role="img" aria-label="Espacio para la imagen del proyecto Instalaciones Escénicas">
+              <span class="media-slot-number">03</span>
+              <span class="media-slot-label">Espacio e instalación</span>
+              <span class="media-slot-format">1600 x 1000</span>
             </div>
             <div class="project-copy">
               <div class="project-meta">
@@ -265,14 +280,11 @@
           </article>
 
           <article class="item project-card">
-            <div class="project-visual project-visual-four">
-              <div class="visual-badge">Digital</div>
-              <div class="visual-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
+            <div class="project-media project-media-violet" data-image-slot="proyecto-04" role="img" aria-label="Espacio para la imagen del proyecto Stand y Exhibición">
+              <span class="media-slot-number">04</span>
+              <span class="media-slot-label">Proyecto digital o stand</span>
+              <span class="media-slot-format">1600 x 1000</span>
             </div>
             <div class="project-copy">
               <div class="project-meta">
@@ -287,15 +299,53 @@
       </div>
     </section>
 
+    <section class="clientes" id="clientes">
+      <div class="container">
+        <div class="section-heading brutal-heading clientes-heading">
+          <span class="section-kicker">Nuestros clientes</span>
+          <h2 class="text-center">Marcas que confían en la energía de Alunova</h2>
+          <p class="lead text-center">Una selección de marcas, organizaciones y proyectos que han confiado en nuestro trabajo.</p>
+        </div>
+
+        <!-- Sustituye el contenido de cada bloque por el logo del cliente correspondiente. -->
+        <div class="logo-grid" aria-label="Espacios para logos de clientes">
+          <div class="logo-slot" data-logo-slot="cliente-01"><span>Logo 01</span></div>
+          <div class="logo-slot" data-logo-slot="cliente-02"><span>Logo 02</span></div>
+          <div class="logo-slot" data-logo-slot="cliente-03"><span>Logo 03</span></div>
+          <div class="logo-slot" data-logo-slot="cliente-04"><span>Logo 04</span></div>
+          <div class="logo-slot" data-logo-slot="cliente-05"><span>Logo 05</span></div>
+          <div class="logo-slot" data-logo-slot="cliente-06"><span>Logo 06</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brochure-section" id="brochure">
+      <div class="container brochure-layout">
+        <div class="brochure-copy">
+          <span class="section-kicker">Brochure</span>
+          <h2>Conoce el universo Alunova en un solo documento.</h2>
+          <p class="lead">Aquí podrás compartir una presentación de la agencia, servicios, casos y la manera en que trabajamos.</p>
+          <a class="brochure-download" href="docs/brochure-alunova.pdf" download>Descargar brochure <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <a class="brochure-cover-slot" href="docs/brochure-alunova.pdf" target="_blank" rel="noopener" aria-label="Abrir brochure de Alunova en PDF">
+          <span class="brochure-filetype">PDF</span>
+          <span class="brochure-title">BROCHURE<br>ALUNOVA</span>
+          <span class="brochure-caption">Portada para tu presentación</span>
+        </a>
+      </div>
+    </section>
+
     <section class="contacto-section" id="contacto">
       <div class="container">
         <h2 class="text-center">Hablemos</h2>
-        <p class="lead text-center">Cuéntanos sobre tu proyecto y te proponemos la mejor solución.</p>
+        <p class="lead text-center">Cuéntanos sobre tu proyecto y armemos una solución a su medida.</p>
         <form class="contacto-form" action="#" method="post" aria-label="Formulario de contacto">
           <input type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" required>
           <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
           <textarea name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?" aria-label="Mensaje" required></textarea>
           <button type="submit">Enviar mensaje</button>
+          <p class="form-status" aria-live="polite"></p>
         </form>
       </div>
     </section>
