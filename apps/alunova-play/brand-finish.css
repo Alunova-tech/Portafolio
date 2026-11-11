@@ -1,0 +1,8 @@
+/* Client placeholder remains readable on light and dark playable objects. */
+.g-tile-brand{background:#ffffffd9;border:1px solid #ffffff80;border-radius:5px;padding:5px 4px;text-align:center;line-height:1.1}
+.g-tile-brand img{width:32px;height:32px;max-height:26px!important;max-width:32px!important;opacity:.14}
+.g-tile-brand strong{position:relative;z-index:1;display:block;color:#4b1a92!important;font-size:9px;font-weight:800;letter-spacing:.2px}
+.t-game-hero .g-tile-brand{min-height:37px}.t-game-hero .g-tile-brand strong{font-size:15px}
+.t-splash .splash-logo{mix-blend-mode:multiply}
+.embedded .t-page{zoom:var(--screen-scale,1);min-height:100%}
+@media(max-width:370px){.g-tile-brand strong{font-size:8px}}
