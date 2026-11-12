@@ -8,7 +8,7 @@
   <meta name="description" content="Venta y alquiler de equipos, instalación audiovisual, producción de eventos y desarrollo de aplicaciones en Bolivia.">
 
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/redesign.css">
+  <link rel="stylesheet" href="css/redesign.css?v=clientes-2">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -366,7 +366,7 @@
           <p class="lead text-center">Una selección de marcas, organizaciones y proyectos que han confiado en nuestro trabajo.</p>
         </div>
 
-        <ul class="logo-grid client-logos" aria-label="Clientes de ALUNOVA">
+        <ul class="clientes-track client-logos" id="logos-clientes" aria-label="Carrusel de clientes de ALUNOVA" tabindex="0">
           <li class="logo-slot">
             <img src="img/clientes/ted-la-paz.png" alt="" width="600" height="428" loading="lazy">
             <span>Tribunal Electoral Departamental de La Paz</span>
@@ -384,6 +384,11 @@
             <span>Gobierno Autónomo Municipal de La Paz</span>
           </li>
         </ul>
+        <div class="carousel-controls" role="group" aria-label="Controles del carrusel de clientes" hidden>
+          <button class="carousel-button" type="button" data-clientes-prev aria-controls="logos-clientes" aria-label="Ver cliente anterior">‹</button>
+          <span class="carousel-position" aria-live="polite"></span>
+          <button class="carousel-button" type="button" data-clientes-next aria-controls="logos-clientes" aria-label="Ver siguiente cliente">›</button>
+        </div>
       </div>
     </section>
 
@@ -431,6 +436,7 @@
   </main>
 
   <script src="js/mobile-menu.js"></script>
+  <script src="js/clientes-carousel.js"></script>
   <script src="js/main.js"></script>
 </body>
 

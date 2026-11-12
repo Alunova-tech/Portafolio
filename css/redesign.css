@@ -138,8 +138,21 @@ body { overflow-x: hidden; background: var(--alunova-paper); color: var(--alunov
 
 .clientes-carousel { display: flex; align-items: center; gap: 0.75rem; }
 .clientes-viewport { min-width: 0; overflow: hidden; }
-.clientes-track { display: flex; gap: 1rem; padding: 0.25rem 0.1rem 1rem; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.clientes-track {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  list-style: none;
+}
 .clientes-track::-webkit-scrollbar { display: none; }
+.clientes-track:focus-visible { outline: 3px solid var(--alunova-violet); outline-offset: 4px; }
 .cliente-card { flex: 0 0 calc((100% - 2rem) / 3); overflow: hidden; border: 1px solid rgba(77, 29, 146, 0.16); border-radius: var(--alunova-radius); background: #fff; scroll-snap-align: start; }
 .cliente-photo { display: grid; aspect-ratio: 16 / 9; place-items: center; border-bottom: 1px dashed rgba(77, 29, 146, 0.22); color: var(--alunova-violet); background: #f9f6fc; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .cliente-info { display: grid; gap: 0.2rem; padding: 1rem; }
@@ -352,25 +365,19 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
   font-size: 1.45rem;
 }
 
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border: 1px solid rgba(77, 29, 146, 0.18);
-  background: rgba(77, 29, 146, 0.18);
-  gap: 1px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 .logo-slot {
   display: grid;
+  flex: 0 0 calc((100% - 2rem) / 3);
+  min-width: 0;
   min-height: 164px;
   grid-template-rows: 78px auto;
   gap: 0.8rem;
   place-items: center;
   padding: 1.25rem;
-  background: rgba(255, 253, 253, 0.82);
+  scroll-snap-align: start;
+  border: 1px solid var(--alunova-line);
+  border-radius: var(--alunova-radius);
+  background: #fff;
 }
 
 .logo-slot span {
@@ -385,6 +392,35 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
   width: min(100%, 150px);
   height: 78px;
   object-fit: contain;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.15rem;
+}
+
+.carousel-controls[hidden] {
+  display: none;
+}
+
+.carousel-controls .carousel-button {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.carousel-position {
+  min-width: 5.5rem;
+  color: var(--alunova-violet);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .brochure-section {
@@ -493,6 +529,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
     width: min(100%, 500px);
     margin: 0;
   }
+
+  .logo-slot {
+    flex-basis: calc((100% - 1rem) / 2);
+  }
 }
 
 @media (max-width: 640px) {
@@ -505,12 +545,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
     min-height: 230px;
   }
 
-  .logo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .logo-slot {
-    min-height: 120px;
+    flex-basis: 88%;
   }
 
   .brochure-cover-slot {
