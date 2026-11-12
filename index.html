@@ -1,304 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf8fc">
   <title>ALUNOVA | Equipos, eventos y aplicaciones</title>
-  <meta name="description" content="Venta y alquiler de equipos, instalación audiovisual, producción de eventos y desarrollo de aplicaciones en Bolivia.">
-
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/redesign.css?v=mallasa-brochure-1">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Venta y alquiler de equipos, montaje audiovisual, producción de eventos y aplicaciones a medida en Bolivia.">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/redesign.css?v=movil-2026">
+  <script src="js/mobile-menu.js?v=2" defer></script>
+  <script src="js/clientes-carousel.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
-
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
   <header class="mega-header">
-    <div class="header-container container">
-      <div class="logo">
-        <a href="#hero" class="brand-lockup" aria-label="Ir al inicio de Alunova">
-          <img src="img/logo.png" alt="">
-          <span>ALUNOVA</span>
-        </a>
-      </div>
-
-      <div class="header-center">
-        <nav class="nav" aria-label="Navegación principal">
-          <ul class="nav-list" id="menu-principal">
-            <li><a href="#hero">Inicio</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#aplicaciones">Aplicaciones</a></li>
-            <li><a href="#portafolio">Portafolio</a></li>
-            <li><a href="#clientes">Clientes</a></li>
-            <li><a href="#brochure">Brochure</a></li>
-            <li class="menu-redes" aria-label="Redes sociales">
-              <a href="#" aria-label="Facebook de Alunova"><img src="img/redes/facebook.png" alt="Facebook"></a>
-              <a href="#" aria-label="Instagram de Alunova"><img src="img/redes/instagram.png" alt="Instagram"></a>
-              <a href="#" aria-label="LinkedIn de Alunova"><img src="img/redes/linkedin.png" alt="LinkedIn"></a>
-            </li>
-          </ul>
-        </nav>
-
-        <div class="header-actions">
-          <a href="#contacto" class="btn-contacto">Contáctanos</a>
-        </div>
-      </div>
-
-      <div class="redes" aria-label="Redes sociales">
-        <a href="#" aria-label="Facebook de Alunova"><img src="img/redes/facebook.png" alt="Facebook"></a>
-        <a href="#" aria-label="Instagram de Alunova"><img src="img/redes/instagram.png" alt="Instagram"></a>
-        <a href="#" aria-label="LinkedIn de Alunova"><img src="img/redes/linkedin.png" alt="LinkedIn"></a>
-      </div>
-
+    <div class="container header-inner">
+      <a href="#hero" class="brand" aria-label="ALUNOVA, inicio">
+        <img src="img/logo.png" width="36" height="36" alt="">
+        <span>ALUNOVA</span>
+      </a>
+      <nav id="menu-principal" class="site-nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#portafolio">Proyectos</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#brochure">Brochure</a></li>
+        </ul>
+      </nav>
+      <a class="button button-primary header-contact" href="#contacto">Cotizar <span aria-hidden="true">↗</span></a>
       <button class="hamburguesa" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <span class="eyebrow">Tecnología, eventos y diseño</span>
-          <h1>Ideas que se vuelven <span>imposibles de ignorar.</span></h1>
-          <p class="lead">Equipamos eventos y espacios de trabajo, diseñamos experiencias y desarrollamos aplicaciones a medida.</p>
-          <div class="hero-buttons">
-            <a href="#servicios" class="btn btn-primary">Ver servicios</a>
-            <a href="#contacto" class="btn btn-secondary">Hablemos</a>
-          </div>
-          <ul class="hero-metrics" aria-label="Estadísticas de Alunova">
-            <li>
-              <strong>01</strong>
-              <span>estrategia</span>
-            </li>
-            <li>
-              <strong>02</strong>
-              <span>creatividad</span>
-            </li>
-            <li>
-              <strong>03</strong>
-              <span>ejecución</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="hero-graphic" aria-label="Vista previa del trabajo de Alunova">
-          <div class="hero-visual">
-            <div class="brand-frame">
-              <span class="brand-frame-label">Alunova Studio</span>
-              <img src="img/logo.png" alt="Símbolo de Alunova" class="hero-logo">
-              <div class="brand-frame-copy">
-                <span>Branding</span>
-                <span>Eventos</span>
-                <span>Digital</span>
-              </div>
-            </div>
-            <div class="brand-note">
-              <span class="brand-note-dot" aria-hidden="true"></span>
-              <span>Marcas con presencia propia</span>
-            </div>
+  <main id="contenido" tabindex="-1">
+    <section class="hero" id="hero" aria-labelledby="inicio-titulo">
+      <div class="container hero-grid">
+        <div class="hero-copy" id="nosotros">
+          <p class="eyebrow"><span></span> Equipamiento audiovisual y tecnología</p>
+          <h1 id="inicio-titulo">Tecnología para <em>eventos y espacios de trabajo.</em></h1>
+          <p class="lead">Vendemos y alquilamos equipos, coordinamos el montaje y creamos aplicaciones para pantallas táctiles.</p>
+          <div class="actions">
+            <a class="button button-primary" href="https://wa.me/59179532669" target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="#portafolio">Ver proyectos <span aria-hidden="true">↓</span></a>
           </div>
         </div>
+        <figure class="hero-media">
+          <img src="img/hero/equipos-alunova.webp" alt="Un tótem táctil y una pantalla LED vertical encendidos con el logo de ALUNOVA" width="900" height="1600" fetchpriority="high">
+          <figcaption><span></span> Tótem táctil y pantalla LED</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="studio-section" id="nosotros">
-      <div class="container studio-layout">
-        <div class="studio-copy">
-          <span class="section-kicker">El estudio</span>
-          <h2>Le damos a cada marca una forma propia de aparecer.</h2>
-          <p class="lead">Trabajamos desde la primera idea hasta su expresión final: una identidad clara, una experiencia relevante y una presencia que se siente coherente en cada punto de contacto.</p>
-          <div class="studio-principles">
-            <div><span>01</span><strong>Pensamos con intención</strong></div>
-            <div><span>02</span><strong>Diseñamos con carácter</strong></div>
-            <div><span>03</span><strong>Ejecutamos con detalle</strong></div>
-          </div>
-        </div>
-
-        <!-- Reemplaza este bloque por una foto de equipo, evento o proyecto destacado. -->
-        <div class="studio-media-slot" data-image-slot="imagen-nosotros" role="img" aria-label="Espacio para una fotografía destacada de Alunova">
-          <span class="media-slot-number">Imagen 01</span>
-          <span class="media-slot-label">Equipo, proceso o experiencia</span>
-          <span class="media-slot-format">Formato sugerido: 4:5</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="ventajas" id="ventajas">
-      <div class="container">
-        <div class="section-heading brutal-heading">
-          <span class="section-kicker">¿Por qué elegir Alunova?</span>
-          <h2 class="text-center">Porque cada detalle cuenta y cada decisión mueve resultados</h2>
-          <p class="lead text-center">Combinamos estrategia, creatividad y ejecución para crear marcas con presencia real y experiencias que convierten.</p>
-        </div>
-
-        <div class="ventajas-grid ventajas-grid-brutal">
-          <article class="ventaja ventaja-brutal">
-            <div class="ventaja-meta">
-              <img class="ventaja-icon" src="img/iconos/innovacion.svg" alt="" aria-hidden="true">
-              <span class="ventaja-num">01</span>
-            </div>
-            <h3>Innovación</h3>
-            <p>Ideas frescas, soluciones inteligentes y un enfoque que entiende a tu audiencia y al mercado.</p>
-          </article>
-
-          <article class="ventaja ventaja-brutal destaque">
-            <div class="ventaja-meta">
-              <img class="ventaja-icon" src="img/iconos/calidad.svg" alt="" aria-hidden="true">
-              <span class="ventaja-num">02</span>
-            </div>
-            <h3>Calidad</h3>
-            <p>Todo se ejecuta con criterio, precisión y exigencia para que cada detalle se sienta premium.</p>
-          </article>
-
-          <article class="ventaja ventaja-brutal">
-            <div class="ventaja-meta">
-              <img class="ventaja-icon" src="img/iconos/equipo.svg" alt="" aria-hidden="true">
-              <span class="ventaja-num">03</span>
-            </div>
-            <h3>Equipo</h3>
-            <p>Un equipo multidisciplinario comprometido con tu crecimiento, con visión y ejecución real.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="servicios" id="servicios">
-      <div class="container">
-        <div class="section-heading brutal-heading">
-          <span class="section-kicker">Servicios</span>
-          <h2 class="text-center">Equipos y servicios para tu proyecto</h2>
-          <p class="lead text-center">Venta, alquiler e instalación de equipos. Diseño, producción de eventos y desarrollo de software.</p>
-        </div>
-
-        <div class="servicios-grid servicios-grid-brutal">
-          <article class="servicio servicio-brutal">
-            <h3>Venta de equipos</h3>
-            <p>Equipamiento informático y audiovisual para oficinas, instituciones y espacios de atención.</p>
-            <ul>
-              <li>Laptops, monitores y equipos de computación</li>
-              <li>Televisores, pantallas LED, tótems y pedestales</li>
-              <li>Teléfonos celulares</li>
-            </ul>
-          </article>
-
-          <article class="servicio servicio-brutal destacado">
-            <h3>Alquiler de equipos</h3>
-            <p>Equipos por el tiempo que necesites para ferias, capacitaciones y eventos corporativos.</p>
-            <ul>
-              <li>Tótems táctiles y pantallas</li>
-              <li>Televisores con pedestales</li>
-              <li>Laptops y monitores</li>
-            </ul>
-          </article>
-
-          <article class="servicio servicio-brutal">
-            <h3>Instalación y montaje</h3>
-            <p>Coordinamos la entrega y preparamos los equipos para que puedas usarlos en el lugar del evento.</p>
-            <ul>
-              <li>Montaje, configuración y pruebas</li>
-              <li>Coordinación de la entrega</li>
-              <li>Desmontaje y retiro</li>
-            </ul>
-          </article>
-
-          <article class="servicio servicio-brutal">
-            <h3>Branding y estrategia</h3>
-            <p>Diseñamos identidades sólidas, mensajes claros y presencia visual que hacen crecer tu marca con fuerza.</p>
-            <ul>
-              <li>Identidad visual</li>
-              <li>Posicionamiento</li>
-              <li>Manual de marca</li>
-            </ul>
-          </article>
-
-          <article class="servicio servicio-brutal destacado">
-            <h3>Eventos y experiencias</h3>
-            <p>Conceptualizamos, producimos y ejecutamos experiencias que dejan huella y conectan con la audiencia.</p>
-            <ul>
-              <li>Producción total</li>
-              <li>Escenografía</li>
-              <li>Logística</li>
-            </ul>
-          </article>
-
-          <article class="servicio servicio-brutal">
-            <h3>Desarrollo de software</h3>
-            <p>Creamos aplicaciones web e interfaces táctiles para tus procesos, eventos y espacios.</p>
-            <ul>
-              <li>Sitios web y herramientas a medida</li>
-              <li>Aplicaciones interactivas para tótems</li>
-              <li>Contenido digital</li>
-            </ul>
-          </article>
-        </div>
-        <a class="btn btn-primary service-contact" href="#contacto">Cotizar equipos o servicios</a>
-      </div>
-    </section>
-
-    <section class="apps-section" id="aplicaciones" aria-labelledby="apps-title">
+    <section class="section" id="servicios" aria-labelledby="servicios-titulo">
       <div class="container">
         <div class="section-heading">
-          <h2 id="apps-title">Aplicaciones que desarrollamos</h2>
-          <p class="lead">Explora las aplicaciones que creamos para pantallas táctiles y navegadores.</p>
+          <h2 id="servicios-titulo">Servicios</h2>
+          <p>Equipamiento y soporte desde la preparación hasta el retiro.</p>
         </div>
-        <article class="app-card app-feature" id="mallasa" aria-labelledby="mallasa-title">
-          <div class="app-copy">
-            <span class="app-type">Subalcaldía de Mallasa · La Paz</span>
-            <h3 id="mallasa-title">Mapa interactivo de Mallasa</h3>
-            <p>Diseñamos una aplicación para un tótem vertical que invita a explorar Mallasa al tocar su mapa.</p>
-            <dl class="app-feature-details">
-              <div>
-                <dt>Mapa ilustrado</dt>
-                <dd>Siete sectores para recorrer y descubrir los puntos de cada categoría.</dd>
-              </div>
-              <div>
-                <dt>Visor de videos</dt>
-                <dd>Los puntos del mapa abren videos y, al terminar, el recorrido continúa donde quedó.</dd>
-              </div>
-              <div>
-                <dt>Trivia táctil</dt>
-                <dd>Preguntas sobre los lugares y la naturaleza de Mallasa.</dd>
-              </div>
-            </dl>
-            <div class="app-actions">
-              <a class="btn btn-primary" href="https://alunova-mallasa-interactivo.videoinsitucional.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir demo de Mallasa <span aria-hidden="true">↗</span></a>
-            </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>Venta de equipos</h3>
+            <p>Laptops, monitores, celulares, televisores, pantallas LED, tótems y pedestales.</p>
+          </article>
+          <article class="service-card">
+            <h3>Alquiler de equipos</h3>
+            <p>Tótems táctiles, televisores con pedestal, laptops y monitores para ferias y capacitaciones.</p>
+          </article>
+          <article class="service-card">
+            <h3>Instalación y montaje</h3>
+            <p>Entrega, configuración, pruebas en el lugar y retiro al terminar.</p>
+          </article>
+          <article class="service-card">
+            <h3>Producción de eventos</h3>
+            <p>Escenografía, logística y coordinación de actividades corporativas y activaciones.</p>
+          </article>
+          <article class="service-card">
+            <h3>Identidad de marca</h3>
+            <p>Identidad visual, posicionamiento y manuales de marca.</p>
+          </article>
+          <article class="service-card">
+            <h3>Aplicaciones a medida</h3>
+            <p>Experiencias para tótems táctiles, sitios web y herramientas para tus procesos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="portafolio" aria-labelledby="proyectos-titulo">
+      <div class="container" id="aplicaciones">
+        <div class="section-heading">
+          <h2 id="proyectos-titulo">Proyectos interactivos</h2>
+          <p>Prueba en tu navegador lo que diseñamos para pantallas táctiles.</p>
+        </div>
+
+        <article class="project-card project-feature" id="mallasa" aria-labelledby="mallasa-titulo">
+          <div class="project-screens">
+            <img src="img/aplicaciones/mallasa-mapa.webp" alt="Mapa táctil con los siete sectores ilustrados de Mallasa" width="576" height="1024" loading="lazy">
+            <img src="img/aplicaciones/mallasa-trivia.webp" alt="Trivia sobre los lugares y la fauna silvestre de Mallasa" width="480" height="854" loading="lazy">
           </div>
-          <div class="app-feature-screens">
-            <img src="img/aplicaciones/mallasa-mapa.webp" alt="Pantalla inicial del tótem con los siete sectores ilustrados y las categorías de navegación" width="576" height="1024" loading="lazy">
-            <img src="img/aplicaciones/mallasa-trivia.webp" alt="Pantalla de la trivia con una pregunta sobre la fauna silvestre de Mallasa y tres respuestas" width="480" height="854" loading="lazy">
+          <div class="project-copy">
+            <p class="project-category">Subalcaldía de Mallasa · La Paz</p>
+            <h3 id="mallasa-titulo">Mapa interactivo de Mallasa</h3>
+            <p>Diseñamos una app para tótem vertical con siete sectores ilustrados, un visor de videos y una trivia sobre los lugares y la naturaleza de Mallasa.</p>
+            <div class="actions">
+              <a class="button button-primary" href="https://alunova-mallasa-interactivo.videoinsitucional.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir demo de Mallasa <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </article>
-        <div class="apps-grid">
-          <article class="app-card">
-            <div class="app-visual app-visual-logo">
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-media project-cdd">
               <img src="img/aplicaciones/biblioteca-cdd.png" alt="Logo de CDD Bolivia" width="1280" height="1018" loading="lazy">
             </div>
-            <div class="app-copy">
-              <span class="app-type">Biblioteca de audio</span>
+            <div class="project-copy">
+              <p class="project-category">Biblioteca de audio</p>
               <h3>Biblioteca CDD</h3>
-              <p>Una experiencia táctil para explorar relatos ilustrados y escucharlos desde un tótem o un navegador.</p>
-              <div class="app-actions">
-                <a class="btn btn-primary" href="https://alunova-tech.github.io/BibliotecaCDD/" target="_blank" rel="noopener noreferrer">Abrir biblioteca <span aria-hidden="true">↗</span></a>
-                <a class="app-source" href="https://github.com/Alunova-tech/BibliotecaCDD" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+              <p>Relatos ilustrados que puedes explorar y escuchar desde un tótem o un celular.</p>
+              <div class="actions">
+                <a class="button button-outline" href="https://alunova-tech.github.io/BibliotecaCDD/" target="_blank" rel="noopener noreferrer">Abrir biblioteca <span aria-hidden="true">↗</span></a>
+                <a class="text-link" href="https://github.com/Alunova-tech/BibliotecaCDD" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </article>
-          <article class="app-card">
-            <div class="app-visual">
-              <img src="apps/alunova-play/assets/experience-hero.png" alt="Visualización de un tótem con el menú de juegos de ALUNOVA Play" loading="lazy">
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="img/aplicaciones/alunova-play.webp" alt="Vista de un tótem con el menú de juegos de ALUNOVA Play" width="960" height="768" loading="lazy">
             </div>
-            <div class="app-copy">
-              <span class="app-type">Juegos interactivos</span>
+            <div class="project-copy">
+              <p class="project-category">Juegos para eventos</p>
               <h3>ALUNOVA Play</h3>
-              <p>Explora veinte juegos para activaciones, ferias y eventos. Arma un catálogo y prueba cómo se verá en un tótem táctil.</p>
-              <div class="app-actions">
-                <a class="btn btn-primary" href="apps/alunova-play/index.html">Probar ALUNOVA Play <span aria-hidden="true">↗</span></a>
+              <p>Veinte juegos para activaciones y ferias. Elige tu catálogo y pruébalo en formato tótem.</p>
+              <div class="actions">
+                <a class="button button-outline" href="apps/alunova-play/index.html">Probar ALUNOVA Play <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </article>
@@ -306,95 +145,12 @@
       </div>
     </section>
 
-    <section class="portafolio" id="portafolio">
+    <section class="section" id="clientes" aria-labelledby="clientes-titulo">
       <div class="container">
-        <div class="section-heading brutal-heading portfolio-heading">
-          <span class="section-kicker">Portafolio</span>
-          <h2 class="text-center">Casos que combinan tecnología, creatividad y estrategia</h2>
-          <p class="lead text-center">Trabajos pensados para marcas que quieren destacar con una presencia digital sólida y una experiencia memorable.</p>
+        <div class="section-heading">
+          <h2 id="clientes-titulo">Nuestros clientes</h2>
         </div>
-
-        <div class="grid-portafolio portfolio-grid-tech">
-          <article class="item project-card">
-            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
-            <div class="project-media" data-image-slot="proyecto-01" role="img" aria-label="Espacio para la imagen del proyecto Evento Corporativo">
-              <span class="media-slot-number">01</span>
-              <span class="media-slot-label">Fotografía de evento</span>
-              <span class="media-slot-format">1600 x 1000</span>
-            </div>
-            <div class="project-copy">
-              <div class="project-meta">
-                <span class="project-type">Brand Experience</span>
-                <span class="project-year">2026</span>
-              </div>
-              <h3>Evento Corporativo</h3>
-              <p>Producción integral para marcas que buscan impacto, presencia y conexión real con su audiencia.</p>
-            </div>
-          </article>
-
-          <article class="item project-card highlight-card">
-            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
-            <div class="project-media project-media-magenta" data-image-slot="proyecto-02" role="img" aria-label="Espacio para la imagen del proyecto Identidad Visual">
-              <span class="media-slot-number">02</span>
-              <span class="media-slot-label">Identidad en contexto</span>
-              <span class="media-slot-format">1600 x 1000</span>
-            </div>
-            <div class="project-copy">
-              <div class="project-meta">
-                <span class="project-type">Identity</span>
-                <span class="project-year">2025</span>
-              </div>
-              <h3>Identidad Visual</h3>
-              <p>Renovación de marca con una narrativa visual más clara, moderna y con mayor alcance comercial.</p>
-            </div>
-          </article>
-
-          <article class="item project-card">
-            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
-            <div class="project-media project-media-orange" data-image-slot="proyecto-03" role="img" aria-label="Espacio para la imagen del proyecto Instalaciones Escénicas">
-              <span class="media-slot-number">03</span>
-              <span class="media-slot-label">Espacio e instalación</span>
-              <span class="media-slot-format">1600 x 1000</span>
-            </div>
-            <div class="project-copy">
-              <div class="project-meta">
-                <span class="project-type">Installation</span>
-                <span class="project-year">2024</span>
-              </div>
-              <h3>Instalaciones Escénicas</h3>
-              <p>Diseño inmersivo y modular para activaciones que buscan generar recuerdo y conversación.</p>
-            </div>
-          </article>
-
-          <article class="item project-card">
-            <!-- Inserta una imagen con class="project-image" dentro de este bloque. -->
-            <div class="project-media project-media-violet" data-image-slot="proyecto-04" role="img" aria-label="Espacio para la imagen del proyecto Stand y Exhibición">
-              <span class="media-slot-number">04</span>
-              <span class="media-slot-label">Proyecto digital o stand</span>
-              <span class="media-slot-format">1600 x 1000</span>
-            </div>
-            <div class="project-copy">
-              <div class="project-meta">
-                <span class="project-type">Web</span>
-                <span class="project-year">2026</span>
-              </div>
-              <h3>Stand & Exhibición</h3>
-              <p>Espacios de exhibición con identidad visual fuerte y una experiencia más efectiva en feria.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="clientes" id="clientes">
-      <div class="container">
-        <div class="section-heading brutal-heading clientes-heading">
-          <span class="section-kicker">Nuestros clientes</span>
-          <h2 class="text-center">Marcas que confían en la energía de Alunova</h2>
-          <p class="lead text-center">Una selección de marcas, organizaciones y proyectos que han confiado en nuestro trabajo.</p>
-        </div>
-
-        <ul class="clientes-track client-logos" id="logos-clientes" aria-label="Carrusel de clientes de ALUNOVA" tabindex="0">
+        <ul class="clientes-track" id="logos-clientes" aria-label="Carrusel de clientes de ALUNOVA" tabindex="0">
           <li class="logo-slot">
             <img src="img/clientes/ted-la-paz.png" alt="" width="600" height="428" loading="lazy">
             <span>Tribunal Electoral Departamental de La Paz</span>
@@ -420,51 +176,52 @@
       </div>
     </section>
 
-    <section class="brochure-section" id="brochure">
-      <div class="container brochure-layout">
+    <section class="section brochure" id="brochure" aria-labelledby="brochure-titulo">
+      <div class="container brochure-grid">
         <div class="brochure-copy">
-          <span class="section-kicker">Brochure 2026</span>
-          <h2>Soluciones audiovisuales</h2>
-          <p class="lead">Consulta nuestro catálogo de alquiler de pantallas, tótems táctiles, laptops y soluciones para eventos.</p>
-          <div class="brochure-actions">
-            <a class="btn btn-primary" href="docs/brochure-alunova-2026.pdf" target="_blank" rel="noopener">Ver brochure <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-secondary" href="docs/brochure-alunova-2026.pdf" download>Descargar PDF</a>
+          <p class="eyebrow"><span></span> Brochure 2026</p>
+          <h2 id="brochure-titulo">Catálogo audiovisual</h2>
+          <p class="lead">Consulta nuestras pantallas, tótems táctiles, laptops y soluciones para eventos.</p>
+          <div class="actions">
+            <a class="button button-primary" href="docs/brochure-alunova-2026.pdf" target="_blank" rel="noopener noreferrer">Ver brochure <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="docs/brochure-alunova-2026.pdf" download>Descargar PDF</a>
           </div>
         </div>
-
-        <img class="brochure-cover" src="img/brochure-alunova-2026.png" alt="Portada del catálogo de servicios audiovisuales 2026 de ALUNOVA" width="528" height="297" loading="lazy">
+        <img class="brochure-cover" src="img/brochure-alunova-2026.png" alt="Portada del catálogo de soluciones audiovisuales de ALUNOVA" width="528" height="297" loading="lazy">
       </div>
     </section>
 
-    <section class="contacto-section" id="contacto">
-      <div class="container">
-        <h2 class="text-center">Hablemos</h2>
-        <p class="lead text-center">Cuéntanos sobre tu proyecto y armemos una solución a su medida.</p>
-        <div class="direct-contact">
-          <a class="btn btn-primary" href="https://wa.me/59179532669" target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
-          <a class="btn btn-secondary" href="mailto:alunova.ventas@outlook.com">Escribir por correo</a>
+    <section class="section contact" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <h2 id="contacto-titulo">Cotiza tu proyecto</h2>
+          <p>Cuéntanos qué necesitas, dónde y para qué fecha.</p>
+          <div class="actions">
+            <a class="button button-light" href="https://wa.me/59179532669" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a>
+            <a class="contact-email" href="mailto:alunova.ventas@outlook.com">alunova.ventas@outlook.com</a>
+          </div>
         </div>
-        <form class="contacto-form" action="#" method="post" aria-label="Formulario de contacto">
-          <input type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" required>
-          <input type="email" name="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
-          <textarea name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?" aria-label="Mensaje" required></textarea>
-          <button type="submit">Abrir borrador de correo</button>
+        <form class="contacto-form" action="mailto:alunova.ventas@outlook.com" method="post" aria-label="Formulario de contacto">
+          <div class="form-fields">
+            <label>Nombre<input type="text" name="nombre" autocomplete="name" required></label>
+            <label>Correo<input type="email" name="email" autocomplete="email" required></label>
+          </div>
+          <label>Mensaje<textarea name="mensaje" rows="3" required></textarea></label>
+          <button type="submit" class="button button-light">Abrir borrador de correo</button>
           <p class="form-status" aria-live="polite"></p>
         </form>
       </div>
     </section>
-
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div class="copyright muted">© <strong>ALUNOVA</strong> — Todos los derechos reservados</div>
-        <div class="muted">Síguenos en redes para ver más proyectos</div>
-      </div>
-    </footer>
   </main>
 
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/clientes-carousel.js"></script>
-  <script src="js/main.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#hero" class="brand" aria-label="ALUNOVA, volver al inicio">
+        <img src="img/logo.png" width="32" height="32" alt="">
+        <span>ALUNOVA</span>
+      </a>
+      <span>La Paz, Bolivia</span>
+    </div>
+  </footer>
 </body>
-
 </html>

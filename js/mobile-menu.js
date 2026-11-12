@@ -1,31 +1,47 @@
-const header = document.querySelector('.mega-header');
-const menuButton = document.querySelector('.hamburguesa');
-const menuList = document.querySelector('.nav-list');
-const menuLinks = document.querySelectorAll('.nav-list a');
+{
+  const header = document.querySelector('.mega-header');
+  const menuButton = header?.querySelector('.hamburguesa');
+  const menu = header?.querySelector('#menu-principal');
 
-function setMenuState(isOpen) {
-  if (!header || !menuButton) return;
+  if (menuButton && menu) {
+    const mobileLayout = window.matchMedia('(max-width: 767px)');
+    const isOpen = () => header.classList.contains('open');
 
-  header.classList.toggle('open', isOpen);
-  menuList?.classList.toggle('open', isOpen);
-  document.body.classList.toggle('menu-open', isOpen);
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-  menuButton.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-}
+    function setMenuOpen(open) {
+      header.classList.toggle('open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
 
-function toggleMenu() {
-  const isOpen = header?.classList.contains('open') ?? false;
-  setMenuState(!isOpen);
-}
+    menuButton.addEventListener('click', (event) => {
+      if (!mobileLayout.matches) return;
+      const open = !isOpen();
+      setMenuOpen(open);
+      if (open && event.detail === 0) menu.querySelector('a[href]')?.focus();
+    });
 
-menuButton?.addEventListener('click', toggleMenu);
+    menu.addEventListener('click', (event) => {
+      if (isOpen() && event.target.closest('a[href]')) setMenuOpen(false);
+    });
 
-menuLinks.forEach((link) => {
-  link.addEventListener('click', () => setMenuState(false));
-});
+    document.addEventListener('click', (event) => {
+      if (isOpen() && !menu.contains(event.target) && !menuButton.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    });
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    setMenuState(false);
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isOpen()) {
+        setMenuOpen(false);
+        menuButton.focus();
+      }
+    });
+
+    mobileLayout.addEventListener('change', (event) => {
+      if (!event.matches) setMenuOpen(false);
+    });
+
+    setMenuOpen(false);
+    header.classList.add('menu-ready');
   }
-});
+}
