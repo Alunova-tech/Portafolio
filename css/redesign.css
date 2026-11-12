@@ -435,87 +435,25 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
   gap: clamp(2.5rem, 8vw, 8rem);
 }
 
-.brochure-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin-top: 1.9rem;
-  padding: 0.9rem 1rem;
-  border-radius: 5px;
-  color: #fff;
-  background: var(--alunova-violet);
-  font-size: 0.88rem;
-  font-weight: 700;
-  transition: background-color 180ms ease, transform 180ms ease;
-}
-
-.brochure-download:hover,
-.brochure-download:focus-visible {
-  color: #fff;
-  background: var(--alunova-magenta);
-  transform: translateY(-2px);
-}
-
-.brochure-download span {
-  font-size: 1.05rem;
-}
-
-.brochure-cover-slot {
-  position: relative;
+.brochure-actions {
   display: flex;
-  aspect-ratio: 4 / 5;
-  max-width: 360px;
-  min-height: 400px;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.9rem;
+}
+
+.brochure-actions .btn {
+  gap: 0.5rem;
+}
+
+.brochure-cover {
+  display: block;
+  width: 100%;
+  height: auto;
   margin-left: auto;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  padding: 1.2rem;
+  border: 1px solid var(--alunova-line);
   border-radius: var(--alunova-radius);
-  color: #fff;
-  background: linear-gradient(145deg, var(--alunova-violet), var(--alunova-magenta) 62%, var(--alunova-orange));
-  box-shadow: 14px 14px 0 var(--alunova-orange);
-}
-
-.brochure-cover-slot::before {
-  position: absolute;
-  top: 16%;
-  right: -20%;
-  width: 82%;
-  aspect-ratio: 1;
-  border: 36px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
-  content: "";
-}
-
-.brochure-filetype,
-.brochure-title,
-.brochure-caption {
-  position: relative;
-  z-index: 1;
-}
-
-.brochure-filetype {
-  display: inline-flex;
-  width: fit-content;
-  padding: 0.32rem 0.45rem;
-  border: 1px solid rgba(255, 255, 255, 0.48);
-  border-radius: 3px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.brochure-title {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: 0;
-}
-
-.brochure-caption {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.75rem;
+  box-shadow: 10px 10px 0 var(--alunova-orange);
 }
 
 @media (max-width: 960px) {
@@ -525,7 +463,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
   }
 
   .studio-media-slot,
-  .brochure-cover-slot {
+  .brochure-cover {
     width: min(100%, 500px);
     margin: 0;
   }
@@ -549,8 +487,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
     flex-basis: 88%;
   }
 
-  .brochure-cover-slot {
-    min-height: 360px;
+  .brochure-cover {
     box-shadow: 8px 8px 0 var(--alunova-orange);
   }
 }
@@ -632,6 +569,64 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
   line-height: 1.65;
 }
 
+.app-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  margin-bottom: 1rem;
+}
+
+.app-feature .app-copy {
+  justify-content: center;
+  gap: 0.85rem;
+  padding: clamp(1.2rem, 4vw, 3rem);
+}
+
+.app-feature .app-copy h3 {
+  font-size: clamp(1.7rem, 3.5vw, 2.9rem);
+}
+
+.app-feature-details {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0.35rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--alunova-magenta);
+}
+
+.app-feature-details dt {
+  color: var(--alunova-ink);
+  font-weight: 700;
+}
+
+.app-feature-details dd {
+  margin: 0.18rem 0 0;
+  color: var(--alunova-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.app-feature .app-actions {
+  margin-top: 0;
+}
+
+.app-feature-screens {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: clamp(0.6rem, 2vw, 1.1rem);
+  padding: clamp(0.9rem, 3vw, 2rem);
+  background: linear-gradient(150deg, var(--alunova-lilac), var(--alunova-paper));
+}
+
+.app-feature-screens img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--alunova-ink);
+  border-radius: clamp(0.55rem, 1.5vw, 1rem);
+  box-shadow: 0 12px 28px rgba(33, 14, 61, 0.16);
+}
+
 .app-actions,
 .direct-contact {
   display: flex;
@@ -670,7 +665,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid rgba(255, 100, 30, 0.
 }
 
 @media (max-width: 640px) {
-  .apps-grid {
+  .apps-grid, .app-feature {
     grid-template-columns: 1fr;
   }
 }
