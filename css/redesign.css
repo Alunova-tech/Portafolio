@@ -220,36 +220,36 @@ button { cursor: pointer; }
 }
 
 .hero {
-  padding-block: clamp(.7rem, 2vw, 1.6rem) 0;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  color: #fff8ff;
+  background:
+    radial-gradient(ellipse at 83% 66%, #63235c 0%, transparent 53%),
+    radial-gradient(ellipse at 13% 15%, #3b185a, transparent 57%),
+    #12091e;
+}
+
+.hero::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, #773aca, #e44b9b 64%, #ff9b61);
+  content: "";
 }
 
 .hero-grid {
-  position: relative;
   display: grid;
-  overflow: hidden;
-  isolation: isolate;
-  border-radius: clamp(1.05rem, 2.3vw, 1.9rem);
-  background:
-    radial-gradient(ellipse at 0 0, #4b216b, transparent 76%),
-    #170d25;
-  box-shadow: 0 16px 48px #25103922;
-}
-
-.hero-grid::before {
-  position: absolute;
-  z-index: 2;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(90deg, #a46beb, #f05395 62%, #ff9b61);
-  content: "";
+  align-content: center;
+  min-height: calc(100vh - var(--header-size) - 1px);
+  min-height: calc(100svh - var(--header-size) - 1px);
+  padding-block: clamp(1.35rem, 4.5vw, 4rem);
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
   align-self: center;
-  padding: clamp(1.35rem, 4vw, 4rem);
-  color: #fff8ff;
 }
 
 .hero .eyebrow {
@@ -286,15 +286,19 @@ h1, h2, h3 {
 }
 
 .hero h1 {
-  font-size: clamp(2.55rem, 7.4vw, 6.65rem);
+  font-size: clamp(2.4rem, 10vw, 4rem);
   font-weight: 800;
-  line-height: .99;
+  line-height: .98;
   letter-spacing: -.045em;
-  margin-block: .8rem 1rem;
+  margin-block: .67rem .78rem;
+}
+
+.hero h1 span,
+.hero h1 em {
+  display: block;
 }
 
 .hero h1 em {
-  display: block;
   color: #f5b3df;
   font-style: normal;
 }
@@ -309,7 +313,15 @@ h1, h2, h3 {
 h2 { font-size: clamp(2rem, 4.5vw, 3.55rem); }
 h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
 .lead { max-width: 47ch; color: var(--muted); font-size: clamp(1.02rem, 1.75vw, 1.2rem); }
-.hero .actions, .brochure .actions { margin-top: 1.35rem; }
+.hero .actions { margin-top: 1rem; }
+.brochure .actions { margin-top: 1.35rem; }
+
+.hero .button-light {
+  background: #fff7ff;
+  box-shadow: 0 7px 24px #f29bdd35;
+}
+
+.hero .button-light:hover { background: #f9d9ef; }
 
 .hero .button-outline {
   color: #fff8ff;
@@ -319,43 +331,120 @@ h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
 
 .hero .button-outline:hover { background: #ffffff24; }
 
-.hero-media {
+.hero-stage {
   position: relative;
-  overflow: hidden;
+  display: grid;
+  place-items: center;
   min-width: 0;
-  aspect-ratio: 1.24;
-  background: #261b32;
+  padding-block: 1.6rem 0;
+  isolation: isolate;
 }
 
-.hero-media::after {
+.hero-stage::before,
+.hero-stage::after {
   position: absolute;
-  inset: 0;
+  z-index: -1;
+  inset: 50% auto auto 50%;
+  width: 118%;
+  aspect-ratio: 2.1;
+  border: 1px solid #efb6ff70;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-24deg);
   pointer-events: none;
-  background: linear-gradient(180deg, #24113668, transparent 21%, transparent 65%, #150b2199);
   content: "";
 }
 
+.hero-stage::before {
+  box-shadow: 0 0 40px #ed70cf44, inset 0 0 44px #ed70cf39;
+  background: radial-gradient(ellipse, #ca63b031, transparent 70%);
+}
+
+.hero-stage::after {
+  width: 130%;
+  border-color: #ffbc8566;
+  transform: translate(-50%, -50%) rotate(19deg);
+}
+
+.hero-spark { display: none; }
+
+.hero-media {
+  display: grid;
+  position: relative;
+  justify-items: center;
+  gap: .55rem;
+  min-width: 0;
+}
+
+.hero-frame {
+  width: clamp(8rem, 23svh, 14rem);
+  aspect-ratio: 9 / 16;
+  padding: 2px;
+  border-radius: .65rem;
+  background: linear-gradient(145deg, #e4abff, #612c82 28%, #2d1549 52%, #ffac7d);
+  box-shadow: 0 17px 35px #080410a8, 0 0 35px #c455a751;
+}
+
 .hero-media img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 46%;
+  object-fit: contain;
   filter: brightness(1.16) contrast(.91) saturate(1.04);
 }
 
 .hero-media figcaption {
-  position: absolute;
-  z-index: 1;
-  inset: auto auto .8rem .8rem;
-  padding: .47rem .65rem;
-  border: 1px solid #ffffff43;
-  border-radius: .55rem;
-  background: #21132aeb;
-  color: #fff;
-  font-size: .81rem;
-  font-weight: 700;
+  color: #f4dff3;
+  font-size: .78rem;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 span,
+  .hero h1 em,
+  .hero .lead,
+  .hero .actions,
+  .hero-media {
+    animation: hero-appear .78s cubic-bezier(.2,.75,.25,1) both;
+  }
+
+  .hero h1 em { animation-delay: .13s; }
+  .hero .lead { animation-delay: .22s; }
+  .hero .actions { animation-delay: .3s; }
+  .hero-media { animation-delay: .16s; }
+  .hero-stage::before { animation: hero-orbit-light 2.6s ease-out both; }
+  .hero-stage::after { animation: hero-orbit-light 2.6s .18s ease-out both; }
+
+  @supports (offset-path: ellipse(48% 25% at 50% 50%)) {
+    .hero-spark {
+      display: block;
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: .56rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #fff0db;
+      box-shadow: 0 0 10px 3px #ffb5df, 0 0 38px 11px #ff82d3a0;
+      pointer-events: none;
+      offset-path: ellipse(48% 25% at 50% 50%);
+      animation: hero-light-sweep 3.35s .18s ease-in-out both;
+    }
+  }
+}
+
+@keyframes hero-appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes hero-orbit-light {
+  0% { opacity: .2; clip-path: inset(0 100% 0 0); }
+  55% { opacity: 1; clip-path: inset(0); }
+  100% { opacity: .8; clip-path: inset(0); }
+}
+
+@keyframes hero-light-sweep {
+  0% { opacity: 0; offset-distance: 8%; }
+  15%, 82% { opacity: 1; }
+  100% { opacity: 0; offset-distance: 108%; }
 }
 
 .section { padding-block: clamp(3rem, 7vw, 6rem); }
@@ -554,7 +643,7 @@ h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
 @media (max-width: 420px) {
   .container { width: calc(100% - 2rem); }
   .menu-ready .site-nav { inset-inline: 1rem; }
-  .hero h1 em { font-size: .85em; }
+  .hero h1 em { font-size: .88em; }
   .hero .actions { display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr); }
   .hero .button { padding-inline: .45rem; font-size: clamp(.76rem, 3.5vw, .89rem); gap: .27rem; }
 }
@@ -562,8 +651,17 @@ h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
 @media (max-width: 350px) {
   .header-inner .brand { gap: .35rem; font-size: .94rem; }
   .header-contact { padding-inline: .65rem; }
-  .hero h1 { font-size: 2.3rem; }
-  .hero-copy { padding-inline: 1.05rem; }
+  .hero h1 { font-size: 2.23rem; }
+}
+
+@media (max-width: 479px) and (max-height: 650px) {
+  .hero-grid { padding-block: .9rem; }
+  .hero .lead { font-size: .94rem; line-height: 1.45; }
+  .hero h1 { margin-block: .5rem .6rem; }
+  .hero .actions { margin-top: .72rem; }
+  .hero-stage { padding-top: .75rem; }
+  .hero-frame { width: clamp(6.25rem, 20svh, 8rem); }
+  .hero-media { gap: .35rem; }
 }
 
 @media (min-width: 480px) {
@@ -579,11 +677,11 @@ h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
   .site-nav { order: 0; width: auto; margin-inline: auto; }
   .nav-list { padding: 0; }
   .header-contact { margin-left: 0; }
-  .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
-  .hero h1 { font-size: clamp(3.35rem, 6.65vw, 6.1rem); }
-  .hero-media { min-height: clamp(28rem, 46vw, 38rem); aspect-ratio: auto; }
-  .hero-media::after { background: linear-gradient(90deg, #22102e70, transparent 22%), linear-gradient(0deg, #150b2190, transparent 32%); }
-  .hero-media figcaption { inset: auto 1.2rem 1.2rem auto; }
+  .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); padding-block: clamp(1.25rem, 4svh, 3.4rem); }
+  .hero h1 { font-size: clamp(3.25rem, 6.7vw, 6.1rem); }
+  .hero .actions { margin-top: 1.4rem; }
+  .hero-stage { padding-block: 0; }
+  .hero-frame { width: clamp(12.5rem, 43svh, 23rem); }
   .service-grid { gap: .9rem; }
   .service-copy { padding: 1.15rem 1.25rem 1.25rem; }
   .project-feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
