@@ -268,7 +268,13 @@ h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
   background: #261b32;
 }
 
-.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 47%; }
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 47%;
+  filter: brightness(1.16) contrast(.91) saturate(1.04);
+}
 
 .hero-media figcaption {
   position: absolute;
@@ -285,19 +291,39 @@ h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
 .section-heading { margin-bottom: clamp(1.2rem, 3vw, 2.2rem); }
 .section-heading p { margin-top: .45rem; color: var(--muted); }
 
-.service-grid { display: grid; gap: .55rem; }
+.service-grid { display: grid; gap: .85rem; }
 
 .service-card {
   display: grid;
   align-content: start;
-  gap: .4rem;
-  padding: 1rem 1.1rem;
+  min-width: 0;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: .8rem;
   background: var(--paper);
 }
 
-.service-card:nth-child(-n+2) { border-inline-start: 3px solid var(--purple); }
+.service-media {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--lilac);
+}
+
+.service-media-product {
+  object-fit: contain;
+  padding: .65rem 1rem;
+}
+
+.service-media-installation { object-position: center 42%; }
+
+.service-copy {
+  display: grid;
+  gap: .4rem;
+  padding: 1rem 1.1rem 1.15rem;
+}
+
 .service-card p, .project-copy > p:not(.project-category) { color: var(--muted); }
 
 .projects { background: var(--lilac); }
@@ -482,7 +508,7 @@ h3 { font-size: clamp(1.22rem, 2.2vw, 1.55rem); }
   .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); }
   .hero-media { aspect-ratio: 1.12; }
   .service-grid { gap: .9rem; }
-  .service-card { padding: 1.2rem 1.35rem; }
+  .service-copy { padding: 1.15rem 1.25rem 1.25rem; }
   .project-feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .project-feature .project-copy { justify-content: center; }
   .project-grid, .brochure-grid, .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
