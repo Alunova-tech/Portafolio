@@ -127,11 +127,16 @@
   }
 
   function updateButtons() {
+    for (const service of services.values()) {
+      service.card.classList.toggle('is-selected', state.items.some((item) => services.get(item.id) === service));
+    }
     document.querySelectorAll('[data-add-service]').forEach((button) => {
       const selected = state.items.some((item) => item.id === button.dataset.addService);
       const service = services.get(button.dataset.addService);
       button.setAttribute('aria-pressed', String(selected));
-      button.textContent = selected ? 'Añadido a mi consulta' : 'Añadir a mi consulta';
+      button.textContent = button.closest('.service-card')
+        ? (selected ? 'En tu consulta' : 'Añadir a consulta')
+        : (selected ? 'Añadido a mi consulta' : 'Añadir a mi consulta');
       if (service) button.setAttribute('aria-label', `${selected ? 'Quitar' : 'Añadir'} ${service.title} ${selected ? 'de' : 'a'} mi consulta`);
     });
     document.querySelectorAll('[data-inquiry-count]').forEach((counter) => {
@@ -233,6 +238,7 @@
     const results = document.querySelector('#service-results');
     const labels = {todos: 'en total', alquilar: 'de alquiler', crear: 'de diseño y desarrollo', comprar: 'de venta'};
     if (results) results.textContent = `${visible} ${visible === 1 ? 'servicio' : 'servicios'} ${labels[filter]}`;
+    document.querySelector('.service-grid')?.dispatchEvent(new CustomEvent('servicesfiltered'));
   }
 
   function filterFromHash() {

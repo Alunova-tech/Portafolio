@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#4b1a92">
-  <title>ALUNOVA | Equipos, eventos y aplicaciones</title>
+  <title>ALUNOVA | Tecnología, diseño y experiencias</title>
   <meta name="description" content="Alquiler de televisores 4K, tótems táctiles y laptops. Video walls, juegos interactivos, stands y venta de equipos en Bolivia.">
   <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="preload" href="img/fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/redesign.css?v=consulta-2026">
   <link rel="stylesheet" href="css/consultas.css?v=consulta-2026">
+  <link rel="stylesheet" href="css/proyectos.css?v=portfolio-2026">
+  <link rel="stylesheet" href="css/experiencia.css?v=portfolio-2026">
   <script src="js/mobile-menu.js?v=2" defer></script>
   <script src="js/clientes-carousel.js" defer></script>
   <script src="js/main.js?v=consulta-2026" defer></script>
+  <script src="js/proyectos.js?v=portfolio-2026" defer></script>
+  <script src="js/experiencia.js?v=portfolio-2026" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -41,25 +46,29 @@
     <section class="hero" id="hero" aria-labelledby="inicio-titulo">
       <div class="container hero-grid">
         <div class="hero-copy" id="nosotros">
-          <p class="eyebrow">ALUNOVA · Soluciones audiovisuales</p>
-          <h1 id="inicio-titulo">Tu marca,<br><em>en pantalla.</em></h1>
-          <p class="lead">Alquiler de pantallas, tótems y laptops. Juegos, aplicaciones y stands diseñados con tu marca.</p>
+          <p class="eyebrow">Tecnología · Diseño · Experiencias</p>
+          <h1 id="inicio-titulo">Tu marca.<br><em>En grande.</em></h1>
+          <p class="lead">Equipos audiovisuales, aplicaciones interactivas y stands para darle forma a tu próximo evento.</p>
           <div class="actions">
             <a class="button button-lime" href="#contacto" data-open-inquiry>Preparar mi consulta</a>
-            <a class="button button-outline" href="#servicios">Ver soluciones</a>
+            <a class="button button-outline" href="#portafolio">Explorar proyectos</a>
           </div>
+          <div class="hero-note"><span aria-hidden="true" class="hero-note-line"></span><p>De la idea a la instalación.<br><strong>Todo conectado con tu marca.</strong></p></div>
         </div>
         <div class="hero-stage">
+          <span class="stage-orbit" aria-hidden="true"></span>
+          <span class="stage-word" aria-hidden="true">ALUNOVA</span>
           <figure class="hero-media">
             <img src="img/hero/equipos-alunova.webp" alt="Un tótem táctil y una pantalla LED vertical encendidos con el logo de ALUNOVA" width="900" height="1600" fetchpriority="high">
           </figure>
+          <p class="stage-caption">Pantalla y tótem ALUNOVA <span>Fotografía real</span></p>
         </div>
       </div>
       <nav class="hero-solutions" aria-label="Explorar soluciones de ALUNOVA">
         <div class="container">
-          <a href="#servicios" data-filter-link="alquilar">Alquilar equipos</a>
-          <a href="#servicios" data-filter-link="crear">Crear una experiencia</a>
-          <a href="#servicios" data-filter-link="comprar">Comprar equipos</a>
+          <a href="#servicios" data-filter-link="alquilar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg><span>Alquilar equipos<small>Pantallas, tótems y laptops</small></span></a>
+          <a href="#servicios" data-filter-link="crear"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7m-3.5-3.5v7"/></svg><span>Crear una experiencia<small>Apps, juegos y stands</small></span></a>
+          <a href="#servicios" data-filter-link="comprar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 8h16l1 13H3L4 8Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg><span>Comprar equipos<small>Tecnología para tu empresa</small></span></a>
         </div>
       </nav>
     </section>
@@ -67,7 +76,8 @@
     <section class="section clients-compact" id="clientes" aria-labelledby="clientes-titulo">
       <div class="container">
         <div class="section-heading">
-          <h2 id="clientes-titulo">Nuestros clientes</h2>
+          <p class="eyebrow">Conexiones que construimos</p>
+          <h2 id="clientes-titulo">Marcas e instituciones que confían en ALUNOVA</h2>
         </div>
         <ul class="clientes-track" id="logos-clientes" aria-label="Carrusel de clientes de ALUNOVA" tabindex="0">
           <li class="logo-slot">
@@ -97,10 +107,12 @@
 
     <section class="section" id="servicios" aria-labelledby="servicios-titulo">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Qué hacemos</p>
-          <h2 id="servicios-titulo">Soluciones para tu evento.</h2>
-          <p>Elige lo que necesitas y reúne los servicios en una misma consulta.</p>
+        <div class="section-heading solutions-heading">
+          <div>
+            <p class="eyebrow">Qué hacemos</p>
+            <h2 id="servicios-titulo">Una idea.<br>Muchas posibilidades.</h2>
+          </div>
+          <p>Encuentra lo que necesitas. Combina equipos, diseño y tecnología en una misma consulta.</p>
         </div>
 
         <div class="service-filters" role="group" aria-label="Filtrar soluciones">
@@ -125,7 +137,7 @@
             </div>
           </article>
           <article class="service-card" id="totems" data-service-id="totems" data-category="alquilar" data-quantity="true">
-            <img class="service-media service-media-product" src="img/servicios/venta.webp" alt="Dos tótems táctiles de ALUNOVA" width="760" height="513" loading="lazy" decoding="async">
+            <figure class="service-figure"><img class="service-media service-media-product" src="img/servicios/venta.webp" alt="Dos tótems táctiles con la identidad de ALUNOVA" width="760" height="513" loading="lazy" decoding="async"><figcaption>Imagen de catálogo</figcaption></figure>
             <div class="service-copy">
               <h3>Tótems publicitarios y táctiles</h3>
               <p class="service-description">Pantallas para mostrar videos, catálogos o contenidos que tus visitantes puedan explorar.</p>
@@ -138,7 +150,7 @@
             </div>
           </article>
           <article class="service-card" id="laptops" data-service-id="laptops" data-category="alquilar" data-quantity="true">
-            <img class="service-media service-media-laptop" src="img/servicios/laptops.webp" alt="Imagen de catálogo de una modelo sosteniendo una laptop" width="800" height="1071" loading="lazy" decoding="async">
+            <figure class="service-figure"><img class="service-media service-media-laptop" src="img/servicios/laptops.webp" alt="Imagen de catálogo de una modelo sosteniendo una laptop" width="800" height="1071" loading="lazy" decoding="async"><figcaption>Imagen de catálogo</figcaption></figure>
             <div class="service-copy">
               <h3>Laptops para eventos</h3>
               <p class="service-description">Equipos configurados para capacitaciones, registros y puestos de trabajo temporales.</p>
@@ -155,6 +167,7 @@
             <div class="service-copy">
               <h3>Juegos y aplicaciones a medida</h3>
               <p class="service-description">Ruletas, trivias, mapas y bibliotecas con la imagen de tu marca.</p>
+              <a class="service-example" href="#mallasa">Explora el mapa de Mallasa</a>
               <template class="service-details"><p>Ruletas, trivias, mapas y bibliotecas para interactuar con tu público desde un tótem o un navegador.</p><ul class="service-points"><li>Diseño con la imagen de tu marca</li><li>Formularios para captar prospectos</li></ul></template>
 
               <div class="service-actions">
@@ -216,55 +229,112 @@
       </div>
     </section>
 
-    <section class="section projects" id="portafolio" aria-labelledby="proyectos-titulo">
+    <section class="section case-projects" id="portafolio" aria-labelledby="proyectos-titulo">
       <div class="container" id="aplicaciones">
-        <div class="section-heading">
-          <h2 id="proyectos-titulo">Proyectos interactivos</h2>
-          <p>Prueba en tu navegador lo que diseñamos para pantallas táctiles.</p>
+        <div class="case-heading">
+          <p class="eyebrow">Proyectos de ALUNOVA</p>
+          <h2 id="proyectos-titulo">Explora lo que creamos.</h2>
+          <p>Mapas, relatos y juegos que convierten una pantalla en una experiencia. Conoce cada proyecto y prueba sus demos.</p>
         </div>
+        <nav class="case-index" aria-label="Ir a un proyecto">
+          <a href="#mallasa">Mallasa</a>
+          <a href="#biblioteca-cdd">Biblioteca CDD</a>
+          <a href="#alunova-play">ALUNOVA Play</a>
+        </nav>
 
-        <article class="project-card project-feature" id="mallasa" aria-labelledby="mallasa-titulo">
-          <div class="project-screens">
-            <img src="img/aplicaciones/mallasa-mapa.webp" alt="Mapa táctil con los siete sectores ilustrados de Mallasa" width="576" height="1024" loading="lazy">
-            <img src="img/aplicaciones/mallasa-trivia.webp" alt="Trivia sobre los lugares y la fauna silvestre de Mallasa" width="480" height="854" loading="lazy">
+        <article class="case-study case-featured" id="mallasa" aria-labelledby="mallasa-titulo">
+          <div class="case-gallery" data-case-gallery role="region" aria-label="Imágenes del proyecto Mallasa">
+            <div class="case-gallery-track" id="mallasa-galeria" data-case-track tabindex="0" aria-label="Galería de Mallasa. Usa las flechas del teclado para cambiar de imagen.">
+              <figure class="case-slide">
+                <div class="case-screen case-screen-mallasa">
+                  <img src="img/aplicaciones/mallasa-mapa.webp" alt="Captura del mapa táctil con los siete sectores ilustrados de Mallasa" width="576" height="1024" loading="lazy" decoding="async">
+                </div>
+                <figcaption>El mapa permite elegir un sector y explorar sus contenidos.</figcaption>
+              </figure>
+              <figure class="case-slide">
+                <div class="case-screen case-screen-mallasa">
+                  <img src="img/aplicaciones/mallasa-trivia.webp" alt="Captura de la trivia con una pregunta sobre la fauna de Mallasa y tres respuestas" width="480" height="854" loading="lazy" decoding="async">
+                </div>
+                <figcaption>La trivia invita a descubrir los lugares y la naturaleza de Mallasa.</figcaption>
+              </figure>
+            </div>
+            <div class="case-gallery-controls" data-case-controls hidden>
+              <button type="button" data-case-previous aria-controls="mallasa-galeria" aria-label="Imagen anterior del proyecto Mallasa">Anterior</button>
+              <span class="case-gallery-position" data-case-position role="status" aria-live="polite" aria-atomic="true">1 de 2</span>
+              <button type="button" data-case-next aria-controls="mallasa-galeria" aria-label="Imagen siguiente del proyecto Mallasa">Siguiente</button>
+            </div>
           </div>
-          <div class="project-copy">
-            <p class="project-category">Subalcaldía de Mallasa · La Paz</p>
+          <div class="case-copy">
+            <p class="case-context">Subalcaldía de Mallasa · La Paz</p>
             <h3 id="mallasa-titulo">Mapa interactivo de Mallasa</h3>
-            <p>Diseñamos una app para tótem vertical con siete sectores ilustrados, un visor de videos y una trivia sobre los lugares y la naturaleza de Mallasa.</p>
-            <div class="actions">
+            <p class="case-intro">Un recorrido por Mallasa que empieza con un toque en el mapa.</p>
+            <dl class="case-details">
+              <div><dt>El proyecto</dt><dd>Una aplicación para tótem vertical con siete sectores ilustrados, videos y una trivia.</dd></div>
+              <div><dt>Qué hicimos</dt><dd>Desarrollamos la interfaz táctil y conectamos el mapa con los contenidos y el juego de preguntas.</dd></div>
+              <div><dt>Qué puedes hacer</dt><dd>Elegir un sector, explorar sus videos y poner a prueba lo que sabes sobre Mallasa.</dd></div>
+            </dl>
+            <div class="case-actions">
               <a class="button button-primary" href="https://alunova-mallasa-interactivo.videoinsitucional.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir demo de Mallasa</a>
               <button class="button button-outline" type="button" data-project-request="Mallasa · Mapa interactivo">Quiero algo así</button>
             </div>
           </div>
         </article>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-media project-cdd">
-              <img src="img/aplicaciones/biblioteca-cdd.png" alt="Logo de CDD Bolivia" width="1280" height="1018" loading="lazy">
-            </div>
-            <div class="project-copy">
-              <p class="project-category">Biblioteca de audio</p>
-              <h3>Biblioteca CDD</h3>
-              <p>Relatos ilustrados que puedes explorar y escuchar desde un tótem o un celular.</p>
-              <div class="actions">
-                <a class="button button-outline" href="https://alunova-tech.github.io/BibliotecaCDD/" target="_blank" rel="noopener noreferrer">Abrir biblioteca</a>
+        <div class="case-grid">
+          <article class="case-study" id="biblioteca-cdd" aria-labelledby="biblioteca-cdd-titulo">
+            <figure class="case-identity">
+              <div class="case-identity-image">
+                <img src="img/aplicaciones/biblioteca-cdd.png" alt="Identidad gráfica de CDD Bolivia" width="1280" height="1018" loading="lazy" decoding="async">
+              </div>
+              <figcaption>Identidad del proyecto · CDD Bolivia</figcaption>
+            </figure>
+            <div class="case-copy">
+              <p class="case-context">Biblioteca de audio · Interfaz táctil</p>
+              <h3 id="biblioteca-cdd-titulo">Biblioteca CDD</h3>
+              <p class="case-intro">Relatos que se descubren con una imagen y se escuchan al tocarla.</p>
+              <dl class="case-details">
+                <div><dt>Qué hicimos</dt><dd>Desarrollamos la biblioteca y el reproductor, integrando las ilustraciones y los audios del proyecto.</dd></div>
+                <div><dt>Qué puedes hacer</dt><dd>Elegir un relato, escucharlo y volver a la biblioteca para explorar otro, desde un tótem o un navegador.</dd></div>
+              </dl>
+              <div class="case-actions">
+                <a class="button button-primary" href="https://alunova-tech.github.io/BibliotecaCDD/" target="_blank" rel="noopener noreferrer">Abrir biblioteca</a>
                 <button class="button button-outline" type="button" data-project-request="Biblioteca CDD">Quiero algo así</button>
               </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-media">
-              <img src="img/aplicaciones/alunova-play.webp" alt="Vista de un tótem con el menú de juegos de ALUNOVA Play" width="960" height="768" loading="lazy">
+          <article class="case-study" id="alunova-play" aria-labelledby="alunova-play-titulo">
+            <div class="case-gallery" data-case-gallery role="region" aria-label="Imágenes de ALUNOVA Play">
+              <div class="case-gallery-track" id="play-galeria" data-case-track tabindex="0" aria-label="Galería de ALUNOVA Play. Usa las flechas del teclado para cambiar de imagen.">
+                <figure class="case-slide">
+                  <div class="case-screen case-screen-play">
+                    <img src="img/aplicaciones/alunova-play.webp" alt="Visualización conceptual de una persona usando un tótem con la identidad de ALUNOVA Play" width="960" height="768" loading="lazy" decoding="async">
+                  </div>
+                  <figcaption>Visualización de la experiencia en un tótem.</figcaption>
+                </figure>
+                <figure class="case-slide">
+                  <div class="case-screen case-screen-play case-screen-art">
+                    <img src="apps/alunova-play/assets/puzzle-world.png" alt="Ilustración morada y naranja con la luna y la estrella que utiliza el juego de rompecabezas" width="1254" height="1254" loading="lazy" decoding="async">
+                  </div>
+                  <figcaption>Arte del rompecabezas que puedes probar en el catálogo.</figcaption>
+                </figure>
+              </div>
+              <div class="case-gallery-controls" data-case-controls hidden>
+                <button type="button" data-case-previous aria-controls="play-galeria" aria-label="Imagen anterior de ALUNOVA Play">Anterior</button>
+                <span class="case-gallery-position" data-case-position role="status" aria-live="polite" aria-atomic="true">1 de 2</span>
+                <button type="button" data-case-next aria-controls="play-galeria" aria-label="Imagen siguiente de ALUNOVA Play">Siguiente</button>
+              </div>
             </div>
-            <div class="project-copy">
-              <p class="project-category">Juegos para eventos</p>
-              <h3>ALUNOVA Play</h3>
-              <p>Veinte juegos para activaciones y ferias. Elige tu catálogo y pruébalo en formato tótem.</p>
-              <div class="actions">
-                <a class="button button-outline" href="apps/alunova-play/index.html">Probar ALUNOVA Play</a>
+            <div class="case-copy">
+              <p class="case-context">Juegos para eventos · Catálogo de ALUNOVA</p>
+              <h3 id="alunova-play-titulo">ALUNOVA Play</h3>
+              <p class="case-intro">Veinte formas de participar, explorar y jugar con tu marca.</p>
+              <dl class="case-details">
+                <div><dt>Qué hicimos</dt><dd>Desarrollamos un catálogo de juegos con selección de experiencias, instrucciones e interfaces para pantallas táctiles.</dd></div>
+                <div><dt>Qué puedes hacer</dt><dd>Explorar el catálogo, elegir un juego y probar una partida antes de preparar tu propuesta.</dd></div>
+              </dl>
+              <div class="case-actions">
+                <a class="button button-primary" href="apps/alunova-play/index.html">Probar ALUNOVA Play</a>
                 <button class="button button-outline" type="button" data-project-request="ALUNOVA Play">Quiero algo así</button>
               </div>
             </div>
@@ -278,8 +348,8 @@
     <section class="section contact" id="contacto" aria-labelledby="contacto-titulo">
       <div class="container contact-grid">
         <div class="contact-copy">
-          <p class="eyebrow">Hablemos de tu proyecto</p>
-          <h2 id="contacto-titulo">Tu idea, con todo en orden.</h2>
+          <p class="eyebrow">Hagámoslo realidad</p>
+          <h2 id="contacto-titulo">La próxima gran idea<br>puede ser la tuya.</h2>
           <p>Reúne los servicios que necesitas, indica las fechas y el lugar, y revisa tu mensaje antes de abrir WhatsApp.</p>
           <div class="actions">
             <a class="button button-light" href="#servicios" data-open-inquiry>Preparar mi consulta</a>
