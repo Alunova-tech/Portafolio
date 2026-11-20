@@ -55,7 +55,8 @@
 .section { padding-block: clamp(3.2rem, 6.5vw, 6.25rem); }
 .clients-compact.section { padding-block: 2rem; }
 .solutions-heading { display: grid; gap: 1rem; }
-.solutions-heading > p { max-width: 39ch; font-size: 1rem; line-height: 1.8; }
+.solutions-intro { min-width: 0; }
+.solutions-intro > p { max-width: 39ch; font-size: 1rem; line-height: 1.8; color: var(--muted); }
 .solutions-heading h2 { font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 1.1; }
 .service-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4rem; padding: .35rem; background: var(--lilac); border: 1px solid var(--line); border-radius: .65rem; }
 .filter-button { background: transparent; border-color: transparent; border-radius: .375rem; font-size: .875rem; min-height: 3rem; padding: .65rem .5rem; }
@@ -77,11 +78,22 @@
 .service-actions .button-outline { order: 2; border-color: transparent; color: var(--purple); background: transparent; min-height: 2.75rem; }
 .service-actions .button-outline:hover { background: var(--lilac); }
 .service-card [data-add-service][aria-pressed="true"] { box-shadow: none; }
-.catalog-inline { margin-top: 1.5rem; border-radius: .5rem; padding: 1.2rem; }
-.catalog-inline p { font-size: .875rem; }
-.service-support { border-left-width: 3px; gap: 1rem; margin-top: 1.5rem; border-radius: 0 .5rem .5rem 0; }
-.service-support h3 { font-size: 1.25rem; }
-.service-support p { font-size: 1rem; line-height: 1.75; }
+.catalog-access { position: relative; z-index: 3; margin-top: 1rem; scroll-margin-top: calc(var(--header-size) + 1rem); }
+.catalog-access > summary { display: inline-flex; align-items: center; gap: .6rem; min-height: 2.9rem; padding: .5rem .75rem; border: 1px solid var(--line); border-radius: var(--radius); color: var(--purple); background: var(--paper); font-size: .875rem; font-weight: 600; cursor: pointer; list-style: none; }
+.catalog-access > summary::-webkit-details-marker { display: none; }
+.catalog-access > summary:hover, .catalog-access[open] > summary { border-color: var(--purple); background: var(--lilac); }
+.catalog-access > summary > svg { width: 1.25rem; height: 1.25rem; flex: 0 0 auto; }
+.catalog-format { padding: .15rem .35rem; border-radius: .2rem; background: var(--lilac); color: var(--muted); font-size: .875rem; font-weight: 500; }
+.catalog-panel { margin-top: .75rem; padding: 1rem; border: 1px solid var(--line); border-top: 3px solid var(--purple); border-radius: .5rem; background: var(--paper); box-shadow: 0 12px 32px #21103f12; }
+.catalog-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .9rem; }
+.catalog-panel h3 { font-size: 1.0625rem; line-height: 1.4; letter-spacing: -.01em; }
+.catalog-close { display: grid; place-items: center; flex: 0 0 2.75rem; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink); font-size: 1.6rem; line-height: 1; }
+.catalog-close:hover { background: var(--lilac); }
+.catalog-panel > img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: .25rem; }
+.catalog-panel-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1rem; }
+.catalog-panel-actions .button { padding-inline: .5rem; }
+.installation-field { min-width: 0; }
+.installation-field .field-help { margin-top: .45rem; color: var(--muted); font-size: .875rem; font-weight: 400; line-height: 1.65; }
 .contact { position: relative; overflow: clip; }
 .contact::before { content: ""; position: absolute; width: 23rem; height: 23rem; right: -12rem; top: -12rem; border: 1px solid #ffffff2b; border-radius: 50%; pointer-events: none; }
 .contact .eyebrow { color: var(--lime); }
@@ -148,13 +160,13 @@
   .hero-note { margin-top: 2rem; }
   .hero-solutions a { flex-direction: row; align-items: center; gap: 1rem; padding: 1.4rem 1rem; }
   .solutions-heading { grid-template-columns: 1.2fr 1fr; align-items: end; }
-  .solutions-heading > p { justify-self: end; padding-bottom: .25rem; }
+  .solutions-intro { justify-self: end; padding-bottom: .25rem; }
+  .catalog-panel { position: absolute; top: 100%; right: 0; width: 23rem; max-width: calc(100vw - 2.5rem); }
   .service-filters { display: flex; width: fit-content; }
   .filter-button { padding-inline: 1.05rem; }
   .service-copy { padding: 1.4rem; }
   .service-copy h3 { font-size: 1.4rem; }
   .service-actions { gap: .4rem; }
-  .catalog-inline { padding: 1.4rem; gap: 1.4rem; }
   .contact-grid { grid-template-columns: 1.2fr 1fr; }
   .contact-channels { padding: 2rem; }
 }

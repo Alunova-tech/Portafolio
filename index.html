@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="css/redesign.css?v=consulta-2026">
   <link rel="stylesheet" href="css/consultas.css?v=consulta-2026">
   <link rel="stylesheet" href="css/proyectos.css?v=portfolio-2026">
-  <link rel="stylesheet" href="css/experiencia.css?v=portfolio-2026">
+  <link rel="stylesheet" href="css/experiencia.css?v=catalogo-integrado-2026">
   <script src="js/mobile-menu.js?v=2" defer></script>
   <script src="js/clientes-carousel.js" defer></script>
   <script src="js/main.js?v=portfolio-2026" defer></script>
   <script src="js/proyectos.js?v=portfolio-2026" defer></script>
-  <script src="js/experiencia.js?v=portfolio-2026" defer></script>
+  <script src="js/experiencia.js?v=catalogo-integrado-2026" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -32,7 +32,7 @@
           <li><a href="#servicios">Soluciones</a></li>
           <li><a href="#portafolio">Proyectos</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#brochure">Catálogo</a></li>
+          <li><a href="#brochure" data-open-catalog>Catálogo</a></li>
         </ul>
       </nav>
       <a class="button button-primary header-contact" href="#contacto" data-open-inquiry>Consulta <span class="inquiry-count" data-inquiry-count>0</span></a>
@@ -112,7 +112,23 @@
             <p class="eyebrow">Qué hacemos</p>
             <h2 id="servicios-titulo">Una idea.<br>Muchas posibilidades.</h2>
           </div>
-          <p>Encuentra lo que necesitas. Combina equipos, diseño y tecnología en una misma consulta.</p>
+          <div class="solutions-intro">
+            <p>Encuentra lo que necesitas. Combina equipos, diseño y tecnología en una misma consulta.</p>
+            <details class="catalog-access" id="brochure">
+              <summary aria-controls="brochure-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3h8l4 4v14H6V3Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg>Catálogo audiovisual<span class="catalog-format">PDF</span></summary>
+              <aside class="catalog-panel" id="brochure-panel" aria-labelledby="brochure-titulo">
+                <div class="catalog-panel-heading">
+                  <h3 id="brochure-titulo">Catálogo audiovisual 2026</h3>
+                  <button type="button" class="catalog-close" data-close-catalog aria-label="Cerrar catálogo">×</button>
+                </div>
+                <img src="img/brochure-alunova-2026.png" alt="Portada del catálogo audiovisual de ALUNOVA" width="528" height="297" loading="lazy">
+                <div class="catalog-panel-actions">
+                  <a class="button button-primary" href="docs/brochure-alunova-2026.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
+                  <a class="button button-outline" href="docs/brochure-alunova-2026.pdf" download>Descargar PDF</a>
+                </div>
+              </aside>
+            </details>
+          </div>
         </div>
 
         <div class="service-filters" role="group" aria-label="Filtrar soluciones">
@@ -207,25 +223,6 @@
           </article>
         </div>
 
-        <aside class="catalog-inline" id="brochure" aria-labelledby="brochure-titulo">
-          <img src="img/brochure-alunova-2026.png" alt="Portada del catálogo audiovisual de ALUNOVA" width="528" height="297" loading="lazy">
-          <div>
-            <h3 id="brochure-titulo">Catálogo audiovisual 2026</h3>
-            <p>Consulta los equipos y las soluciones del brochure.</p>
-          </div>
-          <div class="actions">
-            <a class="button button-outline" href="docs/brochure-alunova-2026.pdf" target="_blank" rel="noopener noreferrer">Ver catálogo PDF</a>
-            <a class="text-link" href="docs/brochure-alunova-2026.pdf" download>Descargar PDF</a>
-          </div>
-        </aside>
-
-        <div class="service-support">
-          <div>
-            <h3>Instalación y soporte técnico</h3>
-            <p>Coordinamos montaje, cableado, configuración y pruebas en el recinto. El acompañamiento durante el evento y el retiro se definen en tu cotización.</p>
-          </div>
-          <a class="button button-primary" href="#contacto" data-open-inquiry>Añadir detalles a mi consulta</a>
-        </div>
       </div>
     </section>
 
@@ -427,7 +424,10 @@
             <label for="consulta-fin"><span>Fecha de fin <span class="field-optional">Opcional</span></span><input id="consulta-fin" type="date" name="fecha_fin"></label>
           </div>
           <label for="consulta-lugar"><span>Lugar o ciudad <span class="field-optional">Opcional</span></span><input id="consulta-lugar" type="text" name="lugar" maxlength="200" autocomplete="address-level2"></label>
-          <label for="consulta-montaje">Montaje e instalación<select id="consulta-montaje" name="montaje"><option value="por-definir">Por definir</option><option value="si">Sí, necesito montaje</option><option value="no">Solo equipos o servicio</option></select></label>
+          <div class="installation-field">
+            <label for="consulta-montaje">Montaje e instalación<select id="consulta-montaje" name="montaje" aria-describedby="montaje-ayuda"><option value="por-definir">Por definir</option><option value="si">Sí, necesito montaje</option><option value="no">Solo equipos o servicio</option></select></label>
+            <p id="montaje-ayuda" class="field-help">Coordinamos montaje, cableado, configuración y pruebas. El soporte durante el evento y el retiro se definen en tu cotización.</p>
+          </div>
           <label for="consulta-notas">Cuéntanos qué necesitas<textarea id="consulta-notas" name="notas" rows="3" maxlength="2000" placeholder="Tipo de evento, modelos, medidas o requisitos de tu proyecto"></textarea></label>
         </section>
         <details class="inquiry-message">
