@@ -11,12 +11,14 @@
   <link rel="stylesheet" href="css/redesign.css?v=consulta-2026">
   <link rel="stylesheet" href="css/consultas.css?v=consulta-2026">
   <link rel="stylesheet" href="css/proyectos.css?v=portfolio-2026">
-  <link rel="stylesheet" href="css/experiencia.css?v=catalogo-integrado-2026">
+  <link rel="stylesheet" href="css/experiencia.css?v=catalogo-editorial-2026">
+  <link rel="stylesheet" href="css/catalogo.css?v=editorial-2026">
   <script src="js/mobile-menu.js?v=2" defer></script>
   <script src="js/clientes-carousel.js" defer></script>
   <script src="js/main.js?v=portfolio-2026" defer></script>
   <script src="js/proyectos.js?v=portfolio-2026" defer></script>
-  <script src="js/experiencia.js?v=catalogo-integrado-2026" defer></script>
+  <script src="js/experiencia.js?v=catalogo-editorial-2026" defer></script>
+  <script src="js/catalogo.js?v=editorial-2026" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -32,7 +34,7 @@
           <li><a href="#servicios">Soluciones</a></li>
           <li><a href="#portafolio">Proyectos</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#brochure" data-open-catalog>Catálogo</a></li>
+          <li><a href="#brochure">Catálogo</a></li>
         </ul>
       </nav>
       <a class="button button-primary header-contact" href="#contacto" data-open-inquiry>Consulta <span class="inquiry-count" data-inquiry-count>0</span></a>
@@ -114,20 +116,6 @@
           </div>
           <div class="solutions-intro">
             <p>Encuentra lo que necesitas. Combina equipos, diseño y tecnología en una misma consulta.</p>
-            <details class="catalog-access" id="brochure">
-              <summary aria-controls="brochure-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3h8l4 4v14H6V3Z"/><path d="M14 3v5h4M9 12h6m-6 4h6"/></svg>Catálogo audiovisual<span class="catalog-format">PDF</span></summary>
-              <aside class="catalog-panel" id="brochure-panel" aria-labelledby="brochure-titulo">
-                <div class="catalog-panel-heading">
-                  <h3 id="brochure-titulo">Catálogo audiovisual 2026</h3>
-                  <button type="button" class="catalog-close" data-close-catalog aria-label="Cerrar catálogo">×</button>
-                </div>
-                <img src="img/brochure-alunova-2026.png" alt="Portada del catálogo audiovisual de ALUNOVA" width="528" height="297" loading="lazy">
-                <div class="catalog-panel-actions">
-                  <a class="button button-primary" href="docs/brochure-alunova-2026.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
-                  <a class="button button-outline" href="docs/brochure-alunova-2026.pdf" download>Descargar PDF</a>
-                </div>
-              </aside>
-            </details>
           </div>
         </div>
 
@@ -342,6 +330,28 @@
 
 
 
+    <section class="catalog-showcase" id="brochure" aria-labelledby="brochure-titulo">
+      <div class="container catalog-layout">
+        <div class="catalog-art">
+          <img class="catalog-paper-back" src="img/catalogo/pagina-03.webp" alt="" width="1440" height="810" loading="lazy" aria-hidden="true">
+          <button class="catalog-cover" type="button" data-open-catalog-reader aria-label="Hojear el catálogo audiovisual de ALUNOVA">
+            <img src="img/catalogo/pagina-01.webp" alt="Portada original del catálogo audiovisual de ALUNOVA" width="1440" height="810" loading="lazy">
+          </button>
+          <span class="catalog-art-caption">Una mirada a lo que hacemos</span>
+        </div>
+        <div class="catalog-editorial-copy">
+          <p class="eyebrow">ALUNOVA · Edición 2026</p>
+          <h2 id="brochure-titulo">Nuestro catálogo<br>audiovisual.</h2>
+          <p>Conoce nuestros equipos y las soluciones que podemos crear para tu marca.</p>
+          <div class="catalog-editorial-actions">
+            <button class="button button-lime" type="button" data-open-catalog-reader>Hojear catálogo</button>
+            <a class="catalog-download" href="docs/brochure-alunova-2026.pdf" download>Descargar PDF</a>
+          </div>
+          <p class="catalog-edition-note">11 páginas para explorar ALUNOVA</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact" id="contacto" aria-labelledby="contacto-titulo">
       <div class="container contact-grid">
         <div class="contact-copy">
@@ -380,6 +390,29 @@
   </div>
 
   <p class="sr-only" id="selection-status" role="status" aria-live="polite"></p>
+
+  <dialog id="catalog-reader" class="catalog-reader" aria-labelledby="catalog-reader-title">
+    <header class="catalog-reader-header">
+      <div><p class="eyebrow">ALUNOVA</p><h2 id="catalog-reader-title">Catálogo audiovisual</h2></div>
+      <button class="catalog-reader-close" type="button" data-close-catalog-reader aria-label="Cerrar el catálogo">×</button>
+    </header>
+    <div class="catalog-page-viewport" tabindex="0" aria-label="Página del catálogo. Usa las flechas del teclado para cambiar de página.">
+      <img id="catalog-page-image" src="img/catalogo/pagina-01.webp" alt="Catálogo ALUNOVA, página 1 de 11" width="1440" height="810" draggable="false" loading="lazy">
+    </div>
+    <footer class="catalog-reader-footer">
+      <div class="catalog-reader-pagination">
+        <button type="button" data-catalog-prev>Anterior</button>
+        <label class="catalog-page-picker"><span class="sr-only">Ir a página</span><select id="catalog-page-select" aria-label="Ir a página"><option value="1">Página 1</option></select></label>
+        <button type="button" data-catalog-next>Siguiente</button>
+        <span class="catalog-reader-position" data-catalog-position role="status" aria-live="polite" aria-atomic="true">1 de 11</span>
+      </div>
+      <div class="catalog-reader-tools">
+        <button type="button" data-catalog-zoom aria-pressed="false">Ampliar</button>
+        <a href="docs/brochure-alunova-2026.pdf" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
+        <a href="docs/brochure-alunova-2026.pdf" download>Descargar</a>
+      </div>
+    </footer>
+  </dialog>
 
   <dialog class="ux-dialog service-dialog" id="service-dialog" aria-labelledby="service-dialog-title">
     <header class="dialog-heading">

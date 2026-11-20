@@ -42,42 +42,6 @@
     document.querySelectorAll('.service-card:not([hidden])').forEach((card, index) => animateEntry(card, index * 45));
   });
 
-  const catalog = document.querySelector('#brochure.catalog-access');
-  const catalogSummary = catalog?.querySelector('summary');
-  if (catalog && catalogSummary) {
-    catalog.addEventListener('toggle', () => {
-      if (catalog.open && window.matchMedia('(max-width: 767px)').matches) {
-        catalog.scrollIntoView({block: 'start'});
-      }
-    });
-    const closeCatalog = (restoreFocus = false) => {
-      catalog.open = false;
-      if (restoreFocus) catalogSummary.focus({preventScroll: true});
-    };
-    document.addEventListener('click', (event) => {
-      if (!(event.target instanceof Element)) return;
-      if (event.target.closest('[data-open-catalog]')) {
-        event.preventDefault();
-        catalog.open = true;
-        window.location.hash = 'brochure';
-        catalog.scrollIntoView({block: 'start'});
-        catalogSummary.focus({preventScroll: true});
-      } else if (event.target.closest('[data-close-catalog]')) {
-        closeCatalog(true);
-      } else if (catalog.open && !catalog.contains(event.target)) {
-        closeCatalog();
-      }
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && catalog.open && catalog.contains(event.target)) {
-        event.preventDefault();
-        closeCatalog(true);
-      }
-    });
-    // Keep a shared catalogue link useful after opening it in a new tab.
-    if (window.location.hash === '#brochure') catalog.open = true;
-  }
-
   const counts = document.querySelectorAll('[data-inquiry-count]');
   if ('MutationObserver' in window) {
     const countObserver = new MutationObserver(() => {
