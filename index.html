@@ -13,9 +13,10 @@
   <link rel="stylesheet" href="css/proyectos.css?v=portfolio-2026">
   <link rel="stylesheet" href="css/experiencia.css?v=catalogo-editorial-2026">
   <link rel="stylesheet" href="css/catalogo.css?v=editorial-2026">
+  <link rel="stylesheet" href="css/consulta.css?v=consulta-clara-2026">
   <script src="js/mobile-menu.js?v=2" defer></script>
   <script src="js/clientes-carousel.js" defer></script>
-  <script src="js/main.js?v=portfolio-2026" defer></script>
+  <script src="js/main.js?v=consulta-clara-2026" defer></script>
   <script src="js/proyectos.js?v=portfolio-2026" defer></script>
   <script src="js/experiencia.js?v=catalogo-editorial-2026" defer></script>
   <script src="js/catalogo.js?v=editorial-2026" defer></script>
@@ -429,51 +430,69 @@
     </footer>
   </dialog>
 
-  <dialog class="ux-dialog inquiry-dialog" id="inquiry-dialog" aria-labelledby="inquiry-title">
-    <header class="dialog-heading">
+  <dialog class="ux-dialog inquiry-dialog" id="inquiry-dialog" aria-labelledby="inquiry-title" aria-describedby="inquiry-description">
+    <header class="dialog-heading inquiry-heading">
       <div>
-        <p class="eyebrow">ALUNOVA</p>
-        <h2 id="inquiry-title">Mi consulta</h2>
+        <p class="eyebrow">ALUNOVA · Tu próximo proyecto</p>
+        <h2 id="inquiry-title">Preparemos tu idea.</h2>
+        <p id="inquiry-description">Tus servicios, fechas y detalles en un solo lugar.</p>
       </div>
       <button class="dialog-close" type="button" data-close-dialog aria-label="Cerrar mi consulta">×</button>
     </header>
     <form id="inquiry-form">
       <div class="inquiry-content">
         <section class="inquiry-selection" aria-labelledby="selection-title">
-          <h3 id="selection-title">Servicios elegidos</h3>
+          <div class="inquiry-selection-heading"><h3 id="selection-title">Tu selección</h3><span class="selection-count" data-inquiry-count>0</span><button class="selection-toggle" id="selection-toggle" type="button" aria-expanded="false" aria-controls="inquiry-selection-body" hidden>Ver servicios</button></div>
+          <div id="inquiry-selection-body">
+          <p class="selection-intro">Revisa tus servicios y ajusta las cantidades.</p>
           <ul id="inquiry-items" class="inquiry-items"></ul>
           <div class="inquiry-empty" id="inquiry-empty">
-            <p>Añade una solución o cuéntanos lo que necesitas en las notas.</p>
-            <button class="button button-outline" type="button" data-browse-services>Explorar soluciones</button>
+            <p>Todavía no has elegido servicios.</p>
+            <p>Puedes añadirlos o contarnos tu idea en los detalles.</p>
+            <button class="button button-outline" type="button" data-browse-services>Elegir servicios</button>
           </div>
           <ul id="inquiry-references" class="inquiry-references" aria-label="Proyectos de referencia"></ul>
+          <button class="selection-add" type="button" data-browse-services>+ Añadir otros servicios</button>
+          </div>
         </section>
         <section class="inquiry-fields" aria-labelledby="details-title">
-          <h3 id="details-title">Detalles de tu proyecto</h3>
-          <div class="form-fields">
-            <label for="consulta-nombre">Tu nombre<input id="consulta-nombre" type="text" name="nombre" maxlength="120" autocomplete="name" required></label>
-            <label for="consulta-email"><span>Correo <span class="field-optional">Opcional</span></span><input id="consulta-email" type="email" name="email" maxlength="180" autocomplete="email"></label>
-            <label for="consulta-inicio"><span>Fecha de inicio <span class="field-optional">Opcional</span></span><input id="consulta-inicio" type="date" name="fecha_inicio"></label>
-            <label for="consulta-fin"><span>Fecha de fin <span class="field-optional">Opcional</span></span><input id="consulta-fin" type="date" name="fecha_fin"></label>
-          </div>
-          <label for="consulta-lugar"><span>Lugar o ciudad <span class="field-optional">Opcional</span></span><input id="consulta-lugar" type="text" name="lugar" maxlength="200" autocomplete="address-level2"></label>
-          <div class="installation-field">
-            <label for="consulta-montaje">Montaje e instalación<select id="consulta-montaje" name="montaje" aria-describedby="montaje-ayuda"><option value="por-definir">Por definir</option><option value="si">Sí, necesito montaje</option><option value="no">Solo equipos o servicio</option></select></label>
-            <p id="montaje-ayuda" class="field-help">Coordinamos montaje, cableado, configuración y pruebas. El soporte durante el evento y el retiro se definen en tu cotización.</p>
-          </div>
-          <label for="consulta-notas">Cuéntanos qué necesitas<textarea id="consulta-notas" name="notas" rows="3" maxlength="2000" placeholder="Tipo de evento, modelos, medidas o requisitos de tu proyecto"></textarea></label>
+          <h3 id="details-title" class="sr-only">Detalles de tu proyecto</h3>
+          <p id="inquiry-requirements" class="inquiry-requirements">Solo tu nombre es obligatorio. Lo demás puede quedar por definir.</p>
+          <fieldset class="inquiry-group">
+            <legend>Tus datos</legend>
+            <div class="form-fields">
+              <label for="consulta-nombre">Tu nombre<input id="consulta-nombre" type="text" name="nombre" maxlength="120" autocomplete="name" placeholder="Nombre y apellido" required aria-describedby="inquiry-requirements"></label>
+              <label for="consulta-email">Correo<input id="consulta-email" type="email" name="email" maxlength="180" autocomplete="email" placeholder="tu@correo.com"></label>
+            </div>
+          </fieldset>
+          <fieldset class="inquiry-group">
+            <legend>Fechas y lugar</legend>
+            <div class="form-fields">
+              <label for="consulta-inicio">Fecha de inicio<input id="consulta-inicio" type="date" name="fecha_inicio"></label>
+              <label for="consulta-fin">Fecha de fin<input id="consulta-fin" type="date" name="fecha_fin"></label>
+            </div>
+            <label for="consulta-lugar">Lugar o ciudad<input id="consulta-lugar" type="text" name="lugar" maxlength="200" autocomplete="address-level2" placeholder="Ciudad, recinto o dirección"></label>
+          </fieldset>
+          <fieldset class="inquiry-group">
+            <legend>Montaje y detalles</legend>
+            <div class="installation-field">
+              <label for="consulta-montaje">¿Necesitas montaje?<select id="consulta-montaje" name="montaje" aria-describedby="montaje-ayuda"><option value="por-definir">Por definir</option><option value="si">Sí, necesito montaje</option><option value="no">Solo equipos o servicio</option></select></label>
+              <p id="montaje-ayuda" class="field-help">Instalación, soporte y retiro se definen en tu cotización.</p>
+            </div>
+            <label for="consulta-notas">¿Algo más que debamos saber?<textarea id="consulta-notas" name="notas" rows="2" maxlength="2000" placeholder="Tu idea, tipo de evento, medidas o necesidades especiales"></textarea></label>
+          </fieldset>
+          <details class="inquiry-message">
+            <summary>Revisar el mensaje preparado</summary>
+            <pre id="inquiry-preview"></pre>
+          </details>
+          <p id="inquiry-status" role="status" aria-live="polite"></p>
         </section>
-        <details class="inquiry-message">
-          <summary>Ver mensaje preparado</summary>
-          <pre id="inquiry-preview"></pre>
-        </details>
-        <p id="inquiry-status" role="status" aria-live="polite"></p>
       </div>
       <footer class="inquiry-send">
-        <p>WhatsApp se abrirá con el mensaje para que lo revises y lo envíes.</p>
+        <p>Revisas el mensaje en WhatsApp antes de enviarlo.</p>
         <div class="actions">
           <button class="button button-primary" type="submit">Abrir WhatsApp</button>
-          <button class="button button-outline" id="inquiry-email" type="button">Preparar correo</button>
+          <button class="inquiry-email-button" id="inquiry-email" type="button">Usar correo</button>
         </div>
       </footer>
     </form>
