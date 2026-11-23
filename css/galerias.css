@@ -43,7 +43,13 @@
 .case-projects .case-gallery-controls button:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
 .case-projects .case-gallery-controls button::before { content: none; }
 .case-projects .case-gallery-controls [data-case-previous],
-.case-projects .case-gallery-controls [data-case-next] { position: absolute; top: 50%; transform: translateY(-50%); }
+.case-projects .case-gallery-controls [data-case-next] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
 .case-projects .case-gallery-controls [data-case-previous] { left: .65rem; }
 .case-projects .case-gallery-controls [data-case-next] { right: .65rem; }
 .case-projects .case-gallery-controls [data-case-previous]::before,
@@ -56,6 +62,8 @@
 }
 .case-projects .case-gallery-controls [data-case-previous]::before { transform: rotate(-135deg); margin-left: .2rem; }
 .case-projects .case-gallery-controls [data-case-next]::before { transform: rotate(45deg); margin-right: .2rem; }
+.case-projects .case-gallery-controls [data-case-previous]:focus-visible,
+.case-projects .case-gallery-controls [data-case-next]:focus-visible { opacity: 1; pointer-events: auto; }
 .case-projects .case-gallery-position {
   position: absolute;
   width: 1px;
@@ -80,11 +88,65 @@
 .case-projects .case-gallery-controls [data-case-dot]::after { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: #ffffff80; }
 .case-projects .case-gallery-controls [data-case-dot][aria-pressed="true"]::after { background: var(--lime); }
 .case-projects .case-gallery-controls [data-case-dot]:hover { background: #ffffff12; }
-.case-projects .case-gallery-controls .case-gallery-rotation { position: absolute; top: .65rem; right: .65rem; font-size: .875rem; }
-.case-gallery-rotation span { pointer-events: none; }
-@media (max-width: 599px) {
+/* Mouse navigation: each transparent half reveals only its own control. */
+@media (hover: hover) and (pointer: fine) {
   .case-projects .case-gallery-controls [data-case-previous],
-  .case-projects .case-gallery-controls [data-case-next] { top: .6rem; transform: none; }
-  .case-projects .case-gallery-dots { top: .6rem; bottom: auto; }
-  .case-projects .case-gallery-controls .case-gallery-rotation { top: auto; bottom: .6rem; right: .65rem; }
+  .case-projects .case-gallery-controls [data-case-next] {
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .case-projects .case-gallery-controls [data-case-previous] { left: 0; }
+  .case-projects .case-gallery-controls [data-case-next] { right: 0; }
+  .case-projects .case-gallery-controls [data-case-previous]:enabled:hover,
+  .case-projects .case-gallery-controls [data-case-next]:enabled:hover { background: transparent; }
+  .case-projects .case-gallery-controls [data-case-previous]::before,
+  .case-projects .case-gallery-controls [data-case-next]::before {
+    position: absolute;
+    top: 50%;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin: 0;
+    border: 1px solid #ffffff80;
+    border-radius: 50%;
+    background: #21103fe8;
+    box-shadow: 0 3px 16px #10091c40;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity .16s ease;
+  }
+  .case-projects .case-gallery-controls [data-case-previous]::before { left: 1rem; }
+  .case-projects .case-gallery-controls [data-case-next]::before { right: 1rem; }
+  .case-projects .case-gallery-controls [data-case-previous]::after,
+  .case-projects .case-gallery-controls [data-case-next]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: .5rem;
+    height: .5rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    opacity: 0;
+    transition: opacity .16s ease;
+  }
+  .case-projects .case-gallery-controls [data-case-previous]::after { left: 2.2rem; transform: translateY(-50%) rotate(-135deg); }
+  .case-projects .case-gallery-controls [data-case-next]::after { right: 2.2rem; transform: translateY(-50%) rotate(45deg); }
+  .case-projects .case-gallery-controls [data-case-previous]:is(:hover, :focus-visible)::before,
+  .case-projects .case-gallery-controls [data-case-previous]:is(:hover, :focus-visible)::after,
+  .case-projects .case-gallery-controls [data-case-next]:is(:hover, :focus-visible)::before,
+  .case-projects .case-gallery-controls [data-case-next]:is(:hover, :focus-visible)::after { opacity: 1; }
+  .case-projects .case-gallery-controls [data-case-previous]:focus-visible,
+  .case-projects .case-gallery-controls [data-case-next]:focus-visible { outline-offset: -4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-projects .case-gallery-controls button::before,
+  .case-projects .case-gallery-controls button::after { transition: none; }
 }

@@ -15,7 +15,6 @@
     let timer = null;
     let announcementTimer = null;
     let visible = false;
-    let userPaused = reducedMotion.matches;
     let hovered = false;
     let focused = false;
     let pointerDown = false;
@@ -44,13 +43,7 @@
       dots.append(dot);
       return dot;
     });
-    const rotation = document.createElement('button');
-    rotation.type = 'button';
-    rotation.className = 'case-gallery-rotation';
-    const rotationIcon = document.createElement('span');
-    rotationIcon.setAttribute('aria-hidden', 'true');
-    rotation.append(rotationIcon);
-    controls.append(dots, rotation);
+    controls.append(dots);
 
     function stopTimer() {
       clearTimeout(timer);
@@ -58,15 +51,13 @@
     }
 
     function canRotate() {
-      return visible && !userPaused && !hovered && !focused && !pointerDown && !touchActive &&
+      return visible && !reducedMotion.matches && !hovered && !focused && !pointerDown && !touchActive &&
         !document.hidden && track.clientWidth > 0 && gallery.getClientRects().length > 0 &&
         !gallery.closest('[hidden]') && !document.querySelector('dialog[open]');
     }
 
     function refreshAutoplay() {
       stopTimer();
-      rotationIcon.textContent = userPaused ? '▶' : 'Ⅱ';
-      rotation.setAttribute('aria-label', userPaused ? 'Reanudar cambio automático de imágenes' : 'Pausar cambio automático de imágenes');
       gallery.dataset.autoplay = canRotate() ? 'playing' : 'paused';
       if (!canRotate()) return;
       timer = setTimeout(() => {
@@ -126,11 +117,6 @@
       event.preventDefault();
       goTo(destinations[event.key]);
     });
-    rotation.addEventListener('click', () => {
-      userPaused = !userPaused;
-      if (!userPaused) { focused = false; hovered = false; }
-      refreshAutoplay();
-    });
     gallery.addEventListener('pointerenter', (event) => {
       if (event.pointerType === 'touch') return;
       hovered = true;
@@ -138,7 +124,7 @@
       refreshAutoplay();
     });
     gallery.addEventListener('pointerleave', () => { hovered = false; refreshAutoplay(); });
-    gallery.addEventListener('pointerdown', () => { pointerDown = true; automaticScroll = false; refreshAutoplay(); });
+    gallery.addEventListener('pointerdown', () => { pointerDown = true; focused = false; automaticScroll = false; refreshAutoplay(); });
     const releasePointer = () => { if (pointerDown) { pointerDown = false; refreshAutoplay(); } };
     window.addEventListener('pointerup', releasePointer);
     window.addEventListener('pointercancel', releasePointer);
@@ -157,15 +143,13 @@
       touchActive = false;
       refreshAutoplay();
     }, {passive: true});
-    gallery.addEventListener('focusin', () => { focused = true; refreshAutoplay(); });
-    gallery.addEventListener('focusout', (event) => {
-      focused = gallery.contains(event.relatedTarget);
+    gallery.addEventListener('focusin', (event) => {
+      focused = event.target.matches(':focus-visible');
       refreshAutoplay();
     });
-    reducedMotion.addEventListener('change', () => {
-      if (reducedMotion.matches) userPaused = true;
-      refreshAutoplay();
-    });
+    gallery.addEventListener('focusout', () => { focused = false; refreshAutoplay(); });
+    gallery.addEventListener('keydown', () => { focused = true; refreshAutoplay(); });
+    reducedMotion.addEventListener('change', refreshAutoplay);
     if ('IntersectionObserver' in window) {
       const visibility = new IntersectionObserver((entries) => {
         for (const entry of entries) visible = entry.isIntersecting && entry.intersectionRatio >= .25;
