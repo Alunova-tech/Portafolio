@@ -18,7 +18,7 @@
         reveal.unobserve(entry.target);
       }
     }, {threshold: .08});
-    document.querySelectorAll('.solutions-heading, .case-study, .contact-copy').forEach((element) => reveal.observe(element));
+    document.querySelectorAll('.solutions-heading, .installation-case, .case-study, .process-heading, .process-steps, .contact-copy').forEach((element) => reveal.observe(element));
 
     const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
     const sectionObserver = new IntersectionObserver((entries) => {
@@ -40,6 +40,16 @@
 
   document.querySelector('.service-grid')?.addEventListener('servicesfiltered', () => {
     document.querySelectorAll('.service-card:not([hidden])').forEach((card, index) => animateEntry(card, index * 45));
+  });
+
+  document.addEventListener('servicechanged', (event) => {
+    if (reducedMotion.matches || !event.detail?.selected) return;
+    const card = document.getElementById(event.detail.id);
+    if (card?.animate) card.animate([
+      {boxShadow: '0 0 0 0 #c9f63a00'},
+      {boxShadow: '0 0 0 4px #c9f63a99', offset: .45},
+      {boxShadow: '0 0 0 0 #c9f63a00'},
+    ], {duration: 360, easing: 'ease-out'});
   });
 
   const counts = document.querySelectorAll('[data-inquiry-count]');

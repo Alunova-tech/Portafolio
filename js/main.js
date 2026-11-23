@@ -33,9 +33,32 @@
   const selectionBody = document.querySelector('#inquiry-selection-body');
   const selectionToggle = document.querySelector('#selection-toggle');
   const compactSelection = window.matchMedia('(max-width: 599px)');
+  const bar = document.querySelector('#inquiry-bar');
+  const hero = document.querySelector('#hero');
+  const contact = document.querySelector('#contacto');
+  const header = document.querySelector('.mega-header');
   let selectionExpanded = false;
   const state = {version: 1, items: [], references: [], fields: {}};
   let storageAvailable = true;
+  let barUpdateScheduled = false;
+
+  function updateBarVisibility() {
+    if (!bar) return;
+    const heroVisible = hero && hero.getBoundingClientRect().bottom > (header?.offsetHeight || 0);
+    const contactReached = contact && contact.getBoundingClientRect().top < window.innerHeight;
+    const visible = state.items.length > 0 && !heroVisible && !contactReached;
+    bar.hidden = !visible;
+    document.body.classList.toggle('has-inquiry-bar', visible);
+    barUpdateScheduled = false;
+  }
+
+  function scheduleBarUpdate() {
+    if (barUpdateScheduled) return;
+    barUpdateScheduled = true;
+    requestAnimationFrame(updateBarVisibility);
+  }
+  window.addEventListener('scroll', scheduleBarUpdate, {passive: true});
+  window.addEventListener('resize', scheduleBarUpdate);
 
   function setStatus(message) {
     if (status) status.textContent = message;
@@ -172,6 +195,7 @@
       const count = state.items.length;
       summary.textContent = count ? `${count} ${count === 1 ? 'servicio' : 'servicios'} en tu consulta` : 'Elige los servicios que necesitas';
     }
+    updateBarVisibility();
   }
 
   function renderItems() {
@@ -277,6 +301,7 @@
     }
     renderItems();
     persist();
+    document.dispatchEvent(new CustomEvent('servicechanged', {detail: {id, selected: !selected || forceAdd}}));
     if (selectionStatus) {
       const action = selected && !forceAdd ? 'quitado de' : 'añadido a';
       selectionStatus.textContent = `${services.get(id).title}, ${action} tu consulta.`;
@@ -532,6 +557,5 @@
   renderItems();
   applyFilter(document.querySelector('[data-filter][aria-pressed="true"]')?.dataset.filter || 'alquilar');
   filterFromHash();
-  const bar = document.querySelector('#inquiry-bar');
-  if (bar) bar.hidden = false;
+  updateBarVisibility();
 })();
