@@ -1,4 +1,11 @@
-/* Sora: one locally hosted variable family, including Spanish characters. */
+/* Sora for display; DM Sans for reading and controls. Both hosted locally. */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url('../img/fonts/dm-sans.woff2') format('woff2');
+}
 @font-face {
   font-family: Sora;
   font-style: normal;
@@ -15,10 +22,13 @@
   src: url('../img/fonts/sora-latin-ext-variable.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-:root { font-family: Sora, Arial, sans-serif; --display: Sora, Arial, sans-serif; }
+:root { --text: 'DM Sans', Arial, sans-serif; --display: Sora, Arial, sans-serif; font-family: var(--text); --muted: #62596d; }
 body { padding-bottom: 0; }
 body.has-inquiry-bar { padding-bottom: calc(4.75rem + env(safe-area-inset-bottom)); }
 button, input, select, textarea { font-family: inherit; }
+.button, .filter-button { font-family: var(--text); font-weight: 600; letter-spacing: 0; }
+.button { font-size: .9375rem; }
+.nav-list a { font-family: var(--text); font-size: .9375rem; letter-spacing: 0; }
 h1, h2, h3, .case-heading h2, .case-copy h3 { font-weight: 700; letter-spacing: -.045em; }
 .brand { letter-spacing: -.04em; }
 .hero { background: #f5f3f8; }
@@ -26,9 +36,9 @@ h1, h2, h3, .case-heading h2, .case-copy h3 { font-weight: 700; letter-spacing: 
 .hero-copy > .eyebrow { font-size: .8125rem; letter-spacing: .045em; }
 .hero h1 { font-size: clamp(2.7rem, 12vw, 4.4rem); line-height: 1.07; letter-spacing: -.065em; margin-block: .8rem 1rem; }
 .hero h1 em::after { bottom: .08em; height: .14em; }
-.hero .lead { max-width: 38ch; line-height: 1.65; margin-top: 0; }
+.hero .lead { max-width: 42ch; font-size: 1.0625rem; line-height: 1.65; letter-spacing: 0; margin-top: 0; }
 .hero .actions { margin-top: 1.25rem; gap: .5rem; }
-.hero .actions .button { font-size: .875rem; min-height: 3rem; padding: .7rem .6rem; }
+.hero .actions .button { font-size: .9375rem; min-height: 3rem; padding: .7rem .8rem; }
 .hero-stage { min-height: 0; height: 14.5rem; padding: 1rem; justify-items: end; align-items: center; border-radius: .75rem; }
 .hero-stage::after { width: 4.5rem; height: 4.5rem; top: -1.6rem; }
 .hero-media { width: auto; padding-right: .55rem; }
@@ -45,7 +55,7 @@ h1, h2, h3, .case-heading h2, .case-copy h3 { font-weight: 700; letter-spacing: 
 .hero-solutions small { display: none; }
 .clients-compact.section { padding-block: 1.4rem; }
 .clients-compact .section-heading { margin-bottom: .65rem; }
-.clients-compact h2 { font-size: .875rem; }
+.clients-compact h2 { font-family: var(--text); font-size: .9375rem; letter-spacing: 0; }
 .clients-compact .logo-slot { min-height: 5.5rem; padding-block: .4rem; }
 .clients-compact .logo-slot img { height: 2.8rem; }
 .clients-compact .logo-slot span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -112,7 +122,7 @@ h1, h2, h3, .case-heading h2, .case-copy h3 { font-weight: 700; letter-spacing: 
 @media (min-width: 768px) {
   .hero-grid { padding-block: 2.5rem; gap: 2rem; }
   .hero h1 { font-size: clamp(3.25rem, 6.7vw, 6rem); }
-  .hero .lead { font-size: 1.0625rem; }
+  .hero .lead { font-size: 1.125rem; }
   .hero .actions { flex-wrap: wrap; }
   .hero .actions .button { padding-inline: 1rem; }
   .hero-stage { height: 30rem; padding: 1.3rem 1.3rem 3.5rem; justify-items: center; }
@@ -139,7 +149,7 @@ h1, h2, h3, .case-heading h2, .case-copy h3 { font-weight: 700; letter-spacing: 
 @media (max-width: 359px) {
   .hero-copy > .eyebrow { font-size: .8125rem; letter-spacing: 0; }
   .hero h1 { font-size: 2.65rem; }
-  .hero .actions .button { font-size: .875rem; }
+  .hero .actions .button { font-size: .9375rem; }
   .hero-stage { height: 13.5rem; }
   .hero-media img { height: 11.4rem; }
   .stage-caption { left: .9rem; font-size: .875rem; }
