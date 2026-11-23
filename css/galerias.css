@@ -1,0 +1,90 @@
+/* Controls belong to the picture; captions remain available to assistive tech. */
+.case-projects .case-gallery { position: relative; }
+.case-projects .case-gallery-track { scrollbar-width: none; }
+.case-projects .case-gallery-track::-webkit-scrollbar { display: none; }
+.case-projects .case-slide figcaption,
+.case-projects .case-identity figcaption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.case-projects .case-gallery-controls {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+}
+.case-projects .case-gallery-controls button {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  border: 1px solid #ffffff55;
+  border-radius: 50%;
+  background: #21103fe8;
+  color: #fff;
+  font-size: 0;
+  pointer-events: auto;
+}
+.case-projects .case-gallery-controls button:enabled:hover { background: #4b1a92; border-color: #ffffffa0; }
+.case-projects .case-gallery-controls button:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
+.case-projects .case-gallery-controls button::before { content: none; }
+.case-projects .case-gallery-controls [data-case-previous],
+.case-projects .case-gallery-controls [data-case-next] { position: absolute; top: 50%; transform: translateY(-50%); }
+.case-projects .case-gallery-controls [data-case-previous] { left: .65rem; }
+.case-projects .case-gallery-controls [data-case-next] { right: .65rem; }
+.case-projects .case-gallery-controls [data-case-previous]::before,
+.case-projects .case-gallery-controls [data-case-next]::before {
+  content: "";
+  width: .5rem;
+  height: .5rem;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+.case-projects .case-gallery-controls [data-case-previous]::before { transform: rotate(-135deg); margin-left: .2rem; }
+.case-projects .case-gallery-controls [data-case-next]::before { transform: rotate(45deg); margin-right: .2rem; }
+.case-projects .case-gallery-position {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.case-projects .case-gallery-dots {
+  position: absolute;
+  left: 50%;
+  bottom: .65rem;
+  display: flex;
+  transform: translateX(-50%);
+  border-radius: 2rem;
+  background: #21103fc9;
+  pointer-events: auto;
+}
+.case-projects .case-gallery-controls [data-case-dot] { position: relative; border: 0; background: transparent; }
+.case-projects .case-gallery-controls [data-case-dot]::after { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: #ffffff80; }
+.case-projects .case-gallery-controls [data-case-dot][aria-pressed="true"]::after { background: var(--lime); }
+.case-projects .case-gallery-controls [data-case-dot]:hover { background: #ffffff12; }
+.case-projects .case-gallery-controls .case-gallery-rotation { position: absolute; top: .65rem; right: .65rem; font-size: .875rem; }
+.case-gallery-rotation span { pointer-events: none; }
+@media (max-width: 599px) {
+  .case-projects .case-gallery-controls [data-case-previous],
+  .case-projects .case-gallery-controls [data-case-next] { top: .6rem; transform: none; }
+  .case-projects .case-gallery-dots { top: .6rem; bottom: auto; }
+  .case-projects .case-gallery-controls .case-gallery-rotation { top: auto; bottom: .6rem; right: .65rem; }
+}
