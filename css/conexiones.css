@@ -1,0 +1,36 @@
+/* Real work is one step away from the service it illustrates. */
+.service-work-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 .8rem;
+  margin: -.25rem 0;
+}
+.service-work-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: .35rem 0;
+  color: var(--purple);
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-decoration-color: #4b1a9259;
+  text-underline-offset: .25em;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+.service-work-links a:hover { color: var(--magenta); text-decoration-color: currentColor; }
+.service-work-links a:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: .15rem; }
+.service-work-links-detail { margin-top: 1rem; padding-top: .65rem; border-top: 1px solid var(--line); }
+.installation-copy .installation-actions { align-items: center; flex-wrap: wrap; gap: .65rem; }
+.installation-copy .installation-actions .button-outline { color: #fff; border-color: #ffffff66; background: transparent; }
+.installation-copy .installation-actions .button-outline:hover { border-color: #fff; background: #ffffff12; }
+.installation-copy .installation-actions .button:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+@media (max-width: 599px) {
+  .installation-copy .installation-actions { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .installation-copy .installation-actions .button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-work-links a { transition: none; }
+}

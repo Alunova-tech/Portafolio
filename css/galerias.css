@@ -88,63 +88,16 @@
 .case-projects .case-gallery-controls [data-case-dot]::after { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: #ffffff80; }
 .case-projects .case-gallery-controls [data-case-dot][aria-pressed="true"]::after { background: var(--lime); }
 .case-projects .case-gallery-controls [data-case-dot]:hover { background: #ffffff12; }
-/* Mouse navigation: each transparent half reveals only its own control. */
+.case-dot-progress { position: absolute; top: 50%; left: 50%; width: 1.3rem; height: 1.3rem; transform: translate(-50%, -50%) rotate(-90deg); pointer-events: none; }
+.case-dot-progress circle { fill: none; stroke: var(--lime); stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; }
+.case-projects .case-gallery[data-autoplay="playing"] [data-case-dot][aria-pressed="true"] .case-dot-progress circle { opacity: 1; }
+/* The track handles mouse clicks by half; no overlay can intercept touch swipes. */
 @media (hover: hover) and (pointer: fine) {
+  .case-projects .case-gallery-track { cursor: pointer; }
   .case-projects .case-gallery-controls [data-case-previous],
-  .case-projects .case-gallery-controls [data-case-next] {
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    height: 100%;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    transform: none;
-    opacity: 1;
-    pointer-events: auto;
-    cursor: pointer;
-  }
-  .case-projects .case-gallery-controls [data-case-previous] { left: 0; }
-  .case-projects .case-gallery-controls [data-case-next] { right: 0; }
-  .case-projects .case-gallery-controls [data-case-previous]:enabled:hover,
-  .case-projects .case-gallery-controls [data-case-next]:enabled:hover { background: transparent; }
-  .case-projects .case-gallery-controls [data-case-previous]::before,
-  .case-projects .case-gallery-controls [data-case-next]::before {
-    position: absolute;
-    top: 50%;
-    width: 2.75rem;
-    height: 2.75rem;
-    margin: 0;
-    border: 1px solid #ffffff80;
-    border-radius: 50%;
-    background: #21103fe8;
-    box-shadow: 0 3px 16px #10091c40;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: opacity .16s ease;
-  }
-  .case-projects .case-gallery-controls [data-case-previous]::before { left: 1rem; }
-  .case-projects .case-gallery-controls [data-case-next]::before { right: 1rem; }
-  .case-projects .case-gallery-controls [data-case-previous]::after,
-  .case-projects .case-gallery-controls [data-case-next]::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: .5rem;
-    height: .5rem;
-    border-top: 2px solid currentColor;
-    border-right: 2px solid currentColor;
-    opacity: 0;
-    transition: opacity .16s ease;
-  }
-  .case-projects .case-gallery-controls [data-case-previous]::after { left: 2.2rem; transform: translateY(-50%) rotate(-135deg); }
-  .case-projects .case-gallery-controls [data-case-next]::after { right: 2.2rem; transform: translateY(-50%) rotate(45deg); }
-  .case-projects .case-gallery-controls [data-case-previous]:is(:hover, :focus-visible)::before,
-  .case-projects .case-gallery-controls [data-case-previous]:is(:hover, :focus-visible)::after,
-  .case-projects .case-gallery-controls [data-case-next]:is(:hover, :focus-visible)::before,
-  .case-projects .case-gallery-controls [data-case-next]:is(:hover, :focus-visible)::after { opacity: 1; }
-  .case-projects .case-gallery-controls [data-case-previous]:focus-visible,
-  .case-projects .case-gallery-controls [data-case-next]:focus-visible { outline-offset: -4px; }
+  .case-projects .case-gallery-controls [data-case-next] { transition: opacity .16s ease, background-color .16s ease; }
+  .case-projects .case-gallery[data-nav-zone="previous"] [data-case-previous],
+  .case-projects .case-gallery[data-nav-zone="next"] [data-case-next] { opacity: 1; pointer-events: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
   .case-projects .case-gallery-controls button::before,

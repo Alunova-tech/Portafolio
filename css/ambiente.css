@@ -1,4 +1,10 @@
 /* One orbital motif across ALUNOVA's photographic and editorial surfaces. */
+:root {
+  --motion-fast: 180ms;
+  --motion-ui: 320ms;
+  --motion-entry: 620ms;
+  --motion-ease: cubic-bezier(.2, .75, .25, 1);
+}
 .hero { isolation: isolate; }
 .hero-canvas { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
 .hero-canvas-light {
@@ -192,6 +198,15 @@
   .brand-mesh { opacity: .35; }
 }
 @media (prefers-reduced-motion: no-preference) {
+  /* Replace inherited container motion with one coordinated, stable entrance. */
+  .hero .hero-copy,
+  .hero .hero-media { animation: none; }
+  .hero .hero-copy > .eyebrow { animation: hero-detail-enter var(--motion-entry) var(--motion-ease) both; }
+  .hero h1 { animation: hero-title-unmask var(--motion-entry) var(--motion-ease) 60ms backwards; }
+  .hero .hero-copy > .lead { animation: hero-detail-enter var(--motion-entry) var(--motion-ease) 180ms both; }
+  .hero .hero-copy > .actions { animation: hero-detail-enter var(--motion-entry) var(--motion-ease) 260ms both; }
+  .hero .hero-stage { animation: hero-detail-enter var(--motion-entry) var(--motion-ease) 140ms both; }
+  .hero h1 em::after { animation: accent-enter var(--motion-entry) var(--motion-ease) 280ms backwards; }
   .hero-canvas-light { animation: canvas-drift 18s ease-in-out infinite alternate; animation-play-state: paused; }
   .hero.brand-is-visible .hero-canvas-light { animation-play-state: running; }
   .brand-motion-paused .hero .hero-canvas-light { animation-play-state: paused; }
@@ -211,6 +226,28 @@
   @keyframes canvas-drift { from { transform: translate(-2%, 1%); } to { transform: translate(2%, -2%); } }
   @keyframes ribbon-drift { from { transform: translate(-50%, -50%) rotate(-42deg) scale(.97); } to { transform: translate(-50%, -50%) rotate(-19deg) scale(1.03); } }
   @keyframes eclipse-drift { from { transform: translate(-4px, -5px) rotate(-7deg); } to { transform: translate(7px, 6px) rotate(8deg); } }
+  @keyframes hero-title-unmask {
+    from { clip-path: inset(0 -.08em 100% -.08em); }
+    to { clip-path: inset(-.08em -.08em -.2em -.08em); }
+  }
+  @keyframes hero-detail-enter { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (min-width: 960px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  /* Individual translate leaves the children's orbital transforms untouched. */
+  .hero-canvas {
+    translate: var(--hero-canvas-x, 0px) var(--hero-canvas-y, 0px);
+    transition: translate var(--motion-ui) var(--motion-ease);
+  }
+  .hero-stage[data-brand-surface="hero"] .brand-scene {
+    inset: -.6rem;
+    translate: var(--hero-scene-x, 0px) var(--hero-scene-y, 0px);
+    transition: translate var(--motion-ui) var(--motion-ease);
+  }
+  .catalog-art .catalog-cover {
+    transform: perspective(1000px) rotateX(var(--cover-tilt-x, 0deg)) rotateY(var(--cover-tilt-y, 0deg)) rotate(-5deg);
+    transition: transform var(--motion-ui) var(--motion-ease), box-shadow var(--motion-ui) var(--motion-ease);
+  }
+  .catalog-art .catalog-cover:focus-visible { transform: rotate(-5deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .scene-motion { display: none; }

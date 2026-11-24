@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#4b1a92">
+  <meta name="theme-color" content="#140d21">
   <title>ALUNOVA | Tecnología, diseño y experiencias</title>
   <meta name="description" content="Alquiler de televisores 4K, tótems táctiles y laptops. Video walls, juegos interactivos, stands y venta de equipos en Bolivia.">
   <link rel="icon" href="img/logo.png" type="image/png">
@@ -14,20 +14,24 @@
   <link rel="stylesheet" href="css/proyectos.css?v=portfolio-2026">
   <link rel="stylesheet" href="css/experiencia.css?v=catalogo-editorial-2026">
   <link rel="stylesheet" href="css/catalogo.css?v=editorial-2026">
-  <link rel="stylesheet" href="css/consulta.css?v=consulta-clara-2026">
+  <link rel="stylesheet" href="css/consulta.css?v=consulta-adaptativa-2026">
   <link rel="stylesheet" href="css/landing.css?v=sora-dm-2026">
   <link rel="stylesheet" href="css/casos.css?v=casos-unificados-2026">
-  <link rel="stylesheet" href="css/ambiente.css?v=orbital-2026">
+  <link rel="stylesheet" href="css/ambiente.css?v=interacciones-2026">
   <link rel="stylesheet" href="css/tarjetas-movil.css?v=cartas-2026">
-  <link rel="stylesheet" href="css/galerias.css?v=zonas-5s-2026">
+  <link rel="stylesheet" href="css/galerias.css?v=interacciones-2026">
+  <link rel="stylesheet" href="css/conexiones.css?v=interacciones-2026">
+  <link rel="stylesheet" href="css/lightbox.css?v=interacciones-2026">
+  <link rel="stylesheet" href="css/escaparate.css?v=recorrido-20261124">
   <script src="js/mobile-menu.js?v=2" defer></script>
   <script src="js/clientes-carousel.js" defer></script>
-  <script src="js/main.js?v=landing-sora-2026" defer></script>
-  <script src="js/proyectos.js?v=zonas-5s-2026" defer></script>
-  <script src="js/experiencia.js?v=landing-sora-2026" defer></script>
+  <script src="js/main.js?v=consulta-adaptativa-2026" defer></script>
+  <script src="js/proyectos.js?v=interacciones-2026" defer></script>
+  <script src="js/experiencia.js?v=recorrido-20261124" defer></script>
   <script src="js/catalogo.js?v=editorial-2026" defer></script>
-  <script src="js/ambiente.js?v=orbital-2026" defer></script>
+  <script src="js/ambiente.js?v=interacciones-2026" defer></script>
   <script src="js/tarjetas-movil.js?v=cartas-2026" defer></script>
+  <script src="js/lightbox.js?v=interacciones-2026" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -59,12 +63,14 @@
         <div class="hero-copy" id="nosotros">
           <p class="eyebrow">La Paz · Tecnología y experiencias</p>
           <h1 id="inicio-titulo">Tu marca.<br><em>En grande.</em></h1>
-          <p class="lead">Alquiler y venta de equipos, aplicaciones interactivas y stands para tu marca.</p>
+          <p class="lead">Pantallas, tótems y laptops. Aplicaciones interactivas y stands para conectar tu marca con las personas.</p>
           <div class="actions">
             <a class="button button-lime" href="#contacto" data-open-inquiry>Preparar consulta</a>
             <a class="button button-outline" href="#portafolio">Explorar proyectos</a>
           </div>
+          <p class="hero-consult-hint">Elige servicios y cuéntanos para cuándo y dónde.</p>
         </div>
+        <div class="hero-showcase" aria-label="Explora equipos y experiencias de ALUNOVA">
         <div class="hero-stage">
           <span class="stage-orbit" aria-hidden="true"></span>
           <span class="stage-word" aria-hidden="true">ALUNOVA</span>
@@ -72,6 +78,17 @@
             <img src="img/hero/equipos-alunova.webp" alt="Un tótem táctil y una pantalla LED vertical encendidos con el logo de ALUNOVA" width="900" height="1600" fetchpriority="high">
           </figure>
           <p class="stage-caption">Pantalla LED + tótem táctil <span>Equipos ALUNOVA · Fotografía real</span></p>
+        </div>
+        <div class="hero-previews">
+          <a class="hero-preview hero-preview-map" href="#mallasa">
+            <div class="hero-preview-image"><img src="img/aplicaciones/mallasa-mapa.webp" alt="Captura del mapa interactivo de Mallasa" width="576" height="1024" decoding="async"></div>
+            <span class="hero-preview-copy"><small>Mapas interactivos</small><strong>Explora Mallasa</strong></span>
+          </a>
+          <a class="hero-preview hero-preview-play" href="#alunova-play">
+            <div class="hero-preview-image"><img src="img/aplicaciones/alunova-play.webp" alt="Visualización conceptual de ALUNOVA Play en un tótem" width="960" height="768" decoding="async"><span class="hero-preview-material">Concepto</span></div>
+            <span class="hero-preview-copy"><small>Juegos · Concepto</small><strong>Conoce ALUNOVA Play</strong></span>
+          </a>
+        </div>
         </div>
       </div>
       <nav class="hero-solutions" aria-label="Explorar soluciones de ALUNOVA">
@@ -139,7 +156,8 @@
             <div class="service-copy">
               <h3>Pantallas y video walls</h3>
               <p class="service-description">Televisores 4K con pedestal y video walls para ferias, escenarios y presentaciones.</p>
-              <template class="service-details"><p class="service-detail-lead">Tu contenido, a la vista de todos.</p><dl class="service-specs"><div><dt>Qué ofrecemos</dt><dd>Televisores de 65 pulgadas 4K con pedestal y configuración de video walls.</dd></div><div><dt>Para qué sirve</dt><dd>Videos, presentaciones y contenidos en ferias, escenarios y actividades institucionales.</dd></div><div><dt>Para preparar tu propuesta</dt><dd>Indica cantidad, fechas, lugar y qué contenido mostrarás. Coordinamos conexiones, cableado, instalación y retiro en la cotización.</dd></div></dl></template>
+              <nav class="service-work-links" aria-label="Trabajo relacionado con pantallas"><a href="#montaje-oep" data-service-case-link>Ver montaje del OEP</a></nav>
+              <template class="service-details"><p class="service-detail-lead">Tu contenido, a la vista de todos.</p><dl class="service-specs"><div><dt>Qué ofrecemos</dt><dd>Televisores de 65 pulgadas 4K con pedestal y configuración de video walls.</dd></div><div><dt>Para qué sirve</dt><dd>Videos, presentaciones y contenidos en ferias, escenarios y actividades institucionales.</dd></div><div><dt>Para preparar tu propuesta</dt><dd>Indica cantidad, fechas, lugar y qué contenido mostrarás. Coordinamos conexiones, cableado, instalación y retiro en la cotización.</dd></div></dl><nav class="service-work-links service-work-links-detail" aria-label="Trabajo relacionado con pantallas"><a href="#montaje-oep" data-service-case-link>Ver montaje del OEP</a></nav></template>
 
               <div class="service-actions">
                 <button class="button button-outline" type="button" data-service-details="pantallas">Ver opciones</button>
@@ -165,7 +183,8 @@
             <div class="service-copy">
               <h3>Laptops para eventos</h3>
               <p class="service-description">Equipos configurados para capacitaciones, registros y puestos de trabajo temporales.</p>
-              <template class="service-details"><p class="service-detail-lead">Puestos de trabajo para el tiempo que necesitas.</p><dl class="service-specs"><div><dt>Qué ofrecemos</dt><dd>Alquiler de laptops configuradas para tu actividad.</dd></div><div><dt>Para qué sirve</dt><dd>Capacitaciones, registros, eventos corporativos y trabajo temporal.</dd></div><div><dt>Para preparar tu propuesta</dt><dd>Indica cantidad, fechas, lugar y programas o tareas que utilizarás. Las características y el soporte se definen según tu necesidad.</dd></div></dl></template>
+              <nav class="service-work-links" aria-label="Trabajo relacionado con laptops"><a href="#montaje-oep" data-service-case-link>Ver montaje del OEP</a></nav>
+              <template class="service-details"><p class="service-detail-lead">Puestos de trabajo para el tiempo que necesitas.</p><dl class="service-specs"><div><dt>Qué ofrecemos</dt><dd>Alquiler de laptops configuradas para tu actividad.</dd></div><div><dt>Para qué sirve</dt><dd>Capacitaciones, registros, eventos corporativos y trabajo temporal.</dd></div><div><dt>Para preparar tu propuesta</dt><dd>Indica cantidad, fechas, lugar y programas o tareas que utilizarás. Las características y el soporte se definen según tu necesidad.</dd></div></dl><nav class="service-work-links service-work-links-detail" aria-label="Trabajo relacionado con laptops"><a href="#montaje-oep" data-service-case-link>Ver montaje del OEP</a></nav></template>
 
               <div class="service-actions">
                 <button class="button button-outline" type="button" data-service-details="laptops">Ver opciones</button>
@@ -178,8 +197,8 @@
             <div class="service-copy">
               <h3>Juegos y aplicaciones a medida</h3>
               <p class="service-description">Ruletas, trivias, mapas y bibliotecas con la imagen de tu marca.</p>
-              <a class="service-example" href="#mallasa">Explora el mapa de Mallasa</a>
-              <template class="service-details"><p class="service-detail-lead">Tu marca también se puede explorar y jugar.</p><dl class="service-specs"><div><dt>Qué podemos crear</dt><dd>Ruletas, trivias, mapas, bibliotecas digitales y formularios con tu identidad.</dd></div><div><dt>Dónde se usa</dt><dd>En un tótem táctil o navegador, según el proyecto. Puedes probar las demos de Mallasa, Biblioteca CDD y ALUNOVA Play.</dd></div><div><dt>Para preparar tu propuesta</dt><dd>Cuéntanos el objetivo, el público, la fecha y los contenidos disponibles. Indica si también necesitas alquilar el equipo.</dd></div></dl></template>
+              <nav class="service-work-links" aria-label="Explorar aplicaciones y juegos"><a href="#mallasa" data-service-case-link aria-label="Explorar el mapa de Mallasa">Mallasa</a><a href="#biblioteca-cdd" data-service-case-link aria-label="Explorar Biblioteca CDD">Biblioteca CDD</a><a href="#alunova-play" data-service-case-link aria-label="Explorar los juegos de ALUNOVA Play">ALUNOVA Play</a></nav>
+              <template class="service-details"><p class="service-detail-lead">Tu marca también se puede explorar y jugar.</p><dl class="service-specs"><div><dt>Qué podemos crear</dt><dd>Ruletas, trivias, mapas, bibliotecas digitales y formularios con tu identidad.</dd></div><div><dt>Dónde se usa</dt><dd>En un tótem táctil o navegador, según el proyecto. Puedes probar las demos de Mallasa, Biblioteca CDD y ALUNOVA Play.</dd></div><div><dt>Para preparar tu propuesta</dt><dd>Cuéntanos el objetivo, el público, la fecha y los contenidos disponibles. Indica si también necesitas alquilar el equipo.</dd></div></dl><nav class="service-work-links service-work-links-detail" aria-label="Explorar aplicaciones y juegos"><a href="#mallasa" data-service-case-link>Mapa de Mallasa</a><a href="#biblioteca-cdd" data-service-case-link>Biblioteca CDD</a><a href="#alunova-play" data-service-case-link>ALUNOVA Play</a></nav></template>
 
               <div class="service-actions">
                 <button class="button button-outline" type="button" data-service-details="interaccion">Ver opciones</button>
@@ -223,10 +242,16 @@
 
     <section class="section case-projects" id="portafolio" aria-labelledby="proyectos-titulo">
       <div class="container" id="aplicaciones">
-        <div class="case-heading">
-          <p class="eyebrow">Proyectos de ALUNOVA</p>
-          <h2 id="proyectos-titulo">Explora lo que creamos.</h2>
-          <p>Del montaje audiovisual a las aplicaciones que puedes probar. Conoce nuestro trabajo en espacios físicos y digitales.</p>
+        <div class="case-heading project-orbit">
+          <div class="project-orbit-copy">
+            <p class="eyebrow">Proyectos de ALUNOVA</p>
+            <h2 id="proyectos-titulo">Explora lo<br>que creamos.</h2>
+            <p>Equipos en acción. Ideas que puedes tocar. Conoce nuestro trabajo en espacios físicos y digitales.</p>
+          </div>
+          <div class="project-orbit-item project-orbit-oep" aria-hidden="true"><img src="img/servicios/alquiler.webp" alt="" width="760" height="494" loading="lazy" decoding="async"></div>
+          <div class="project-orbit-item project-orbit-map" aria-hidden="true"><img src="img/aplicaciones/mallasa-mapa.webp" alt="" width="576" height="1024" loading="lazy" decoding="async"></div>
+          <div class="project-orbit-item project-orbit-equipment" aria-hidden="true"><img src="img/hero/equipos-alunova.webp" alt="" width="900" height="1600" loading="lazy" decoding="async"></div>
+          <div class="project-orbit-item project-orbit-trivia" aria-hidden="true"><img src="img/aplicaciones/mallasa-trivia.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
         </div>
         <nav class="case-index" aria-label="Ir a un proyecto">
           <a href="#montaje-oep">Montaje audiovisual</a>
@@ -245,7 +270,10 @@
             <h3 id="oep-titulo">Pantallas y laptops para una actividad del OEP.</h3>
             <p>Integramos pantallas en pedestales y laptops para mostrar contenidos en el recinto.</p>
             <ul class="installation-tags" aria-label="Equipamiento del montaje"><li>Pantallas</li><li>Pedestales</li><li>Laptops</li></ul>
-            <a class="button button-lime" href="#pantallas" data-filter-link="alquilar">Ver equipos de alquiler</a>
+            <div class="case-actions installation-actions">
+              <button class="button button-lime" type="button" data-project-request="Montaje audiovisual del OEP" data-project-services="pantallas,laptops">Quiero algo así</button>
+              <a class="button button-outline" href="#pantallas" data-filter-link="alquilar">Ver equipos de alquiler</a>
+            </div>
           </div>
         </article>
 
@@ -282,7 +310,7 @@
             </dl>
             <div class="case-actions">
               <a class="button button-primary" href="https://alunova-mallasa-interactivo.videoinsitucional.chatgpt.site/" target="_blank" rel="noopener noreferrer">Abrir demo de Mallasa</a>
-              <button class="button button-outline" type="button" data-project-request="Mallasa · Mapa interactivo">Quiero algo así</button>
+              <button class="button button-outline" type="button" data-project-request="Mallasa · Mapa interactivo" data-project-services="interaccion">Quiero algo así</button>
             </div>
           </div>
         </article>
@@ -305,7 +333,7 @@
               </dl>
               <div class="case-actions">
                 <a class="button button-primary" href="https://alunova-tech.github.io/BibliotecaCDD/" target="_blank" rel="noopener noreferrer">Abrir biblioteca</a>
-                <button class="button button-outline" type="button" data-project-request="Biblioteca CDD">Quiero algo así</button>
+                <button class="button button-outline" type="button" data-project-request="Biblioteca CDD" data-project-services="interaccion">Quiero algo así</button>
               </div>
             </div>
           </article>
@@ -342,7 +370,7 @@
               </dl>
               <div class="case-actions">
                 <a class="button button-primary" href="apps/alunova-play/index.html">Probar ALUNOVA Play</a>
-                <button class="button button-outline" type="button" data-project-request="ALUNOVA Play">Quiero algo así</button>
+                <button class="button button-outline" type="button" data-project-request="ALUNOVA Play" data-project-services="interaccion">Quiero algo así</button>
               </div>
             </div>
           </article>
@@ -423,6 +451,10 @@
   </div>
 
   <p class="sr-only" id="selection-status" role="status" aria-live="polite"></p>
+  <div class="selection-undo" id="selection-undo" hidden>
+    <p id="selection-undo-message" role="status" aria-live="polite" aria-atomic="true"></p>
+    <button type="button" id="selection-undo-button">Deshacer</button>
+  </div>
 
   <dialog id="catalog-reader" class="catalog-reader" aria-labelledby="catalog-reader-title">
     <header class="catalog-reader-header">
@@ -490,6 +522,7 @@
         <section class="inquiry-fields" aria-labelledby="details-title">
           <h3 id="details-title" class="sr-only">Detalles de tu proyecto</h3>
           <p id="inquiry-requirements" class="inquiry-requirements">Solo tu nombre es obligatorio. Lo demás puede quedar por definir.</p>
+          <p id="inquiry-context" class="inquiry-context" role="status" aria-live="polite"></p>
           <fieldset class="inquiry-group">
             <legend>Tus datos</legend>
             <div class="form-fields">
@@ -500,17 +533,42 @@
           <fieldset class="inquiry-group">
             <legend>Fechas y lugar</legend>
             <div class="form-fields">
-              <label for="consulta-inicio">Fecha de inicio<input id="consulta-inicio" type="date" name="fecha_inicio"></label>
-              <label for="consulta-fin">Fecha de fin<input id="consulta-fin" type="date" name="fecha_fin"></label>
+              <label for="consulta-inicio"><span id="consulta-inicio-etiqueta">Fecha de inicio</span><input id="consulta-inicio" type="date" name="fecha_inicio"></label>
+              <label for="consulta-fin"><span id="consulta-fin-etiqueta">Fecha de fin</span><input id="consulta-fin" type="date" name="fecha_fin"></label>
             </div>
             <label for="consulta-lugar">Lugar o ciudad<input id="consulta-lugar" type="text" name="lugar" maxlength="200" autocomplete="address-level2" placeholder="Ciudad, recinto o dirección"></label>
           </fieldset>
-          <fieldset class="inquiry-group">
-            <legend>Montaje y detalles</legend>
+          <fieldset class="inquiry-group inquiry-specific" data-inquiry-category="alquilar" hidden disabled>
+            <legend>Uso de los equipos</legend>
+            <label for="consulta-uso">¿En qué actividad los utilizarás?<input id="consulta-uso" type="text" name="alquiler_uso" maxlength="400" placeholder="Presentación, registro, capacitación, feria…"></label>
+            <p class="field-help">Las cantidades se ajustan en tu selección. Las fechas de arriba corresponden al uso de los equipos.</p>
+          </fieldset>
+          <fieldset class="inquiry-group inquiry-specific" data-inquiry-category="crear" hidden disabled>
+            <legend>Tu diseño o experiencia</legend>
+            <label for="consulta-objetivo">¿Qué quieres lograr?<textarea id="consulta-objetivo" name="crear_objetivo" rows="2" maxlength="800" placeholder="Cuéntanos el objetivo de tu aplicación, juego o stand"></textarea></label>
+            <label for="consulta-publico">¿Para quién es?<input id="consulta-publico" type="text" name="crear_publico" maxlength="200" placeholder="Visitantes de una feria, estudiantes, clientes…"></label>
+            <label for="consulta-funcionamiento">¿Cómo debería funcionar?<textarea id="consulta-funcionamiento" name="crear_funcionamiento" rows="2" maxlength="1000" placeholder="Qué debe poder hacer el usuario o cómo imaginas el espacio"></textarea></label>
+            <label for="consulta-contenidos">¿Qué materiales tienes disponibles?<textarea id="consulta-contenidos" name="crear_contenidos" rows="2" maxlength="800" placeholder="Logo, textos, fotos, audios, medidas o referencias. También puedes pedirnos ayuda."></textarea></label>
+          </fieldset>
+          <fieldset class="inquiry-group inquiry-specific" data-inquiry-category="comprar" hidden disabled>
+            <legend>Equipos para tu empresa</legend>
+            <label for="consulta-compra-equipos">¿Qué equipos buscas?<input id="consulta-compra-equipos" type="text" name="compra_equipos" maxlength="400" placeholder="Laptops, monitores, pantallas u otros equipos"></label>
+            <label for="consulta-caracteristicas">Características que necesitas<textarea id="consulta-caracteristicas" name="compra_caracteristicas" rows="2" maxlength="1000" placeholder="Uso previsto, memoria, tamaño de pantalla o requisitos de tu empresa"></textarea></label>
+            <label for="consulta-entrega">¿Hay alguna condición de entrega?<input id="consulta-entrega" type="text" name="compra_entrega" maxlength="400" placeholder="Horario, acceso al lugar u otra indicación"></label>
+            <p class="field-help">La cantidad está en tu selección; utiliza las fechas y el lugar comunes para indicar la entrega deseada.</p>
+          </fieldset>
+          <fieldset class="inquiry-group inquiry-specific" data-inquiry-category="montaje" hidden disabled>
+            <legend>Instalación y montaje</legend>
             <div class="installation-field">
               <label for="consulta-montaje">¿Necesitas montaje?<select id="consulta-montaje" name="montaje" aria-describedby="montaje-ayuda"><option value="por-definir">Por definir</option><option value="si">Sí, necesito montaje</option><option value="no">Solo equipos o servicio</option></select></label>
-              <p id="montaje-ayuda" class="field-help">Instalación, soporte y retiro se definen en tu cotización.</p>
+              <div id="consulta-instalacion-detalles">
+                <label for="consulta-instalacion">Fecha tentativa de instalación<input id="consulta-instalacion" type="date" name="instalacion_fecha" aria-describedby="montaje-ayuda"></label>
+                <p id="montaje-ayuda" class="field-help">Puede ser anterior al evento o quedar por definir. La fecha propuesta está sujeta a coordinación y disponibilidad del equipo. Instalación, soporte y retiro se acuerdan en la cotización.</p>
+              </div>
             </div>
+          </fieldset>
+          <fieldset class="inquiry-group">
+            <legend>Detalles adicionales</legend>
             <label for="consulta-notas">¿Algo más que debamos saber?<textarea id="consulta-notas" name="notas" rows="2" maxlength="2000" placeholder="Tu idea, tipo de evento, medidas o necesidades especiales"></textarea></label>
           </fieldset>
           <details class="inquiry-message">

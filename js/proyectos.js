@@ -20,6 +20,10 @@
     let pointerDown = false;
     let touchActive = false;
     let automaticScroll = true;
+    let progressAnimation = null;
+    let pointerOrigin = null;
+    let lastPointerType = '';
+    let suppressClickUntil = 0;
 
     position.removeAttribute('role');
     position.setAttribute('aria-live', 'off');
@@ -39,6 +43,17 @@
       dot.type = 'button';
       dot.dataset.caseDot = String(index);
       dot.setAttribute('aria-label', `Mostrar imagen ${index + 1} de ${slides.length}`);
+      const progress = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      progress.classList.add('case-dot-progress');
+      progress.setAttribute('viewBox', '0 0 20 20');
+      progress.setAttribute('aria-hidden', 'true');
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', '10');
+      circle.setAttribute('cy', '10');
+      circle.setAttribute('r', '8');
+      circle.setAttribute('pathLength', '1');
+      progress.append(circle);
+      dot.append(progress);
       dot.addEventListener('click', () => goTo(index));
       dots.append(dot);
       return dot;
@@ -48,6 +63,8 @@
     function stopTimer() {
       clearTimeout(timer);
       timer = null;
+      progressAnimation?.cancel();
+      progressAnimation = null;
     }
 
     function canRotate() {
@@ -60,6 +77,13 @@
       stopTimer();
       gallery.dataset.autoplay = canRotate() ? 'playing' : 'paused';
       if (!canRotate()) return;
+      const progress = dotButtons[current].querySelector('circle');
+      if (progress?.animate) {
+        progressAnimation = progress.animate(
+          [{strokeDashoffset: '1'}, {strokeDashoffset: '0'}],
+          {duration: 5000, easing: 'linear', fill: 'forwards'},
+        );
+      }
       timer = setTimeout(() => {
         timer = null;
         if (canRotate()) goTo(current + 1, false);
@@ -93,6 +117,15 @@
 
     previous.addEventListener('click', () => goTo(current - 1));
     next.addEventListener('click', () => goTo(current + 1));
+    // The zones are logical, not overlays: touch can still reach the scroll track.
+    track.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0 || !event.detail ||
+          event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
+          (event.pointerType || lastPointerType) !== 'mouse' || performance.now() < suppressClickUntil) return;
+      const bounds = track.getBoundingClientRect();
+      goTo(current + (event.clientX < bounds.left + bounds.width / 2 ? -1 : 1));
+    });
+    track.addEventListener('dragstart', (event) => event.preventDefault());
     track.addEventListener('scroll', () => {
       stopTimer();
       if (!automaticScroll) {
@@ -124,8 +157,39 @@
       refreshAutoplay();
     });
     gallery.addEventListener('pointerleave', () => { hovered = false; refreshAutoplay(); });
-    gallery.addEventListener('pointerdown', () => { pointerDown = true; focused = false; automaticScroll = false; refreshAutoplay(); });
-    const releasePointer = () => { if (pointerDown) { pointerDown = false; refreshAutoplay(); } };
+    gallery.addEventListener('pointermove', (event) => {
+      if (pointerOrigin && Math.hypot(event.clientX - pointerOrigin.x, event.clientY - pointerOrigin.y) > 8) {
+        suppressClickUntil = performance.now() + 400;
+      }
+      if (event.pointerType !== 'mouse') {
+        delete gallery.dataset.navZone;
+        return;
+      }
+      const button = event.target instanceof Element ? event.target.closest('button') : null;
+      if (button && button !== previous && button !== next) {
+        delete gallery.dataset.navZone;
+        return;
+      }
+      const bounds = gallery.getBoundingClientRect();
+      gallery.dataset.navZone = event.clientX < bounds.left + bounds.width / 2 ? 'previous' : 'next';
+    });
+    gallery.addEventListener('pointerleave', () => { delete gallery.dataset.navZone; });
+    gallery.addEventListener('pointerdown', (event) => {
+      lastPointerType = event.pointerType;
+      pointerOrigin = {x: event.clientX, y: event.clientY};
+      if (event.pointerType !== 'mouse') {
+        delete gallery.dataset.navZone;
+        hovered = false;
+      }
+      pointerDown = true;
+      focused = false;
+      automaticScroll = false;
+      refreshAutoplay();
+    });
+    const releasePointer = () => {
+      pointerOrigin = null;
+      if (pointerDown) { pointerDown = false; refreshAutoplay(); }
+    };
     window.addEventListener('pointerup', releasePointer);
     window.addEventListener('pointercancel', releasePointer);
     gallery.addEventListener('touchstart', () => {

@@ -21,8 +21,17 @@
     document.querySelectorAll('[data-project-request]'),
     (button) => button.dataset.projectRequest,
   ));
-  const fieldLimits = {nombre: 120, email: 180, lugar: 200, notas: 2000};
-  const fieldNames = [...Object.keys(fieldLimits), 'fecha_inicio', 'fecha_fin', 'montaje'];
+  const referenceServices = new Map(Array.from(document.querySelectorAll('[data-project-request]'), (button) => [
+    button.dataset.projectRequest,
+    (button.dataset.projectServices || 'interaccion').split(',').map((id) => id.trim()).filter((id) => services.has(id)),
+  ]));
+  const fieldLimits = {
+    nombre: 120, email: 180, lugar: 200, notas: 2000, alquiler_uso: 400,
+    crear_objetivo: 800, crear_publico: 200, crear_funcionamiento: 1000, crear_contenidos: 800,
+    compra_equipos: 400, compra_caracteristicas: 1000, compra_entrega: 400,
+  };
+  const dateFields = ['fecha_inicio', 'fecha_fin', 'instalacion_fecha'];
+  const fieldNames = [...Object.keys(fieldLimits), ...dateFields, 'montaje'];
   const fields = Object.fromEntries(fieldNames.map((name) => [name, form.elements.namedItem(name)]));
   const storageKey = 'alunova-consulta-v1';
   const dialogs = [serviceDialog, inquiryDialog];
@@ -37,6 +46,11 @@
   const hero = document.querySelector('#hero');
   const contact = document.querySelector('#contacto');
   const header = document.querySelector('.mega-header');
+  const undoNotice = document.querySelector('#selection-undo');
+  const undoMessage = document.querySelector('#selection-undo-message');
+  const undoButton = document.querySelector('#selection-undo-button');
+  let undoRecord = null;
+  let undoTimer = null;
   let selectionExpanded = false;
   const state = {version: 1, items: [], references: [], fields: {}};
   let storageAvailable = true;
@@ -75,7 +89,7 @@
     for (const name of Object.keys(fieldLimits)) {
       result[name] = typeof values?.[name] === 'string' ? values[name].slice(0, fieldLimits[name]) : '';
     }
-    for (const name of ['fecha_inicio', 'fecha_fin']) {
+    for (const name of dateFields) {
       result[name] = typeof values?.[name] === 'string' && isDate(values[name]) ? values[name] : '';
     }
     result.montaje = ['por-definir', 'si', 'no'].includes(values?.montaje) ? values.montaje : 'por-definir';
@@ -101,7 +115,7 @@
         if (!Number.isInteger(quantity) || quantity < 1 || quantity > 999) continue;
         state.items.push({id: item.id, quantity});
       }
-      if (state.items.some((item) => item.id === 'interaccion') && Array.isArray(saved.references)) {
+      if (Array.isArray(saved.references)) {
         state.references = [...new Set(saved.references.filter((value) => (
           typeof value === 'string' && value.length <= 120 && allowedReferences.has(value)
         )))].slice(0, 12);
@@ -130,8 +144,40 @@
     return value ? value.split('-').reverse().join('/') : 'Por definir';
   }
 
+  function selectedCategories() {
+    return new Set(state.items.map((item) => services.get(item.id).category));
+  }
+
+  function needsInstallation() {
+    return selectedCategories().has('alquilar') || state.items.some((item) => item.id === 'stands');
+  }
+
+  function updateAdaptiveFields() {
+    const categories = selectedCategories();
+    const installation = needsInstallation();
+    for (const group of form.querySelectorAll('[data-inquiry-category]')) {
+      const active = group.dataset.inquiryCategory === 'montaje' ? installation : categories.has(group.dataset.inquiryCategory);
+      group.hidden = !active;
+      group.disabled = !active;
+    }
+    const installationDetails = document.querySelector('#consulta-instalacion-detalles');
+    const showInstallationDate = installation && fields.montaje?.value !== 'no';
+    if (installationDetails) installationDetails.hidden = !showInstallationDate;
+    if (fields.instalacion_fecha) fields.instalacion_fecha.disabled = !showInstallationDate;
+    const names = [...categories].map((category) => ({alquilar: 'alquiler', crear: 'diseño y desarrollo', comprar: 'compra de equipos'}[category]));
+    const context = document.querySelector('#inquiry-context');
+    const message = names.length ? `Detalles para ${names.join(' + ')}. Puedes dejar lo que aún no esté definido.` : 'Añade servicios para ver las preguntas de tu proyecto, o cuéntanos tu idea en las notas.';
+    if (context && context.textContent !== message) context.textContent = message;
+    const only = categories.size === 1 ? [...categories][0] : null;
+    const startLabel = document.querySelector('#consulta-inicio-etiqueta');
+    const endLabel = document.querySelector('#consulta-fin-etiqueta');
+    if (startLabel) startLabel.textContent = only === 'alquilar' ? 'Primer día de uso' : only === 'comprar' ? 'Entrega deseada' : only === 'crear' ? 'Fecha requerida' : 'Inicio o fecha requerida';
+    if (endLabel) endLabel.textContent = only === 'alquilar' ? 'Último día de uso' : 'Fecha de fin (si corresponde)';
+  }
+
   function buildMessage() {
     const values = state.fields;
+    const categories = selectedCategories();
     const lines = ['Hola ALUNOVA, quisiera solicitar una cotización.', '', 'Servicios'];
     if (!state.items.length) lines.push('Por definir');
     for (const item of state.items) {
@@ -143,10 +189,34 @@
     if (state.references.length) lines.push('', 'Proyectos de referencia', ...state.references.map((value) => `- ${value}`));
     lines.push('', `Nombre: ${values.nombre?.trim() || 'Por completar'}`);
     if (values.email?.trim()) lines.push(`Correo: ${values.email.trim()}`);
-    lines.push(`Fecha de inicio: ${formatDate(values.fecha_inicio)}`);
+    const startTitle = categories.size === 1 && categories.has('comprar') ? 'Entrega deseada' : categories.size === 1 && categories.has('alquilar') ? 'Primer día de uso' : 'Inicio o fecha requerida';
+    lines.push(`${startTitle}: ${formatDate(values.fecha_inicio)}`);
     lines.push(`Fecha de fin: ${formatDate(values.fecha_fin)}`);
     lines.push(`Lugar: ${values.lugar?.trim() || 'Por definir'}`);
-    lines.push(`Montaje e instalación: ${{'por-definir': 'Por definir', si: 'Sí, necesito montaje', no: 'Solo equipos o servicio'}[values.montaje]}`);
+    if (categories.has('alquilar')) {
+      lines.push('', 'Alquiler de equipos');
+      lines.push(`Uso o actividad: ${values.alquiler_uso?.trim() || 'Por definir'}`);
+    }
+    if (categories.has('crear')) {
+      lines.push('', 'Diseño y desarrollo');
+      for (const [name, label] of [['crear_objetivo', 'Objetivo'], ['crear_publico', 'Público'], ['crear_funcionamiento', 'Funcionamiento o espacio esperado'], ['crear_contenidos', 'Materiales disponibles']]) {
+        lines.push(`${label}: ${values[name]?.trim() || 'Por definir'}`);
+      }
+    }
+    if (categories.has('comprar')) {
+      lines.push('', 'Compra de equipos');
+      for (const [name, label] of [['compra_equipos', 'Equipos solicitados'], ['compra_caracteristicas', 'Características y uso'], ['compra_entrega', 'Condiciones de entrega']]) {
+        lines.push(`${label}: ${values[name]?.trim() || 'Por definir'}`);
+      }
+    }
+    if (needsInstallation()) {
+      lines.push('', 'Instalación y montaje');
+      lines.push(`Montaje: ${{'por-definir': 'Por definir', si: 'Sí, necesito montaje', no: 'Solo equipos o servicio'}[values.montaje]}`);
+      if (values.montaje !== 'no') {
+        lines.push(`Fecha tentativa de instalación: ${formatDate(values.instalacion_fecha)}`);
+        lines.push('Instalación pendiente de coordinación y disponibilidad del equipo.');
+      }
+    }
     if (values.notas?.trim()) lines.push('', 'Notas', values.notas.trim());
     return lines.join('\n');
   }
@@ -286,27 +356,94 @@
     referenceList.replaceChildren(...references);
     referenceList.hidden = !references.length;
     updateButtons();
+    updateAdaptiveFields();
     updatePreview();
     updateSelectionLayout();
   }
 
   function changeService(id, forceAdd = false) {
     if (!services.has(id)) return;
-    const selected = state.items.some((item) => item.id === id);
+    const index = state.items.findIndex((item) => item.id === id);
+    const selected = index !== -1;
+    let removed = null;
     if (selected && !forceAdd) {
-      state.items = state.items.filter((item) => item.id !== id);
-      if (id === 'interaccion') state.references = [];
+      removed = {type: 'service', item: {...state.items[index]}, index, references: [...state.references]};
+      state.items.splice(index, 1);
+      state.references = state.references.filter((reference) => (
+        !referenceServices.get(reference)?.includes(id) || referenceServices.get(reference).some((relatedId) => state.items.some((item) => item.id === relatedId))
+      ));
+      removed.references = removed.references.map((reference, position) => ({reference, position})).filter(({reference}) => !state.references.includes(reference));
     } else if (!selected) {
+      if (undoRecord?.type === 'service' && undoRecord.item.id === id) clearUndo();
       state.items.push({id, quantity: 1});
     }
     renderItems();
     persist();
+    if (removed) showUndo(removed, `${services.get(id).title}: servicio retirado.`);
     document.dispatchEvent(new CustomEvent('servicechanged', {detail: {id, selected: !selected || forceAdd}}));
     if (selectionStatus) {
       const action = selected && !forceAdd ? 'quitado de' : 'añadido a';
       selectionStatus.textContent = `${services.get(id).title}, ${action} tu consulta.`;
     }
   }
+
+  function mountUndo() {
+    if (!undoNotice || !undoRecord) return;
+    const dialog = [...document.querySelectorAll('dialog[open]')].at(-1);
+    const container = dialog?.querySelector('.inquiry-selection') || dialog || document.body;
+    if (undoNotice.parentElement !== container) container.append(undoNotice);
+  }
+
+  function clearUndo() {
+    clearTimeout(undoTimer);
+    undoTimer = null;
+    undoRecord = null;
+    if (undoNotice) undoNotice.hidden = true;
+  }
+
+  function scheduleUndoExpiry() {
+    clearTimeout(undoTimer);
+    if (!undoRecord || undoNotice?.matches(':focus-within, :hover')) return;
+    undoTimer = setTimeout(clearUndo, 10000);
+  }
+
+  function showUndo(record, message) {
+    if (!undoNotice || !undoMessage || !undoButton) return;
+    clearTimeout(undoTimer);
+    undoRecord = record;
+    undoMessage.textContent = message;
+    undoNotice.hidden = false;
+    mountUndo();
+    scheduleUndoExpiry();
+  }
+
+  undoNotice?.addEventListener('pointerenter', () => clearTimeout(undoTimer));
+  undoNotice?.addEventListener('pointerleave', scheduleUndoExpiry);
+  undoNotice?.addEventListener('focusin', () => clearTimeout(undoTimer));
+  undoNotice?.addEventListener('focusout', () => requestAnimationFrame(scheduleUndoExpiry));
+  undoButton?.addEventListener('click', () => {
+    const record = undoRecord;
+    if (!record) return;
+    if (record.type === 'service' && !state.items.some((item) => item.id === record.item.id)) {
+      state.items.splice(Math.min(record.index, state.items.length), 0, record.item);
+      for (const {reference, position} of record.references) {
+        if (!state.references.includes(reference)) state.references.splice(Math.min(position, state.references.length), 0, reference);
+      }
+    } else if (record.type === 'reference' && !state.references.includes(record.reference)) {
+      state.references.splice(Math.min(record.index, state.references.length), 0, record.reference);
+    }
+    clearUndo();
+    selectionExpanded = true;
+    renderItems();
+    persist();
+    if (selectionStatus) selectionStatus.textContent = 'Selección recuperada.';
+    const target = record.type === 'service' ? itemList.querySelector(`[data-remove-service="${record.item.id}"]`) : referenceList.querySelectorAll('[data-remove-reference]')[record.index];
+    const heading = document.querySelector('#selection-title');
+    heading?.setAttribute('tabindex', '-1');
+    const candidates = inquiryDialog.open ? [target, heading] : serviceDialog.open ? [document.querySelector('#service-dialog-add')] : [document.querySelector(`[data-add-service="${record.item?.id || ''}"]`), document.querySelector('.header-contact[data-open-inquiry]')];
+    const focusTarget = candidates.find((element) => element?.getClientRects().length && getComputedStyle(element).visibility !== 'hidden');
+    focusTarget?.focus({preventScroll: true});
+  });
 
   function applyFilter(filter) {
     if (!filters.includes(filter)) return;
@@ -333,6 +470,7 @@
 
   function updateDialogState() {
     document.body.classList.toggle('dialog-open', dialogs.some((dialog) => dialog.open));
+    mountUndo();
   }
 
   function openDialog(dialog, opener) {
@@ -417,8 +555,13 @@
 
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return;
-    const target = event.target.closest('[data-filter], [data-filter-link], [data-service-details], [data-add-service], [data-open-inquiry], [data-project-request], [data-close-dialog], [data-browse-services]');
+    const target = event.target.closest('[data-filter], [data-filter-link], [data-service-details], [data-add-service], [data-open-inquiry], [data-project-request], [data-close-dialog], [data-browse-services], [data-service-case-link]');
     if (!target) return;
+    if (target.hasAttribute('data-service-case-link')) {
+      target.closest('dialog')?.close();
+      updateDialogState();
+      return;
+    }
     if (target.hasAttribute('data-filter-link')) {
       applyFilter(target.dataset.filterLink);
       return;
@@ -432,7 +575,8 @@
       changeService(target.dataset.addService);
     } else if (target.hasAttribute('data-project-request')) {
       const reference = target.dataset.projectRequest;
-      changeService('interaccion', true);
+      const related = referenceServices.get(reference) || ['interaccion'];
+      for (const id of related) changeService(id, true);
       if (allowedReferences.has(reference) && !state.references.includes(reference) && state.references.length < 12) {
         state.references.push(reference);
         renderItems();
@@ -499,9 +643,11 @@
     const button = event.target.closest('[data-remove-reference]');
     if (!button) return;
     const index = Array.from(referenceList.children).indexOf(button.closest('li'));
-    state.references = state.references.filter((value) => value !== button.dataset.removeReference);
+    const reference = button.dataset.removeReference;
+    state.references = state.references.filter((value) => value !== reference);
     renderItems();
     persist();
+    showUndo({type: 'reference', reference, index}, 'Referencia retirada de tu consulta.');
     focusAfterRemoval(referenceList, index);
   });
 
@@ -519,18 +665,15 @@
     });
   }
 
-  form.addEventListener('input', () => {
-    validateFields();
+  function handleFieldChange() {
     readFields();
+    updateAdaptiveFields();
+    validateFields();
     updatePreview();
     persist();
-  });
-  form.addEventListener('change', () => {
-    validateFields();
-    readFields();
-    updatePreview();
-    persist();
-  });
+  }
+  form.addEventListener('input', handleFieldChange);
+  form.addEventListener('change', handleFieldChange);
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!validateInquiry()) return;

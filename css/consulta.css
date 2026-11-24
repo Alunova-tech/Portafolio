@@ -42,6 +42,18 @@
 #inquiry-dialog .inquiry-empty .button { margin-top: .35rem; }
 #inquiry-dialog .inquiry-fields { align-content: start; gap: 1.3rem; min-width: 0; padding: 1.5rem; background: #fff; }
 .inquiry-requirements { color: var(--muted); font-size: .875rem; line-height: 1.6; }
+.inquiry-context { padding: .75rem .85rem; border-left: 3px solid var(--lime); border-radius: 0 .4rem .4rem 0; background: #f3f0f8; color: var(--purple-dark); font-size: .875rem; line-height: 1.55; }
+.inquiry-group.inquiry-specific { padding-top: 1.15rem; border-top: 1px solid var(--line); }
+.inquiry-specific .field-help { margin: 0; color: var(--muted); font-size: .875rem; line-height: 1.6; }
+#consulta-instalacion-detalles { display: grid; gap: .55rem; margin-top: .85rem; }
+.selection-undo { position: fixed; z-index: 90; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 1rem; width: max-content; max-width: min(32rem, calc(100vw - 2rem)); padding: .65rem .9rem; border: 1px solid #ffffff24; border-radius: .6rem; box-shadow: 0 10px 35px #21103f33; color: #fff; background: #291347; }
+.selection-undo p { min-width: 0; margin: 0; overflow-wrap: anywhere; font-size: .875rem; line-height: 1.5; }
+.selection-undo button { flex: 0 0 auto; min-height: 2.75rem; padding: .45rem .6rem; border: 0; border-radius: .35rem; background: transparent; color: var(--lime); font: inherit; font-size: .875rem; font-weight: 700; }
+.selection-undo button:hover { background: #ffffff10; }
+.selection-undo button:focus-visible { outline: 2px solid var(--lime); outline-offset: 1px; }
+.has-inquiry-bar > .selection-undo { bottom: calc(6rem + env(safe-area-inset-bottom)); }
+#inquiry-dialog .selection-undo { position: sticky; bottom: .5rem; right: auto; width: 100%; max-width: none; margin-top: .75rem; }
+#service-dialog .selection-undo { bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
 .inquiry-group { display: grid; gap: .85rem; min-width: 0; margin: 0; padding: 0; border: 0; }
 .inquiry-group legend { margin-bottom: .8rem; padding: 0; color: var(--ink); font-size: 1rem; line-height: 1.4; font-weight: 700; }
 #inquiry-dialog .inquiry-fields label { gap: .4rem; font-size: .875rem; font-weight: 500; color: #51445e; }
